@@ -1,6 +1,7 @@
 {
-  "name": "svelte-app",
+  "name": "toxin-hotel-sveltejs",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
