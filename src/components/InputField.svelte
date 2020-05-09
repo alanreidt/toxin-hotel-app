@@ -2,15 +2,19 @@
   export let labelText;
 </script>
 
-<style lang="scss">
+<style lang="less">
   @import '../styles/variables';
+  @import '../styles/mixins';
 
   .input-field {
     display: inline-block;
     vertical-align: middle;
     width: 100%;
+    color: #colors[dark-shade-75];
 
     &__label {
+      #box.input-text();
+
       display: inline-block;
       vertical-align: middle;
       width: 100%;
@@ -18,21 +22,37 @@
   }
 
   .input-field__input {
+    .body-text();
     padding: 0;
+
     display: inline-block;
     vertical-align: middle;
+
     width: 100%;
     height: 2.75rem;
     padding-left: 0.9375rem;
+
     background-color: #fff;
     outline: none;
-    border-radius: 0.25rem;
-    box-sizing: border-box;
-    transition: border-color 0.25s ease;
-  }
 
-  .input-field__input::placeholder {
-    opacity: 1;
+    border: 1px solid #colors[dark-shade-25];
+    border-radius: 0.25rem;
+
+    box-sizing: border-box;
+
+    transition: border-color 0.25s ease;
+
+    &:hover,
+    &:focus {
+      border-color: #colors[dark-shade-50];
+    }
+
+    &::placeholder {
+      // make firefox styles compatible with others
+      opacity: 1;
+
+      color: #colors[dark-shade-25];
+    }
   }
 </style>
 
