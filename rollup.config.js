@@ -3,7 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
-import { sass } from 'svelte-preprocess-sass';
+import { less } from 'svelte-preprocess-less';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -18,10 +18,10 @@ export default {
 	plugins: [
 		svelte({
       preprocess: {
-        style: sass({}, {
-          name: 'scss',
-          all: true,
-        }),
+        style: less(
+          {},
+          { all: true },
+        ),
       },
 			// enable run-time checks when not in production
 			dev: !production,
