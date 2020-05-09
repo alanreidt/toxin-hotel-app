@@ -1,0 +1,326 @@
+.h1-text() {
+  // font: normal 700 24px/1.25 #fonts[secondary];
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.25; /* 32px = 24px * 1.25 */
+  font-family: #fonts[secondary];
+  // text-transform: uppercase;
+  color: #colors[dark-shade-100];
+}
+
+.h2-text() {
+  // font: normal 700 19px/1.26316 #fonts[secondary];
+  font-style: normal;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.26316; /* 24px = 19px * 1.26316 */
+  font-family: #fonts[secondary];
+  text-transform: initial;
+  color: #colors[dark-shade-100];
+}
+
+.h3-text() {
+  // font: normal 700 12px #fonts[primary];
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  // indetical to box height
+  line-height: 1.25; /* 15px = 12px * 1.25 */
+  font-family: #fonts[primary];
+  text-transform: uppercase;
+  color: #colors[dark-shade-100];
+}
+
+.body-text() {
+  // font: normal 400 14px/2 #fonts[primary];
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71; /* 24px = 14px * 1.71 */
+  font-family: #fonts[primary];
+  // text-transform: uppercase;
+  color: #colors[dark-shade-75];
+}
+
+.material-icons() {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.block-default-styles() {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+}
+
+.visually-hidden() {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  // when the rule is off — input's
+  // visibility is broken (without .default-styles-reset)
+  // clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container() {
+  .block-default-styles();
+
+  max-width: @site-width;
+  margin: auto;
+  padding-left: var(--site-padding);
+  padding-right: var(--site-padding);
+}
+
+// realize like an independent block, if it still actual
+.arrow() {
+  @parent-height: 44px;
+  @parent-border-width: 2px;
+
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -1 * @parent-border-width;
+    right: -1 * @parent-border-width;
+
+    display: inline-block;
+    vertical-align: middle;
+    // width: @parent-height - 2 * @button-border-width;
+    // height: @parent-height - 2 * @button-border-width;
+    width: @parent-height;
+    height: @parent-height;
+    // padding: 0;
+
+    // cursor: pointer;
+    background: url(../images/arrow.svg) no-repeat center;
+    background-color: transparent;
+    // background-color: red;
+    // border: none;
+    // border-top-right-radius: 4px;
+    // border-bottom-right-radius: 4px;
+  }
+}
+
+// realize like an independent block, if it still actual
+.decoration(@size: 24px, @width: 44px, @parent-border-width: 0) {
+  position: relative;
+
+  &::before {
+    .material-icons();
+    font-size: @size;
+
+    content: '';
+    position: absolute;
+    top: -1 * @parent-border-width;
+    right: -1 * @parent-border-width;
+
+    display: inline-block;
+    // vertical-align: middle;
+
+    width: @width;
+    height: @width;
+    line-height: @width;
+
+    text-align: center;
+    // color: #colors[dark-shade-75];
+    color: inherit;
+    background-color: transparent;
+
+    box-sizing: border-box;
+  }
+}
+
+.decoration_type_expand-more(@size: 24px, @width: 44px, @parent-border-width: 0) {
+  .decoration(@size, @width, @parent-border-width);
+
+  &::before {
+    content: '\e5cf';
+  }
+}
+
+.decoration_type_arrow-back(@size: 24px, @width: 44px, @parent-border-width: 0) {
+  .decoration(@size, @width, @parent-border-width);
+
+  &::before {
+    content: '\e5c4';
+  }
+}
+
+.decoration_type_arrow-forward(@size: 24px, @width: 44px, @parent-border-width: 0) {
+  .decoration(@size, @width, @parent-border-width);
+
+  &::before {
+    content: '\e5c8';
+  }
+}
+
+.default-styles-reset() {
+  // outline:            none;
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+
+  // reset IE9+
+  &::-ms-check {
+    display: none;
+  }
+}
+
+.list-styles-reset() {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.fieldset-styles-reset() {
+  margin-right: 0;
+  margin-left: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  border: 0;
+}
+
+.not-selectable() {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#box() {
+  .block-default-styles();
+
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+
+  .inner {
+    .block-default-styles();
+
+    padding: 40px 30px 30px;
+
+    @media ( max-width: calc(380px + 2 * @site-paddings[small]) ) {
+      padding: 30px 20px 20px;
+    }
+
+    @media (max-width: 365px) {
+      padding: 22px 15px 15px;
+    }
+  }
+
+  .row {
+    display: block;
+    margin-bottom: 20px;
+
+    @media (max-width: 365px) {
+      margin-bottom: 18px;
+    }
+
+    &:last-child {
+      margin-top: 30px;
+      margin-bottom: 0;
+    }
+  }
+
+  .item {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .title {
+    .h1-text();
+
+    margin-top: 0;
+    margin-bottom: 0;
+
+    @media ( max-width: calc(380px + 2 * @site-paddings[small]) ) {
+      text-align: center;
+    }
+
+    @media (max-width: 365px) {
+      font-size: 22px;
+    }
+  }
+
+  .input-text {
+    .h3-text();
+
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  .space-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .alternate-entry {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 375px) {
+      flex-direction: column;
+    }
+  }
+
+  .text {
+    .body-text();
+
+    margin-top: 0;
+    margin-bottom: 0;
+
+    line-height: 1.29;
+    color: #000;
+
+    @media (max-width: 375px) {
+      margin-bottom: 10px;
+    }
+  }
+}
