@@ -4,7 +4,7 @@
 
 <main>
   <div class="row">
-    <InputField labelText="Name:"/>
+    <InputField name="text-field" labelText="text field" placeholder="Email"/>
   </div>
 </main>
 

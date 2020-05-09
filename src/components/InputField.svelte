@@ -1,5 +1,5 @@
 <script>
-  export let labelText;
+  export let labelText = false;
 </script>
 
 <style lang="less">
@@ -13,16 +13,19 @@
     color: #colors[dark-shade-75];
 
     &__label {
-      #box.input-text();
-
       display: inline-block;
       vertical-align: middle;
       width: 100%;
+    }
+
+    &__text {
+      #box.input-text();
     }
   }
 
   .input-field__input {
     .body-text();
+
     padding: 0;
 
     display: inline-block;
@@ -58,7 +61,10 @@
 
 <div class="input-field">
   <label class="input-field__label">
-    {labelText}
-    <input class="input-field__input">
+    {#if labelText}
+      <span class="input-field__text">{labelText}</span>
+    {/if}
+
+    <input class="input-field__input" type="text" max-length="24" {...$$restProps}>
   </label>
 </div>
