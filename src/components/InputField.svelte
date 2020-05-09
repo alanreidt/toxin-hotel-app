@@ -3,6 +3,8 @@
 </script>
 
 <style lang="scss">
+  @import '../styles/variables';
+
   .input-field {
     display: inline-block;
     vertical-align: middle;
