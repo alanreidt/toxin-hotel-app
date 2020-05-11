@@ -10,6 +10,8 @@
     display: inline-block;
     vertical-align: middle;
     width: 100%;
+    margin-bottom: 20px;
+
     color: #colors[dark-shade-75];
 
     &__label {
