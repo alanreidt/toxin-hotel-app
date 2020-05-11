@@ -1,5 +1,10 @@
 <script>
+  let value = 0;
+  let min = 0;
+  let max = 5;
 
+  $: isValueMin = value === min;
+  $: isValueMax = value === max;
 </script>
 
 <style lang="less">
@@ -76,14 +81,18 @@
 
 <div class="counter js-counter">
   <button
-    class="counter__button counter__button_type_subtraction
-    js-counter__subtraction-button">
+    class="counter__button counter__button_type_subtraction {isValueMin ? 'counter__button_is-disabled' : ''}"
+    disabled={isValueMin}
+    on:click={() => value -= 1}>
     <i class="material-icons counter__button-icon">remove</i>
   </button>
-  <span class="counter__quantity-display js-counter__quantity-display">0</span>
+  <span class="counter__quantity-display js-counter__quantity-display">
+    {value}
+  </span>
   <button
-    class="counter__button counter__button_type_addition
-    js-counter__addition-button">
+    class="counter__button counter__button_type_addition {isValueMax ? 'counter__button_is-disabled' : ''}"
+    disabled={isValueMax}
+    on:click={() => value += 1}>
     <i class="material-icons counter__button-icon">add</i>
   </button>
 </div>
