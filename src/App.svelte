@@ -15,6 +15,12 @@
   <div class="row">
     <InputField name="text-field" labelText="text field" placeholder="Email" />
     <DateInputField name="date-text-field" labelText="masked text field" />
+    <Dropdown
+      labelText="Dropdown"
+      optionNames={['Взрослые', 'Дети', 'Младенцы']}
+      hasButtonPane={true}
+      name="dropdown-input"
+      value="Сколько гостей" />
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
     <Button text="click me" href="#" />
