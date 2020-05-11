@@ -19,6 +19,7 @@
     "svelte-preprocess-less": "^0.4.0"
   },
   "dependencies": {
+    "cleave.js": "^1.5.10",
     "sirv-cli": "^0.4.4"
   }
 }
