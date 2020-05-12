@@ -56,11 +56,11 @@
 </style>
 
 <div class="dropdown-menu">
-  {#each options as option}
+  {#each options as {name, value, min, max}}
     <div class="dropdown-menu__option">
-      <span class="dropdown-menu__option-text">{option.name}</span>
+      <span class="dropdown-menu__option-text">{name}</span>
       <div class="dropdown-menu__counter">
-        <Counter {...option} />
+        <Counter bind:value {min} {max} />
       </div>
     </div>
   {/each}

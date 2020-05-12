@@ -7,12 +7,7 @@
   export let hasButtonPane;
 
   let isExpanded = false;
-
-  function handleDropdownTriggerClick() {
-    isExpanded = !isExpanded;
-  }
-
-  const inputValue = composeString(options) || 'Сколько гостей';
+  $: inputValue = composeString(options) || 'Сколько гостей';
 
   function composeString(options) {
     const guestsQuantity = options[0].value + options[1].value;
@@ -21,6 +16,10 @@
     const babiesStr = `${babiesQuantity} ${babiesQuantity === 1 ? 'младенец' : 'младенца'}`;
 
     return [guestsStr, babiesStr].filter((item) => Number(item[0]) !== 0).join(", ");
+  }
+
+  function handleDropdownTriggerClick() {
+    isExpanded = !isExpanded;
   }
 </script>
 
@@ -98,6 +97,6 @@
       {...$$restProps} />
   </div>
   <div class="dropdown__menu js-dropdown__menu">
-    <DropdownMenu {options} {hasButtonPane} />
+    <DropdownMenu bind:options {hasButtonPane} />
   </div>
 </div>
