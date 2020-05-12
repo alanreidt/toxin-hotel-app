@@ -20,11 +20,10 @@
       options={[
         {name: 'Взрослые', min: 0, max: 5, value: 0},
         {name: 'Дети', min: 0, max: 5, value: 0},
-        {name: 'Младенцы', min: 0, max: 5, value: 0},
+        {name: 'Младенцы', min: 0, max: 3, value: 0},
       ]}
       hasButtonPane={true}
-      name="dropdown-input"
-      value="Сколько гостей" />
+      name="dropdown-input" />
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
     <Button text="click me" href="#" />
