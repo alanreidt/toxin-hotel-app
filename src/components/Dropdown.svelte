@@ -5,6 +5,12 @@
   export let labelText;
   export let options;
   export let hasButtonPane;
+
+  let isExpanded = false;
+
+  function handleDropdownTriggerClick() {
+    isExpanded = !isExpanded;
+  }
 </script>
 
 <style lang="less">
@@ -64,14 +70,16 @@
       top: 100%;
       left: 0;
 
-      /* opacity: 0;
-      pointer-events: none; */
+      opacity: 0;
+      pointer-events: none;
     }
   }
 </style>
 
-<div class="dropdown js-dropdown">
-  <div class="dropdown__trigger js-dropdown__trigger">
+<div class="dropdown js-dropdown {isExpanded ? 'dropdown_is-expanded' : ''}">
+  <div
+    class="dropdown__trigger js-dropdown__trigger"
+    on:click={handleDropdownTriggerClick}>
     <InputField
       value="Change me"
       readonly="true"
