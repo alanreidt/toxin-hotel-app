@@ -17,7 +17,11 @@
     <DateInputField name="date-text-field" labelText="masked text field" />
     <Dropdown
       labelText="Dropdown"
-      optionNames={['Взрослые', 'Дети', 'Младенцы']}
+      options={[
+        {name: 'Взрослые', min: 0, max: 5, value: 0},
+        {name: 'Дети', min: 0, max: 5, value: 0},
+        {name: 'Младенцы', min: 0, max: 5, value: 0},
+      ]}
       hasButtonPane={true}
       name="dropdown-input"
       value="Сколько гостей" />

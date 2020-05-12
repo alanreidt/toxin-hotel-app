@@ -3,7 +3,7 @@
   import DropdownMenu from "./DropdownMenu.svelte";
 
   export let labelText;
-  export let optionNames;
+  export let options;
   export let hasButtonPane;
 </script>
 
@@ -64,8 +64,8 @@
       top: 100%;
       left: 0;
 
-      opacity: 1;
-      pointer-events: none;
+      /* opacity: 0;
+      pointer-events: none; */
     }
   }
 </style>
@@ -79,6 +79,6 @@
       {...$$restProps} />
   </div>
   <div class="dropdown__menu js-dropdown__menu">
-    <DropdownMenu {optionNames} {hasButtonPane} />
+    <DropdownMenu {options} {hasButtonPane} />
   </div>
 </div>

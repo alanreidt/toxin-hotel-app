@@ -2,7 +2,7 @@
   import Counter from "./Counter.svelte";
   import Button from "./Button.svelte";
 
-  export let optionNames;
+  export let options;
   export let hasButtonPane = false;
 </script>
 
@@ -56,11 +56,11 @@
 </style>
 
 <div class="dropdown-menu">
-  {#each optionNames as optionName}
+  {#each options as option}
     <div class="dropdown-menu__option">
-      <span class="dropdown-menu__option-text">{optionName}</span>
+      <span class="dropdown-menu__option-text">{option.name}</span>
       <div class="dropdown-menu__counter">
-        <Counter />
+        <Counter {...option} />
       </div>
     </div>
   {/each}

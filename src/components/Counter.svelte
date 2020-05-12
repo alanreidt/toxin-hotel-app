@@ -1,7 +1,7 @@
 <script>
-  let value = 0;
-  let min = 0;
-  let max = 5;
+  export let value = 0;
+  export let min = 0;
+  export let max = 5;
 
   $: isValueMin = value === min;
   $: isValueMax = value === max;
