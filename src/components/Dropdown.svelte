@@ -11,6 +11,17 @@
   function handleDropdownTriggerClick() {
     isExpanded = !isExpanded;
   }
+
+  const inputValue = composeString(options) || 'Сколько гостей';
+
+  function composeString(options) {
+    const guestsQuantity = options[0].value + options[1].value;
+    const guestsStr = `${guestsQuantity} ${guestsQuantity === 1 ? 'гость' : 'гостя'}`;
+    const babiesQuantity = options[2].value;
+    const babiesStr = `${babiesQuantity} ${babiesQuantity === 1 ? 'младенец' : 'младенца'}`;
+
+    return [guestsStr, babiesStr].filter((item) => Number(item[0]) !== 0).join(", ");
+  }
 </script>
 
 <style lang="less">
@@ -81,7 +92,7 @@
     class="dropdown__trigger js-dropdown__trigger"
     on:click={handleDropdownTriggerClick}>
     <InputField
-      value="Change me"
+      value={inputValue}
       readonly="true"
       {labelText}
       {...$$restProps} />
