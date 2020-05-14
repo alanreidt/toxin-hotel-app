@@ -10,6 +10,12 @@
   import Button from "./components/Button.svelte";
   import DropdownMenu from "./components/DropdownMenu.svelte";
 
+  const dropdownOptions = [
+    { name: 'Взрослые', min: 0, max: 5, value: 0 },
+    { name: 'Дети', min: 0, max: 5, value: 0 },
+    { name: 'Младенцы', min: 0, max: 3, value: 0 },
+  ];
+
   const checkboxOptions = [
     {
       labelText: "Можно курить",
@@ -58,7 +64,7 @@
     <DateInputField name="date-text-field" labelText="masked text field" />
     <Dropdown
       labelText="Dropdown"
-      options={[{ name: 'Взрослые', min: 0, max: 5, value: 0 }, { name: 'Дети', min: 0, max: 5, value: 0 }, { name: 'Младенцы', min: 0, max: 3, value: 0 }]}
+      options={dropdownOptions}
       hasButtonPane={true}
       name="dropdown-input" />
     <DateDropdown />
