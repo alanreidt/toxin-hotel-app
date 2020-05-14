@@ -2,6 +2,7 @@
   import InputField from "./components/InputField.svelte";
   import DateInputField from "./components/DateInputField.svelte";
   import Dropdown from "./components/Dropdown.svelte";
+  import DateDropdown from "./components/DateDropdown.svelte";
   import Button from "./components/Button.svelte";
 </script>
 
@@ -24,6 +25,8 @@
       ]}
       hasButtonPane={true}
       name="dropdown-input" />
+    <DateDropdown />
+
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
     <Button text="click me" href="#" />
