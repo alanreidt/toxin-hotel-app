@@ -9,6 +9,26 @@
   import Rating from "./components/Rating.svelte";
   import Button from "./components/Button.svelte";
   import DropdownMenu from "./components/DropdownMenu.svelte";
+
+  const checkboxOptions = [
+    {
+      labelText: "Можно курить",
+      value: "smoke",
+    },
+    {
+      labelText: "Можно с&nbsp;питомцами",
+      value: "pets",
+    },
+    {
+      labelText: "Можно пригласить гостей (до&nbsp;10&nbsp;человек)",
+      value: "guests",
+    },
+  ];
+
+  const statefullInputOptions = [
+    { labelText: "Мужчина", value: "man", checked: true },
+    { labelText: "Женщина", value: "woman", checked: false },
+  ];
 </script>
 
 <style>
@@ -28,11 +48,11 @@
       name="dropdown-input" />
     <DateDropdown />
     <SubscriptionField labelText="subscription text field" />
-    {#each ['Можно курить', 'Можно с&nbsp;питомцами', 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)'] as labelText}
-      <Checkbox {labelText} name="permission" value="smoke" />
+    {#each checkboxOptions as option}
+      <Checkbox {...option} name="permission" />
     {/each}
-    {#each [{ labelText: 'Мужчина', value: 'man', checked: true }, { labelText: 'Женщина', value: 'woman', checked: false }] as options}
-      <StatefulInput {...options} type="radio" name="sex" />
+    {#each statefullInputOptions as option}
+      <StatefulInput {...option} type="radio" name="sex" />
     {/each}
     <StatefulInput
       labelText="Получать спецпредложения"
@@ -46,7 +66,7 @@
       type="checkbox"
       name="like-button"
       value="on" />
-    <Rating id='rating' name='rating' />
+    <Rating id="rating" name="rating" />
 
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
