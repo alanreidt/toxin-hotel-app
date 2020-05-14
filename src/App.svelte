@@ -4,6 +4,7 @@
   import Dropdown from "./components/Dropdown.svelte";
   import DateDropdown from "./components/DateDropdown.svelte";
   import SubscriptionField from "./components/SubscriptionField.svelte";
+  import Checkbox from "./components/Checkbox.svelte";
   import Button from "./components/Button.svelte";
 </script>
 
@@ -19,15 +20,14 @@
     <DateInputField name="date-text-field" labelText="masked text field" />
     <Dropdown
       labelText="Dropdown"
-      options={[
-        {name: 'Взрослые', min: 0, max: 5, value: 0},
-        {name: 'Дети', min: 0, max: 5, value: 0},
-        {name: 'Младенцы', min: 0, max: 3, value: 0},
-      ]}
+      options={[{ name: 'Взрослые', min: 0, max: 5, value: 0 }, { name: 'Дети', min: 0, max: 5, value: 0 }, { name: 'Младенцы', min: 0, max: 3, value: 0 }]}
       hasButtonPane={true}
       name="dropdown-input" />
     <DateDropdown />
     <SubscriptionField labelText="subscription text field" />
+    {#each ['Можно курить', 'Можно с&nbsp;питомцами', 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)'] as labelText}
+      <Checkbox {labelText} name="permission" value="smoke" />
+    {/each}
 
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
