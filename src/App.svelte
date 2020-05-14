@@ -9,6 +9,7 @@
   import Rating from "./components/Rating.svelte";
   import BulletList from "./components/BulletList.svelte";
   import CellBlock from "./components/CellBlock.svelte";
+  import Comment from "./components/Comment.svelte";
   import Button from "./components/Button.svelte";
 
   const dropdownOptions = [
@@ -75,6 +76,25 @@
       materialIconName: "whatshot",
     },
   ];
+
+  const commentOptions = [
+    {
+      authorName: "Мурад Сарафанов",
+      date: "5 дней назад",
+      imgSrc: "../../images/man.png",
+      liked: true,
+      commentText:
+        "Великолепный матрас на&nbsp;кровати в&nbsp;основной спальне! А&nbsp;пуфик вообще потрясающий. И&nbsp;стены, действительно, шумоподавляющие. Выкрикивал комплименты повару&nbsp;&mdash; никто не&nbsp;жаловался из&nbsp;соседей.",
+    },
+    {
+      authorName: "Патрисия Стёклышкова",
+      date: "неделю назад",
+      imgSrc: "../../images/girl.png",
+      liked: false,
+      commentText:
+        "Обслуживание на&nbsp;высоте! Всё аккуратно, чисто. Завтраки в&nbsp;номер советую заказать, каждый день новое блюдо и&nbsp;десерт как комплимент",
+    },
+  ];
 </script>
 
 <style>
@@ -119,6 +139,9 @@
     <BulletList items={bulletListItems} />
     {#each cellBlockOptions as option}
       <CellBlock {...option} />
+    {/each}
+    {#each commentOptions as option}
+      <Comment {...option} />
     {/each}
 
     <Button text="click me" mods="main" href="#" />
