@@ -2,13 +2,14 @@
   import InputField from "./components/InputField.svelte";
   import DateInputField from "./components/DateInputField.svelte";
   import Dropdown from "./components/Dropdown.svelte";
+  import DropdownMenu from "./components/DropdownMenu.svelte";
   import DateDropdown from "./components/DateDropdown.svelte";
   import SubscriptionField from "./components/SubscriptionField.svelte";
   import Checkbox from "./components/Checkbox.svelte";
   import StatefulInput from "./components/StatefulInput.svelte";
   import Rating from "./components/Rating.svelte";
+  import BulletList from "./components/BulletList.svelte";
   import Button from "./components/Button.svelte";
-  import DropdownMenu from "./components/DropdownMenu.svelte";
 
   const dropdownOptions = [
     { name: 'Взрослые', min: 0, max: 5, value: 0 },
@@ -49,6 +50,12 @@
         "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера.",
       value: "assistant",
     },
+  ];
+
+  const bulletListItems = [
+    'Нельзя с&nbsp;питомцами',
+    'Без вечеринок и&nbsp;мероприятий',
+    'Время прибытия&nbsp;&mdash; после 13:00, а&nbsp;выезд до&nbsp;12:00',
   ];
 </script>
 
@@ -91,6 +98,7 @@
       name="like-button"
       value="on" />
     <Rating id="rating" name="rating" />
+    <BulletList items={bulletListItems} />
 
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
