@@ -29,6 +29,21 @@
     { labelText: "Мужчина", value: "man", checked: true },
     { labelText: "Женщина", value: "woman", checked: false },
   ];
+
+  const richCheckboxOptions = [
+    {
+      labelText: "Широкий коридор",
+      labelExplanation:
+        "Ширина коридоров в&nbsp;номере не&nbsp;менее 91&nbsp;см.",
+      value: "wide-corridor",
+    },
+    {
+      labelText: "Помощник для инвалидов",
+      labelExplanation:
+        "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера.",
+      value: "assistant",
+    },
+  ];
 </script>
 
 <style>
@@ -50,6 +65,9 @@
     <SubscriptionField labelText="subscription text field" />
     {#each checkboxOptions as option}
       <Checkbox {...option} name="permission" />
+    {/each}
+    {#each richCheckboxOptions as option}
+      <Checkbox {...option} name="accesibility" />
     {/each}
     {#each statefullInputOptions as option}
       <StatefulInput {...option} type="radio" name="sex" />
