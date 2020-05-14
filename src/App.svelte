@@ -6,6 +6,7 @@
   import SubscriptionField from "./components/SubscriptionField.svelte";
   import Checkbox from "./components/Checkbox.svelte";
   import StatefulInput from "./components/StatefulInput.svelte";
+  import Rating from "./components/Rating.svelte";
   import Button from "./components/Button.svelte";
   import DropdownMenu from "./components/DropdownMenu.svelte";
 </script>
@@ -45,6 +46,7 @@
       type="checkbox"
       name="like-button"
       value="on" />
+    <Rating id='rating' name='rating' />
 
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
