@@ -10,6 +10,7 @@
   import BulletList from "./components/BulletList.svelte";
   import CellBlock from "./components/CellBlock.svelte";
   import Comment from "./components/Comment.svelte";
+  import Pagination from "./components/Pagination.svelte";
   import Button from "./components/Button.svelte";
 
   const dropdownOptions = [
@@ -143,6 +144,7 @@
     {#each commentOptions as option}
       <Comment {...option} />
     {/each}
+    <Pagination/>
 
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
