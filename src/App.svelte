@@ -33,6 +33,12 @@
     {#each [{ labelText: 'Мужчина', value: 'man', checked: true }, { labelText: 'Женщина', value: 'woman', checked: false }] as options}
       <StatefulInput {...options} type="radio" name="sex" />
     {/each}
+    <StatefulInput
+      labelText="Получать спецпредложения"
+      mods="type_toggle"
+      type="checkbox"
+      name="mailing"
+      value="on" />
 
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
