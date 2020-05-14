@@ -1,6 +1,4 @@
 <script>
-  import DateInputField from "./DateInputField.svelte";
-
   export let labelText;
   export let labelExplanation;
 </script>
