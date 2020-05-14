@@ -5,7 +5,9 @@
   import DateDropdown from "./components/DateDropdown.svelte";
   import SubscriptionField from "./components/SubscriptionField.svelte";
   import Checkbox from "./components/Checkbox.svelte";
+  import StatefulInput from "./components/StatefulInput.svelte";
   import Button from "./components/Button.svelte";
+  import DropdownMenu from "./components/DropdownMenu.svelte";
 </script>
 
 <style>
@@ -27,6 +29,9 @@
     <SubscriptionField labelText="subscription text field" />
     {#each ['Можно курить', 'Можно с&nbsp;питомцами', 'Можно пригласить гостей (до&nbsp;10&nbsp;человек)'] as labelText}
       <Checkbox {labelText} name="permission" value="smoke" />
+    {/each}
+    {#each [{ labelText: 'Мужчина', value: 'man', checked: true }, { labelText: 'Женщина', value: 'woman', checked: false }] as options}
+      <StatefulInput {...options} type="radio" name="sex" />
     {/each}
 
     <Button text="click me" mods="main" href="#" />

@@ -1,0 +1,197 @@
+<script>
+  import DateInputField from "./DateInputField.svelte";
+
+  export let labelText;
+  export let mods;
+
+  let allMods = "";
+
+  if (typeof mods !== "undefined" && mods) {
+    let modsList = mods.split(",");
+
+    for (let i = 0; i < modsList.length; i++) {
+      allMods = allMods + " stateful-input_" + modsList[i].trim();
+    }
+  }
+</script>
+
+<style lang="less">
+  @import "../styles/variables";
+  @import "../styles/mixins";
+
+  @stateful-input-width: 20px;
+  @stateful-input-border-width: 1px;
+  @stateful-input-padding: 4px;
+  @stateful-input-inner-elem-diameter: @stateful-input-width - 2 *
+    @stateful-input-padding;
+  @stateful-input-toggle-width: 2 * @stateful-input-width;
+
+  .stateful-input {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin-right: 20px;
+    box-sizing: border-box;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &__label {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+
+      cursor: pointer;
+    }
+
+    &__input {
+      .default-styles-reset();
+      margin: 0;
+
+      position: relative;
+      z-index: 100;
+
+      display: inline-block;
+      vertical-align: middle;
+      width: @stateful-input-width;
+      height: @stateful-input-width;
+      margin-right: 10px;
+
+      background-color: transparent;
+      border: @stateful-input-border-width solid #colors[dark-shade-25];
+      // border-radius: 50%;
+      border-radius: 10px;
+      cursor: pointer;
+
+      box-sizing: border-box;
+
+      &:checked {
+        // border: 1px solid #colors[primary];
+        border-color: #colors[primary];
+      }
+
+      &:checked + .stateful-input__text {
+        color: #colors[dark-shade-75];
+      }
+
+      &:checked::before {
+        background-image: @primary-gradient;
+      }
+    }
+
+    &__input::after,
+    &__input::before {
+      content: "";
+      position: absolute;
+      z-index: 200;
+
+      // aligns in the center
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: @stateful-input-inner-elem-diameter;
+      height: @stateful-input-inner-elem-diameter;
+      border-radius: 50%;
+      background-color: transparent;
+
+      transition: all 0.25s ease-out;
+    }
+
+    &__text {
+      .not-selectable();
+      .body-text();
+
+      display: inline-block;
+      vertical-align: middle;
+
+      line-height: @stateful-input-width;
+      color: #colors[dark-shade-50];
+    }
+  }
+
+  .stateful-input_type_toggle {
+    width: 100%;
+    margin-right: 0;
+
+    & .stateful-input__input {
+      width: @stateful-input-toggle-width;
+
+      &::before {
+        left: @stateful-input-padding;
+        transform: translateY(-50%);
+
+        background-color: #colors[dark-shade-25];
+      }
+
+      &:checked::before {
+        // express through left for work of transition
+        left: @stateful-input-toggle-width - @stateful-input-inner-elem-diameter -
+          2 * @stateful-input-border-width - @stateful-input-padding;
+      }
+    }
+  }
+
+  .stateful-input_type_like-button {
+    margin-right: 0;
+
+    & .stateful-input__input {
+      width: @stateful-input-toggle-width;
+      margin-right: 0;
+
+      color: #colors[dark-shade-25];
+
+      &::after,
+      &::before {
+        color: inherit;
+
+        transform: translateY(-50%);
+        transition: all 0.15s ease;
+      }
+
+      &::before {
+        .material-icons();
+
+        content: "\e87e";
+
+        left: @stateful-input-padding;
+        font-size: 12px;
+        border-radius: 0;
+      }
+
+      &::after {
+        .body-text();
+
+        content: "12";
+        right: 10px;
+        width: auto;
+        height: auto;
+
+        font-size: 10px;
+        color: inherit;
+      }
+
+      &:checked {
+        color: #colors[primary];
+      }
+
+      &:checked::before {
+        content: "\e87d";
+
+        background-image: none;
+      }
+    }
+
+    & .stateful-input__text {
+      .visually-hidden();
+    }
+  }
+</style>
+
+<div class="stateful-input {allMods}">
+  <label class="stateful-input__label">
+    <input class="stateful-input__input" {...$$restProps} />
+    <span class="stateful-input__text">{labelText}</span>
+  </label>
+</div>
