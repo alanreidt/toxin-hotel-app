@@ -9,6 +9,7 @@
   import StatefulInput from "./components/StatefulInput.svelte";
   import Rating from "./components/Rating.svelte";
   import BulletList from "./components/BulletList.svelte";
+  import CellBlock from "./components/CellBlock.svelte";
   import Button from "./components/Button.svelte";
 
   const dropdownOptions = [
@@ -57,6 +58,24 @@
     'Без вечеринок и&nbsp;мероприятий',
     'Время прибытия&nbsp;&mdash; после 13:00, а&nbsp;выезд до&nbsp;12:00',
   ];
+
+  const cellBlockOptions = [
+    {
+      title: "Комфорт",
+      description: "Шумопоглощающие стены",
+      materialIconName: "insert_emoticon",
+    },
+    {
+      title: "Удобство",
+      description: "Окно в&nbsp;каждой из&nbsp;спален",
+      materialIconName: "location_city",
+    },
+    {
+      title: "Уют",
+      description: "Номер оснащен камином",
+      materialIconName: "whatshot",
+    },
+  ];
 </script>
 
 <style>
@@ -99,6 +118,9 @@
       value="on" />
     <Rating id="rating" name="rating" />
     <BulletList items={bulletListItems} />
+    {#each cellBlockOptions as option}
+      <CellBlock {...option} />
+    {/each}
 
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
