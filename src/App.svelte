@@ -2,7 +2,6 @@
   import InputField from "./components/InputField.svelte";
   import DateInputField from "./components/DateInputField.svelte";
   import Dropdown from "./components/Dropdown.svelte";
-  import DropdownMenu from "./components/DropdownMenu.svelte";
   import DateDropdown from "./components/DateDropdown.svelte";
   import SubscriptionField from "./components/SubscriptionField.svelte";
   import Checkbox from "./components/Checkbox.svelte";
@@ -13,9 +12,9 @@
   import Button from "./components/Button.svelte";
 
   const dropdownOptions = [
-    { name: 'Взрослые', min: 0, max: 5, value: 0 },
-    { name: 'Дети', min: 0, max: 5, value: 0 },
-    { name: 'Младенцы', min: 0, max: 3, value: 0 },
+    { name: "Взрослые", min: 0, max: 5, value: 0 },
+    { name: "Дети", min: 0, max: 5, value: 0 },
+    { name: "Младенцы", min: 0, max: 3, value: 0 },
   ];
 
   const checkboxOptions = [
@@ -54,9 +53,9 @@
   ];
 
   const bulletListItems = [
-    'Нельзя с&nbsp;питомцами',
-    'Без вечеринок и&nbsp;мероприятий',
-    'Время прибытия&nbsp;&mdash; после 13:00, а&nbsp;выезд до&nbsp;12:00',
+    "Нельзя с&nbsp;питомцами",
+    "Без вечеринок и&nbsp;мероприятий",
+    "Время прибытия&nbsp;&mdash; после 13:00, а&nbsp;выезд до&nbsp;12:00",
   ];
 
   const cellBlockOptions = [
