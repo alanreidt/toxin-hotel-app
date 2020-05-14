@@ -39,6 +39,12 @@
       type="checkbox"
       name="mailing"
       value="on" />
+    <StatefulInput
+      labelText="Нравится"
+      mods="type_like-button"
+      type="checkbox"
+      name="like-button"
+      value="on" />
 
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
