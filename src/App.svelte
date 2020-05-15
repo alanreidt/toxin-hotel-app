@@ -20,6 +20,32 @@
   import Topline from "./components/Topline.svelte";
   import Footer from "./components/Footer.svelte";
 
+  import Cleave from "cleave.js";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    const now = new Date();
+    const nowISOString = now.toISOString();
+    const afterTwoYearsFromNow = new Date(
+      now.getFullYear() + 2,
+      now.getMonth(),
+      now.getDate()
+    );
+    const afterTwoYearsFromNowISOString = afterTwoYearsFromNow.toISOString();
+
+    const dateMasks = document.querySelectorAll(".js-date-mask");
+
+    dateMasks.forEach((dateMask) => {
+      new Cleave(dateMask, {
+        date: true,
+        delimiter: ".",
+        dateMin: nowISOString,
+        dateMax: afterTwoYearsFromNowISOString,
+        datePattern: ["d", "m", "Y"],
+      });
+    });
+  });
+
   const dropdownOptions = [
     { name: "Взрослые", min: 0, max: 5, value: 0 },
     { name: "Дети", min: 0, max: 5, value: 0 },
