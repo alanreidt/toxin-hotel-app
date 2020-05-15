@@ -27,6 +27,6 @@
 </script>
 
 <InputField
-  class="input-field__input js-date-mask"
+  class="js-date-mask"
   placeholder="ДД.ММ.ГГГГ"
   {...$$props} />

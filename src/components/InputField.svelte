@@ -1,5 +1,8 @@
 <script>
   export let labelText = false;
+
+  let className = "";
+	export { className as class };
 </script>
 
 <style lang="less">
@@ -67,6 +70,6 @@
       <span class="input-field__text">{labelText}</span>
     {/if}
 
-    <input class="input-field__input" type="text" max-length="24" {...$$restProps}>
+    <input class="input-field__input {className}" type="text" max-length="24" {...$$restProps}>
   </label>
 </div>
