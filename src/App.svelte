@@ -103,14 +103,23 @@
   ];
 </script>
 
-<style>
+<style lang="less">
   .row {
-    max-width: 320px;
+    display: block;
+    width: 100%;
+
+    &_small {
+      max-width: 320px;
+    }
+
+    &_medium {
+      max-width: 380px;
+    }
   }
 </style>
 
 <main>
-  <div class="row">
+  <div class="row row_small">
     <InputField name="text-field" labelText="text field" placeholder="Email" />
     <DateInputField name="date-text-field" labelText="masked text field" />
     <Dropdown
@@ -149,18 +158,19 @@
     {#each commentOptions as option}
       <Comment {...option} />
     {/each}
-    <Pagination/>
+    <Pagination />
 
     <Button text="click me" mods="main" href="#" />
     <Button text="click me" mods="secondary" href="#" />
     <Button text="click me" href="#" />
     <Button text="click me" mods="reset" href="#" />
     <Button text="перейти к оплате" mods="full-width" />
-
-    <SearchBox/>
-    <RegistrationBox/>
-    <CalculationBox/>
-    <EntryBox/>
-    <RoomBox/>
+  </div>
+  <div class="row row_medium">
+    <SearchBox />
+    <RegistrationBox />
+    <CalculationBox />
+    <EntryBox />
+    <RoomBox />
   </div>
 </main>
