@@ -1,0 +1,66 @@
+<script>
+  import RoomBoxCarousel from "./RoomBoxCarousel.svelte";
+  import RoomInfo from "./RoomInfo.svelte";
+  import RoomRating from "./RoomRating.svelte";
+</script>
+
+<style lang="less">
+  @import "../styles/variables";
+  @import "../styles/mixins";
+
+  .room-box {
+    display: block;
+    width: 100%;
+
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+
+    // predict border-radius overlaping by child elements
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    &__row {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__content {
+      padding: 20px;
+    }
+
+    &__room-info {
+      padding-bottom: 10px;
+
+      border-bottom: 1px solid #colors[dark-shade-10];
+    }
+
+    &__room-rating {
+      padding-top: 10px;
+    }
+  }
+</style>
+
+<div class="room-box">
+  <div class="room-box__header">
+    <RoomBoxCarousel/>
+  </div>
+  <div class="room-box__content">
+    <div class="room-box__room-info">
+      <RoomInfo number="840" price="9 900₽"/>
+    </div>
+    <div class="room-box__room-rating">
+      <form
+        class="room-box__form"
+        method="get"
+        name="room-box-form"
+        autocomplete="on">
+        <RoomRating/>
+      </form>
+    </div>
+  </div>
+</div>

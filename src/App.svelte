@@ -16,6 +16,7 @@
   import RegistrationBox from "./components/RegistrationBox.svelte";
   import CalculationBox from "./components/CalculationBox.svelte";
   import EntryBox from "./components/EntryBox.svelte";
+  import RoomBox from "./components/RoomBox.svelte";
 
   const dropdownOptions = [
     { name: "Взрослые", min: 0, max: 5, value: 0 },
@@ -160,5 +161,6 @@
     <RegistrationBox/>
     <CalculationBox/>
     <EntryBox/>
+    <RoomBox/>
   </div>
 </main>
