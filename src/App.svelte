@@ -12,6 +12,7 @@
   import Comment from "./components/Comment.svelte";
   import Pagination from "./components/Pagination.svelte";
   import Button from "./components/Button.svelte";
+  import SearchBox from "./components/SearchBox.svelte";
 
   const dropdownOptions = [
     { name: "Взрослые", min: 0, max: 5, value: 0 },
@@ -151,5 +152,6 @@
     <Button text="click me" href="#" />
     <Button text="click me" mods="reset" href="#" />
     <Button text="перейти к оплате" mods="full-width" />
+    <SearchBox/>
   </div>
 </main>
