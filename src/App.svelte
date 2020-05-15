@@ -15,6 +15,7 @@
   import SearchBox from "./components/SearchBox.svelte";
   import RegistrationBox from "./components/RegistrationBox.svelte";
   import CalculationBox from "./components/CalculationBox.svelte";
+  import EntryBox from "./components/EntryBox.svelte";
 
   const dropdownOptions = [
     { name: "Взрослые", min: 0, max: 5, value: 0 },
@@ -158,5 +159,6 @@
     <SearchBox/>
     <RegistrationBox/>
     <CalculationBox/>
+    <EntryBox/>
   </div>
 </main>
