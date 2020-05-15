@@ -1,0 +1,167 @@
+<script>
+  import ToplineHamburger from "./ToplineHamburger.svelte";
+  import ToplineNav from "./ToplineNav.svelte";
+  import Entrance from "./Entrance.svelte";
+  import MenuOverlay from "./MenuOverlay.svelte";
+</script>
+
+<style lang="less">
+  @import "../styles/variables";
+  @import "../styles/mixins";
+
+  /** TO DO:
+  *   + Rule out problem with vertical align of the button (maybe font family will help)
+  *   + Rule out problem with vertical align of the nav__link (maybe that's true)
+  *   -
+  */
+
+  :root {
+    --topline-height: 70px;
+    --menu-button-height: 14px;
+    --menu-button-padding: 5px;
+
+    @media (max-width: 1050px) {
+      --topline-height: 60px;
+    }
+
+    @media (max-width: 640px) {
+      --topline-height: 50px;
+    }
+  }
+
+  .topline {
+    .block-default-styles();
+
+    position: relative;
+    z-index: 700;
+    height: var(--topline-height);
+
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+
+    &__container {
+      .container();
+    }
+
+    &__inner {
+      .block-default-styles();
+
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__semantic-title {
+      .visually-hidden();
+    }
+
+    &__logo {
+      .logo__img {
+        height: 40px;
+
+        @media (max-width: 670px) {
+          height: 35px;
+        }
+      }
+    }
+
+    &__reception {
+      background-color: #fff;
+
+      @media (max-width: 1050px) {
+        position: fixed;
+        z-index: 800;
+        top: 0;
+        right: 0;
+
+        display: flex;
+        width: 40vw;
+        min-width: 260px;
+        height: 100%;
+
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+
+        opacity: 0;
+        pointer-events: none;
+
+        transform: translate3d(100%, 0, 0);
+        overflow: auto;
+
+        transition: transform 0.3s cubic-bezier(0.6, 0, 0, 1), opacity 0.3s ease;
+        will-change: transform, opacity;
+
+        &_is-active {
+          opacity: 1;
+          pointer-events: auto;
+
+          transform: translate3d(0, 0, 0);
+        }
+      }
+
+      @media (max-width: 500px) {
+        width: 100%;
+      }
+    }
+
+    &__reception-inner {
+      .block-default-styles();
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+
+      @media (max-width: 1050px) {
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: stretch;
+
+        // make block to retain the height
+        // when overflowed
+        // (height: 100% and align-items: center (on parent)
+        // break that behaviour)
+        height: auto;
+        margin: auto;
+
+        padding-top: 40px;
+        padding-bottom: 40px;
+      }
+    }
+
+    &__entrance {
+      margin-left: 15px;
+
+      @media (max-width: 1050px) {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+    }
+  }
+</style>
+
+<header class="topline">
+  <div class="topline__container">
+    <div class="topline__inner">
+      <h1 class="topline__semantic-title">toxin</h1>
+      <div class="topline__logo">
+        <div class="logo">
+          <svg class="logo__img" width="106" height="40" alt="Toxin logo">
+            <use href="../../blocks/common.blocks/logo/logo.svg"></use>
+          </svg>
+        </div>
+      </div>
+      <ToplineHamburger/>
+      <div class="topline__reception" id="menu">
+        <div class="topline__reception-inner">
+          <div class="topline__topline-nav">
+            <ToplineNav/>
+          </div>
+          <div class="topline__entrance">
+            <Entrance/>
+          </div>
+        </div>
+      </div>
+      <MenuOverlay/>
+    </div>
+  </div>
+</header>
