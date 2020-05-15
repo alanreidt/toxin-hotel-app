@@ -18,6 +18,7 @@
   import EntryBox from "./components/EntryBox.svelte";
   import RoomBox from "./components/RoomBox.svelte";
   import Topline from "./components/Topline.svelte";
+  import Footer from "./components/Footer.svelte";
 
   const dropdownOptions = [
     { name: "Взрослые", min: 0, max: 5, value: 0 },
@@ -176,5 +177,6 @@
   </div>
   <div class="row">
     <Topline />
+    <Footer />
   </div>
 </main>
