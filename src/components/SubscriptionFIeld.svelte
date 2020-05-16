@@ -13,7 +13,7 @@
       .not-selectable();
 
       position: absolute;
-      top: 0;
+      bottom: 0;
       right: 0;
 
       // reset <button>, <input> styles
