@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "cleave.js": "^1.5.10",
+    "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
     "sirv-cli": "^0.4.4"
   }
 }
