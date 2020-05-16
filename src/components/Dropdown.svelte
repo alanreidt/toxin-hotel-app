@@ -18,8 +18,28 @@
     return [guestsStr, babiesStr].filter((item) => Number(item[0]) !== 0).join(", ");
   }
 
-  function handleDropdownTriggerClick() {
+  function toggleIsExpanded() {
     isExpanded = !isExpanded;
+  }
+
+  const SPACE_KEY = " ";
+
+  function handleTriggerKeydown(event) {
+    if (event.key === "Enter" || event.key === SPACE_KEY) {
+      event.preventDefault();
+
+      toggleIsExpanded();
+    }
+
+    if (event.key === "Escape" || event.key === "Esc") {
+      event.preventDefault();
+
+      isExpanded = false;
+    }
+  }
+
+  function handleTriggerClick() {
+    toggleIsExpanded();
   }
 </script>
 
@@ -89,10 +109,11 @@
 <div class="dropdown js-dropdown {isExpanded ? 'dropdown_is-expanded' : ''}">
   <div
     class="dropdown__trigger js-dropdown__trigger"
-    on:click={handleDropdownTriggerClick}>
+    on:keydown={handleTriggerKeydown}
+    on:click={handleTriggerClick}>
     <InputField
       value={inputValue}
-      readonly="true"
+      readonly={true}
       {labelText}
       {...$$restProps} />
   </div>
