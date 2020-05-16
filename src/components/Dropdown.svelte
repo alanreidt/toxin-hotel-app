@@ -69,7 +69,7 @@
 
         content: "\e5cf";
         position: absolute;
-        top: 0;
+        bottom: 0;
         right: 0;
 
         display: inline-block;
