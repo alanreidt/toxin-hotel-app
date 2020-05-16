@@ -1,6 +1,7 @@
 <script>
   export let labelText = false;
   export let mods;
+  export let inputField;
 
   let className = "";
   export { className as class };
@@ -82,6 +83,6 @@
       <span class="input-field__text">{labelText}</span>
     {/if}
 
-    <input class="input-field__input {className} {allMods}" type="text" max-length="24" {...$$restProps}>
+    <input bind:this={inputField} class="input-field__input {className} {allMods}" type="text" max-length="24" {...$$restProps}>
   </label>
 </div>

@@ -1,5 +1,34 @@
 <script>
   import InputField from "./InputField.svelte";
+
+  import Cleave from "cleave.js";
+  import { onMount } from "svelte";
+
+  let inputField;
+
+  const now = new Date();
+  const nowISOString = now.toISOString();
+  const afterTwoYearsFromNow = new Date(
+    now.getFullYear() + 2,
+    now.getMonth(),
+    now.getDate()
+  );
+  const afterTwoYearsFromNowISOString = afterTwoYearsFromNow.toISOString();
+
+  export let dateMin = nowISOString;
+  export let dateMax = afterTwoYearsFromNowISOString;
+
+  onMount(() => {
+    const cleave = new Cleave(inputField, {
+      date: true,
+      delimiter: ".",
+      dateMin,
+      dateMax,
+      datePattern: ["d", "m", "Y"],
+    });
+
+    return () => cleave.destroy();
+  });
 </script>
 
-<InputField class="js-date-mask" placeholder="ДД.ММ.ГГГГ" {...$$props} />
+<InputField bind:inputField placeholder="ДД.ММ.ГГГГ" {...$$restProps} />
