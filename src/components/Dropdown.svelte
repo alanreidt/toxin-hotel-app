@@ -6,17 +6,24 @@
   export let options;
   export let hasButtonPane;
 
-  let isExpanded = false;
-  $: inputValue = composeString(options) || 'Сколько гостей';
+  $: inputValue = composeString(options) || "Сколько гостей";
 
   function composeString(options) {
     const guestsQuantity = options[0].value + options[1].value;
-    const guestsStr = `${guestsQuantity} ${guestsQuantity === 1 ? 'гость' : 'гостя'}`;
+    const guestsStr = `${guestsQuantity} ${
+      guestsQuantity === 1 ? "гость" : "гостя"
+    }`;
     const babiesQuantity = options[2].value;
-    const babiesStr = `${babiesQuantity} ${babiesQuantity === 1 ? 'младенец' : 'младенца'}`;
+    const babiesStr = `${babiesQuantity} ${
+      babiesQuantity === 1 ? "младенец" : "младенца"
+    }`;
 
-    return [guestsStr, babiesStr].filter((item) => Number(item[0]) !== 0).join(", ");
+    return [guestsStr, babiesStr]
+      .filter((item) => Number(item[0]) !== 0)
+      .join(", ");
   }
+
+  let isExpanded = false;
 
   function toggleIsExpanded() {
     isExpanded = !isExpanded;
@@ -106,9 +113,9 @@
   }
 </style>
 
-<div class="dropdown js-dropdown {isExpanded ? 'dropdown_is-expanded' : ''}">
+<div class="dropdown {isExpanded ? 'dropdown_is-expanded' : ''}">
   <div
-    class="dropdown__trigger js-dropdown__trigger"
+    class="dropdown__trigger"
     on:keydown={handleTriggerKeydown}
     on:click={handleTriggerClick}>
     <InputField
@@ -117,7 +124,7 @@
       {labelText}
       {...$$restProps} />
   </div>
-  <div class="dropdown__menu js-dropdown__menu">
+  <div class="dropdown__menu">
     <DropdownMenu bind:options {hasButtonPane} />
   </div>
 </div>
