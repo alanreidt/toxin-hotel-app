@@ -1,8 +1,20 @@
 <script>
   export let labelText = false;
+  export let mods;
 
   let className = "";
-	export { className as class };
+  export { className as class };
+
+  // список модификаторов
+  let allMods = "";
+
+  if (typeof mods !== "undefined" && mods) {
+    let modsList = mods.split(",");
+
+    for (let i = 0; i < modsList.length; i++) {
+      allMods = allMods + " input-field__input_" + modsList[i].trim();
+    }
+  }
 </script>
 
 <style lang="less">
@@ -70,6 +82,6 @@
       <span class="input-field__text">{labelText}</span>
     {/if}
 
-    <input class="input-field__input {className}" type="text" max-length="24" {...$$restProps}>
+    <input class="input-field__input {className} {allMods}" type="text" max-length="24" {...$$restProps}>
   </label>
 </div>
