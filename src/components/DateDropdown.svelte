@@ -1,5 +1,7 @@
 <script>
+  import Expander from "./Expander.svelte";
   import DateInputField from "./DateInputField.svelte";
+  import Datepicker from "./Datepicker.svelte";
 </script>
 
 <style lang="less">
@@ -34,11 +36,16 @@
   }
 </style>
 
-<div class="date-dropdown">
-  <div class="date-dropdown__col">
-    <DateInputField labelText="date dropdown" />
+<Expander>
+  <div class="date-dropdown" slot="trigger">
+    <div class="date-dropdown__col">
+      <DateInputField labelText="date dropdown" />
+    </div>
+    <div class="date-dropdown__col">
+      <DateInputField labelText="date dropdown" />
+    </div>
   </div>
-  <div class="date-dropdown__col">
-    <DateInputField labelText="date dropdown" />
+  <div slot="menu">
+    <Datepicker/>
   </div>
-</div>
+</Expander>
