@@ -11,7 +11,7 @@
     margin-bottom: 0;
     padding-left: 20px;
 
-    list-style: disc outside url("./bullet-list-bullet.svg");
+    list-style: disc outside url("/images/bullet-list-bullet.svg");
 
     &__item {
       .body-text();
