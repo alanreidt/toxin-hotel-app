@@ -117,6 +117,10 @@
     &_medium {
       max-width: 380px;
     }
+
+    &_large {
+      max-width: 712px;
+    }
   }
 </style>
 
@@ -157,9 +161,6 @@
     {#each cellBlockOptions as option}
       <CellBlock {...option} />
     {/each}
-    {#each commentOptions as option}
-      <Comment {...option} />
-    {/each}
     <Pagination />
 
     <Button text="click me" mods="main" href="#" />
@@ -167,6 +168,11 @@
     <Button text="click me" href="#" />
     <Button text="click me" mods="reset" href="#" />
     <Button text="перейти к оплате" mods="full-width" />
+  </div>
+  <div class="row row_large">
+    {#each commentOptions as option}
+      <Comment {...option} />
+    {/each}
   </div>
   <div class="row row_medium">
     <SearchBox />
