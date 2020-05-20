@@ -1,5 +1,6 @@
 <script>
   import "../node_modules/nouislider/distribute/nouislider.min.css";
+  import "../node_modules/jquery-ui/themes/base/core.css";
   import "../node_modules/jquery-ui/themes/base/datepicker.css";
   import "./styles/datepicker.less";
 
