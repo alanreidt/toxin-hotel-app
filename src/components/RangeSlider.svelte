@@ -117,14 +117,15 @@
       border-radius: 50%;
       box-shadow: none;
 
-      :global(&::before),
-      :global(&::after) {
-        display: none;
-      }
+    }
+
+    :global(& .noUi-handle::before),
+    :global(& .noUi-handle::after) {
+      display: none;
     }
   }
 
-  html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
+  :global(html:not([dir="rtl"]) .noUi-horizontal .noUi-handle) {
     right: -1 * @range-slider-handle-width / 2;
   }
 </style>
