@@ -1,4 +1,7 @@
 <script>
+  import "../node_modules/nouislider/distribute/nouislider.min.css";
+  import "../node_modules/jquery-ui/themes/base/datepicker.css";
+
   import InputField from "./components/InputField.svelte";
   import DateInputField from "./components/DateInputField.svelte";
   import Dropdown from "./components/Dropdown.svelte";
