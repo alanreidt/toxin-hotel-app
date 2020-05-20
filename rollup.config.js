@@ -5,6 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import { less } from 'svelte-preprocess-less';
 import css from 'rollup-plugin-css-only';
+import lessRaw from 'rollup-plugin-less';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -33,6 +34,7 @@ export default {
 			}
 		}),
     css({ output: 'public/build/vendor.css' }),
+    lessRaw({ output: 'public/build/global.css' }),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration -
