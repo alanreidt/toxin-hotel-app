@@ -18,6 +18,8 @@
   export let dateMin = nowISOString;
   export let dateMax = afterTwoYearsFromNowISOString;
 
+  // I use onMount here, 'cause a use directive can't be attached to a component
+  // You can pass an action property as alternative, but it'll restrict your options
   onMount(() => {
     const cleave = new Cleave(inputField, {
       date: true,
