@@ -3,6 +3,7 @@
   import "../node_modules/jquery-ui/themes/base/core.css";
   import "../node_modules/jquery-ui/themes/base/datepicker.css";
   import "./styles/datepicker.less";
+  import "./styles/nouislider.less";
 
   import InputField from "./components/InputField.svelte";
   import DateInputField from "./components/DateInputField.svelte";

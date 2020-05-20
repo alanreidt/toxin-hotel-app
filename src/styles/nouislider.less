@@ -1,0 +1,42 @@
+@import "./variables";
+@import "./mixins";
+
+.noUi-target {
+  background-color: #fff;
+  // change to dark-shade-25 later
+  border: 1px solid #colors[dark-shade-50];
+  border-radius: 3px;
+  box-shadow: none;
+
+  &.noUi-horizontal {
+    height: 6px;
+  }
+
+  & .noUi-connect {
+    background-image: @secondary-gradient;
+  }
+
+  &.noUi-horizontal .noUi-handle {
+    // find generic value
+    top: -4px;
+    width: @range-slider-handle-width;
+    height: @range-slider-handle-width;
+  }
+
+  & .noUi-handle {
+    background-image: @secondary-gradient;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: none;
+
+  }
+
+  & .noUi-handle::before,
+  & .noUi-handle::after {
+    display: none;
+  }
+}
+
+html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
+  right: -1 * @range-slider-handle-width / 2;
+}

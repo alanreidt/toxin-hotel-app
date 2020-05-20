@@ -46,8 +46,6 @@
   @import "../styles/variables";
   @import "../styles/mixins";
 
-  @range-slider-handle-width: 12px;
-
   .range-slider {
     &__header {
       display: flex;
@@ -87,46 +85,6 @@
       line-height: 1.17;
       color: #colors[dark-shade-50];
     }
-  }
-
-  .range-slider__input {
-    background-color: #fff;
-    // change to dark-shade-25 later
-    border: 1px solid #colors[dark-shade-50];
-    border-radius: 3px;
-    box-shadow: none;
-
-    :global(&.noUi-horizontal) {
-      height: 6px;
-    }
-
-    :global(& .noUi-connect) {
-      background-image: @secondary-gradient;
-    }
-
-    :global(&.noUi-horizontal .noUi-handle) {
-      // find generic value
-      top: -4px;
-      width: @range-slider-handle-width;
-      height: @range-slider-handle-width;
-    }
-
-    :global(& .noUi-handle) {
-      background-image: @secondary-gradient;
-      border: 2px solid #fff;
-      border-radius: 50%;
-      box-shadow: none;
-
-    }
-
-    :global(& .noUi-handle::before),
-    :global(& .noUi-handle::after) {
-      display: none;
-    }
-  }
-
-  :global(html:not([dir="rtl"]) .noUi-horizontal .noUi-handle) {
-    right: -1 * @range-slider-handle-width / 2;
   }
 </style>
 
