@@ -19,6 +19,7 @@
   import RoomBox from "./components/RoomBox.svelte";
   import Topline from "./components/Topline.svelte";
   import Footer from "./components/Footer.svelte";
+  import RangeSlider from "./components/RangeSlider.svelte";
 
   const dropdownOptions = [
     { name: "Взрослые", min: 0, max: 5, value: 0 },
@@ -168,6 +169,8 @@
     <Button text="click me" href="#" />
     <Button text="click me" mods="reset" href="#" />
     <Button text="перейти к оплате" mods="full-width" />
+
+    <RangeSlider />
   </div>
   <div class="row row_large">
     {#each commentOptions as option}
