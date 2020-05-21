@@ -97,14 +97,17 @@
   }
 </style>
 
-<div on:focusin={handleExpanderFocusin} on:focusout={handleExpanderFocusout} class="expander {isExpanded ? 'expander_is-expanded' : ''}">
+<div
+  on:focusin={handleExpanderFocusin}
+  on:focusout={handleExpanderFocusout}
+  class="expander {isExpanded ? 'expander_is-expanded' : ''}">
   <div
     class="expander__trigger"
     on:keydown={handleTriggerKeydown}
     on:click={handleTriggerClick}>
-    <slot name="trigger"></slot>
+    <slot name="trigger" />
   </div>
   <div class="expander__menu">
-    <slot name="menu"></slot>
+    <slot name="menu" />
   </div>
 </div>
