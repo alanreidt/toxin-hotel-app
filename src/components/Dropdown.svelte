@@ -31,7 +31,7 @@
 </style>
 
 <Expander>
-  <div slot="trigger">
+  <div on:focusin|stopPropagation on:focusout|stopPropagation slot="trigger">
     <InputField
       value={inputValue}
       readonly={true}

@@ -40,7 +40,7 @@
 
 <div class="date-dropdown">
   <Expander>
-    <div class="date-dropdown__input-group" slot="trigger">
+    <div on:keydown|stopPropagation on:click|stopPropagation class="date-dropdown__input-group" slot="trigger">
       <div class="date-dropdown__col">
         <DateInputField labelText="date dropdown" />
       </div>
