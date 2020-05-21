@@ -9,11 +9,13 @@
   @import "../styles/mixins";
 
   .date-dropdown {
-    display: flex;
-    flex-flow: row wrap;
+    &__input-group {
+      display: flex;
+      flex-flow: row wrap;
 
-    @media (max-width: 380px - 4px + 2 * @site-paddings[small]) {
-      flex-flow: column nowrap;
+      @media (max-width: 380px - 4px + 2 * @site-paddings[small]) {
+        flex-flow: column nowrap;
+      }
     }
 
     &__col {
@@ -36,16 +38,18 @@
   }
 </style>
 
-<Expander>
-  <div class="date-dropdown" slot="trigger">
-    <div class="date-dropdown__col">
-      <DateInputField labelText="date dropdown" />
+<div class="date-dropdown">
+  <Expander>
+    <div class="date-dropdown__input-group" slot="trigger">
+      <div class="date-dropdown__col">
+        <DateInputField labelText="date dropdown" />
+      </div>
+      <div class="date-dropdown__col">
+        <DateInputField labelText="date dropdown" />
+      </div>
     </div>
-    <div class="date-dropdown__col">
-      <DateInputField labelText="date dropdown" />
+    <div class="date-dropdown__datepicker" slot="menu">
+      <Datepicker/>
     </div>
-  </div>
-  <div slot="menu">
-    <Datepicker/>
-  </div>
-</Expander>
+  </Expander>
+</div>
