@@ -1,6 +1,14 @@
 <script>
   let isExpanded = false;
 
+  function handleTriggerFocusin() {
+    isExpanded = true;
+  }
+
+  function handleTriggerFocusout() {
+    isExpanded = false;
+  }
+
   function toggleIsExpanded() {
     isExpanded = !isExpanded;
   }
@@ -92,6 +100,8 @@
 <div class="expander {isExpanded ? 'expander_is-expanded' : ''}">
   <div
     class="expander__trigger"
+    on:focusin={handleTriggerFocusin}
+    on:focusout={handleTriggerFocusout}
     on:keydown={handleTriggerKeydown}
     on:click={handleTriggerClick}>
     <slot name="trigger"></slot>
