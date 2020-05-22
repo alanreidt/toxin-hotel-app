@@ -30,15 +30,17 @@
   @import "../styles/mixins";
 </style>
 
-<Expander>
-  <div on:focusin|stopPropagation slot="trigger">
-    <InputField
-      value={inputValue}
-      readonly={true}
-      {labelText}
-      {...$$restProps} />
-  </div>
-  <div slot="menu">
-    <DropdownMenu bind:options {hasButtonPane} />
-  </div>
-</Expander>
+<div class="dropdown">
+  <Expander>
+    <div on:focusin|stopPropagation slot="trigger">
+      <InputField
+        value={inputValue}
+        readonly={true}
+        {labelText}
+        {...$$restProps} />
+    </div>
+    <div slot="menu">
+      <DropdownMenu bind:options {hasButtonPane} />
+    </div>
+  </Expander>
+</div>
