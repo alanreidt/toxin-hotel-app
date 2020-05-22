@@ -1,5 +1,5 @@
 <script>
-  let isExpanded = false;
+  export let isExpanded = false;
 
   function handleExpanderFocusin() {
     isExpanded = true;
@@ -45,39 +45,6 @@
     display: inline-block;
     vertical-align: middle;
     width: 100%;
-
-    &_is-expanded &__trigger {
-      color: #colors[dark-shade-75];
-    }
-
-    &__trigger {
-      position: relative;
-      color: #colors[dark-shade-50];
-
-      &::after {
-        .material-icons();
-        font-size: 1.5rem;
-
-        content: "\e5cf";
-        position: absolute;
-        bottom: 0;
-        right: 0;
-
-        display: inline-block;
-        vertical-align: middle;
-
-        width: 2.75rem;
-        height: 2.75rem;
-        line-height: 2.75rem;
-
-        text-align: center;
-        color: inherit;
-        background-color: transparent;
-
-        box-sizing: border-box;
-        pointer-events: none;
-      }
-    }
 
     &_is-expanded &__menu {
       pointer-events: auto;

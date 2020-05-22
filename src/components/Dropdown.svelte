@@ -7,6 +7,8 @@
   export let options;
   export let hasButtonPane;
 
+  let isExpanded = false;
+
   $: inputValue = composeString(options) || "Сколько гостей";
 
   function composeString(options) {
@@ -28,12 +30,54 @@
 <style lang="less">
   @import "../styles/variables";
   @import "../styles/mixins";
+
+  .dropdown {
+    &_is-expanded &__trigger {
+      color: #colors[dark-shade-75];
+    }
+
+    &__trigger {
+      position: relative;
+      color: #colors[dark-shade-50];
+
+      &::after {
+        .material-icons();
+        font-size: 1.5rem;
+
+        content: "\e5cf";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+        display: inline-block;
+        vertical-align: middle;
+
+        width: 2.75rem;
+        height: 2.75rem;
+        line-height: 2.75rem;
+
+        text-align: center;
+        color: inherit;
+        background-color: transparent;
+
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+    }
+
+    &_is-expanded :global(&__input) {
+      border-color: #colors[dark-shade-50];
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
 </style>
 
-<div class="dropdown">
-  <Expander>
-    <div on:focusin|stopPropagation slot="trigger">
+<div class="dropdown {isExpanded ? 'dropdown_is-expanded' : ''}">
+  <Expander bind:isExpanded>
+    <div on:focusin|stopPropagation slot="trigger" class="dropdown__trigger">
       <InputField
+        class="dropdown__input"
         value={inputValue}
         readonly={true}
         {labelText}
