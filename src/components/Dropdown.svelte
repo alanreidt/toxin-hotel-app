@@ -70,6 +70,10 @@
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
+
+    &__menu {
+      margin-top: -1 * @dropdown-menu-border-size;
+    }
   }
 </style>
 
@@ -83,7 +87,7 @@
         {labelText}
         {...$$restProps} />
     </div>
-    <div slot="menu">
+    <div slot="menu" class="dropdown__menu">
       <DropdownMenu bind:options {hasButtonPane} />
     </div>
   </Expander>

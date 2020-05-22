@@ -20,7 +20,7 @@
     padding-right: 0.4375rem;
 
     background-color: #fff;
-    border: 1px solid #colors[dark-shade-50];
+    border: @dropdown-menu-border-size solid #colors[dark-shade-50];
     border-bottom-left-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
 
