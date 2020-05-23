@@ -47,8 +47,7 @@
     width: 100%;
 
     &_is-expanded &__menu {
-      pointer-events: auto;
-      opacity: 1;
+      visibility: inherit;
     }
 
     &__menu {
@@ -58,8 +57,7 @@
       top: 100%;
       left: 0;
 
-      opacity: 0;
-      pointer-events: none;
+      visibility: hidden;
     }
   }
 </style>
