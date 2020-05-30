@@ -1,23 +1,38 @@
 <script>
-  import "../../node_modules/jquery-ui/ui/widgets/datepicker";
+  import flatpickr from "flatpickr";
+  import "../../node_modules/flatpickr/dist/l10n/ru.js"
 
   const datepickerOptions = {
-    showOtherMonths: true,
-    selectOtherMonths: true,
-    prevText: "",
-    nextText: "",
-    showButtonPanel: true,
-    closeText: "Применить",
-    currentText: "Очистить",
-    minDate: 0,
+    locale: "ru",
+    mode: "range",
+    altInput: true,
+    altFormat: "d.m.Y",
+    allowInput: true,
+    minDate: "today",
+    // maxDate: new Date().fp_incr(2),
+    // plugins: [new rangePlugin({ input: "#secondRangeInput"})],
+    inline: true,
+    // ariaDateFormat: "",
+    // appendTo: HTMLElement,
+    // disableMobile: Boolean,
+    // nextArrow: String,
+    // prevArrow: String,
+
+    // showOtherMonths: true,
+    // selectOtherMonths: true,
+    // prevText: "",
+    // nextText: "",
+    // showButtonPanel: true,
+    // closeText: "Применить",
+    // currentText: "Очистить",
   };
 
-  function datepickerInit(node, options) {
-    jQuery(node).datepicker(options);
+  function datepickerInit(node, options = {}) {
+    const flatpickrInstance = flatpickr(node, options);
 
     return {
-      update: (newOptions) => jQuery(node).datepicker("option", newOptions),
-      destroy: () => jQuery(node).datepicker("destroy"),
+      // update: (newOptions) => jQuery(node).datepicker("option", newOptions),
+      destroy: () => flatpickrInstance.destroy(),
     };
   };
 </script>
