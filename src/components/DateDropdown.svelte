@@ -1,6 +1,47 @@
 <script>
   import DateInputField from "./DateInputField.svelte";
-  import Datepicker from "./Datepicker.svelte";
+  import { onMount } from "svelte";
+
+  import flatpickr from "flatpickr";
+  import rangePlugin from "../../node_modules/flatpickr/dist/plugins/rangePlugin";
+  import "../../node_modules/flatpickr/dist/l10n/ru.js";
+
+  let fromInputField;
+  let toInputField;
+
+  // I use onMount here, 'cause a use directive can't be attached to a component
+  // You can pass an action property as alternative, but it'll restrict your options
+  onMount(() => {
+    const datepickerOptions = {
+      locale: "ru",
+      mode: "range",
+      // altInput: true,
+      // altFormat: "d.m.Y",
+      dateFormat: "d.m.Y",
+      allowInput: true,
+      minDate: "today",
+      // maxDate: new Date().fp_incr(2),
+      plugins: [new rangePlugin({ input: toInputField})],
+      // inline: true,
+      // ariaDateFormat: "",
+      // appendTo: HTMLElement,
+      // disableMobile: Boolean,
+      // nextArrow: String,
+      // prevArrow: String,
+
+      // showOtherMonths: true,
+      // selectOtherMonths: true,
+      // prevText: "",
+      // nextText: "",
+      // showButtonPanel: true,
+      // closeText: "Применить",
+      // currentText: "Очистить",
+    };
+
+    const flatpickrInstance = flatpickr(fromInputField, datepickerOptions);
+
+    return () => flatpickrInstance.destroy();
+  });
 </script>
 
 <style lang="less">
@@ -63,20 +104,16 @@
         pointer-events: none;
       }
     }
-
-    &__datepicker {
-      padding-top: 5px;
-    }
   }
 </style>
 
 <div class="date-dropdown">
   <div class="date-dropdown__input-group">
     <div class="date-dropdown__col date-dropdown__input">
-      <DateInputField labelText="date dropdown" />
+      <DateInputField bind:inputField={fromInputField} labelText="date dropdown" />
     </div>
     <div class="date-dropdown__col date-dropdown__input">
-      <DateInputField labelText="date dropdown" />
+      <DateInputField bind:inputField={toInputField} labelText="date dropdown" />
     </div>
   </div>
 </div>

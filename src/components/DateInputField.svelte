@@ -4,7 +4,7 @@
   import Cleave from "cleave.js";
   import { onMount } from "svelte";
 
-  let inputField;
+  export let inputField;
 
   const now = new Date();
   const nowISOString = now.toISOString();
