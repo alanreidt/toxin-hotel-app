@@ -1,5 +1,4 @@
 <script>
-  import Expander from "./Expander.svelte";
   import DateInputField from "./DateInputField.svelte";
   import Datepicker from "./Datepicker.svelte";
 </script>
@@ -72,17 +71,12 @@
 </style>
 
 <div class="date-dropdown">
-  <Expander>
-    <div on:keydown|stopPropagation on:click|stopPropagation class="date-dropdown__input-group" slot="trigger">
-      <div class="date-dropdown__col date-dropdown__input">
-        <DateInputField class="date-dropdown__input" labelText="date dropdown" />
-      </div>
-      <div class="date-dropdown__col date-dropdown__input">
-        <DateInputField class="date-dropdown__input" labelText="date dropdown" />
-      </div>
+  <div class="date-dropdown__input-group">
+    <div class="date-dropdown__col date-dropdown__input">
+      <DateInputField labelText="date dropdown" />
     </div>
-    <div class="date-dropdown__datepicker" slot="menu">
-      <Datepicker/>
+    <div class="date-dropdown__col date-dropdown__input">
+      <DateInputField labelText="date dropdown" />
     </div>
-  </Expander>
+  </div>
 </div>
