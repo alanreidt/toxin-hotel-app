@@ -28,14 +28,6 @@
       // disableMobile: Boolean,
       // nextArrow: String,
       // prevArrow: String,
-
-      // showOtherMonths: true,
-      // selectOtherMonths: true,
-      // prevText: "",
-      // nextText: "",
-      // showButtonPanel: true,
-      // closeText: "Применить",
-      // currentText: "Очистить",
     };
 
     const flatpickrInstance = flatpickr(fromInputField, datepickerOptions);
