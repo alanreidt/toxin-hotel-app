@@ -17,6 +17,7 @@
       mode: "range",
       // altInput: true,
       // altFormat: "d.m.Y",
+      // defaultDate: ["10.06.2020", "17.06.2020"],
       dateFormat: "d.m.Y",
       allowInput: true,
       minDate: "today",
@@ -26,8 +27,8 @@
       // ariaDateFormat: "",
       // appendTo: HTMLElement,
       // disableMobile: Boolean,
-      // nextArrow: String,
-      // prevArrow: String,
+      nextArrow: "",
+      prevArrow: "",
     };
 
     const flatpickrInstance = flatpickr(fromInputField, datepickerOptions);
