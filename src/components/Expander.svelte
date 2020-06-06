@@ -37,22 +37,18 @@
   document.addEventListener("click", (event) => {
     const isExpanderTarget = event.target.closest(".expander") === expander;
 
-    console.log(isExpanderTarget);
-
     if (isExpanderTarget) return;
 
     isExpanded = false;
   });
 
-  // document.addEventListener("focusout", (event) => {
-  //   const isExpanderTarget = event.target.closest(".expander") === expander;
+  document.addEventListener("focusin", (event) => {
+    const isExpanderTarget = event.target.closest(".expander") === expander;
 
-  //   console.log(isExpanderTarget);
+    if (isExpanderTarget) return;
 
-  //   if (!isExpanderTarget) return;
-
-  //   isExpanded = false;
-  // });
+    isExpanded = false;
+  });
 </script>
 
 <style lang="less">
@@ -83,13 +79,12 @@
   }
 </style>
 
-  <!-- on:focusout={handleExpanderFocusout} -->
 <div
   bind:this={expander}
-  on:focusin={handleExpanderFocusin}
   class="expander {isExpanded ? 'expander_is-expanded' : ''}">
   <div
     class="expander__trigger"
+    on:focusin={handleExpanderFocusin}
     on:keydown={handleTriggerKeydown}
     on:click={handleTriggerClick}>
     <slot name="trigger" />
