@@ -1,8 +1,12 @@
 <script>
+  import { placeNumberBetween } from "../../modules/utilities";
+
   export let value = 0;
   export let min = 0;
   export let max = 5;
   export let reset = false;
+
+  value = placeNumberBetween(value, min, max);
 
   $: isValueMin = value === min;
   $: isValueMax = value === max;
