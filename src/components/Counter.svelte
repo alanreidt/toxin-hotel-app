@@ -2,9 +2,15 @@
   export let value = 0;
   export let min = 0;
   export let max = 5;
+  export let reset = false;
 
   $: isValueMin = value === min;
   $: isValueMax = value === max;
+  $: if (reset) {
+    value = 0;
+
+    reset = false;
+  }
 </script>
 
 <style lang="less">

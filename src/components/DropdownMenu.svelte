@@ -1,9 +1,23 @@
 <script>
+  import { createEventDispatcher } from "svelte";
   import Counter from "./Counter.svelte";
   import Button from "./Button.svelte";
 
   export let options;
   export let hasButtonPane = false;
+
+  const dispatch = createEventDispatcher();
+  let reset = false;
+
+  function handleResetButtonClick() {
+    dispatch('reset');
+
+    reset = true;
+  }
+
+  function handleApplyButtonClick() {
+    dispatch('apply');
+  }
 </script>
 
 <style lang="less">
@@ -60,15 +74,15 @@
     <div class="dropdown-menu__option">
       <span class="dropdown-menu__option-text">{name}</span>
       <div class="dropdown-menu__counter">
-        <Counter bind:value {min} {max} />
+        <Counter bind:reset bind:value {min} {max} />
       </div>
     </div>
   {/each}
 
   {#if hasButtonPane}
     <div class="dropdown-menu__button-pane">
-      <Button text="Очистить" mods="reset" />
-      <Button text="Применить" />
+      <Button on:click={handleResetButtonClick} type="button" text="Очистить" mods="reset" />
+      <Button on:click={handleApplyButtonClick} type="button" text="Применить" />
     </div>
   {/if}
 </div>

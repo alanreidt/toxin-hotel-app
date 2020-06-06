@@ -25,6 +25,10 @@
       .filter((item) => Number(item[0]) !== 0)
       .join(", ");
   }
+
+  function handleDropdownMenuApply() {
+    isExpanded = false;
+  }
 </script>
 
 <style lang="less">
@@ -88,7 +92,7 @@
         {...$$restProps} />
     </div>
     <div slot="menu" class="dropdown__menu">
-      <DropdownMenu bind:options {hasButtonPane} />
+      <DropdownMenu on:apply={handleDropdownMenuApply} bind:options {hasButtonPane} />
     </div>
   </Expander>
 </div>

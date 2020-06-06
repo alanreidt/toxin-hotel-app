@@ -116,7 +116,7 @@
 
   <!-- - иначе это button -->
 {:else}
-  <button class="button {allMods}" {...$$restProps}>
+  <button on:click class="button {allMods}" {...$$restProps}>
     {text}
     <slot />
   </button>
