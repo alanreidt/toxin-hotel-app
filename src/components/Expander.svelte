@@ -1,5 +1,6 @@
 <script>
   export let isExpanded = false;
+  let expander;
 
   function handleExpanderFocusin() {
     isExpanded = true;
@@ -32,6 +33,26 @@
   function handleTriggerClick() {
     toggleIsExpanded();
   }
+
+  document.addEventListener("click", (event) => {
+    const isExpanderTarget = event.target.closest(".expander") === expander;
+
+    console.log(isExpanderTarget);
+
+    if (isExpanderTarget) return;
+
+    isExpanded = false;
+  });
+
+  // document.addEventListener("focusout", (event) => {
+  //   const isExpanderTarget = event.target.closest(".expander") === expander;
+
+  //   console.log(isExpanderTarget);
+
+  //   if (!isExpanderTarget) return;
+
+  //   isExpanded = false;
+  // });
 </script>
 
 <style lang="less">
@@ -62,9 +83,10 @@
   }
 </style>
 
+  <!-- on:focusout={handleExpanderFocusout} -->
 <div
+  bind:this={expander}
   on:focusin={handleExpanderFocusin}
-  on:focusout={handleExpanderFocusout}
   class="expander {isExpanded ? 'expander_is-expanded' : ''}">
   <div
     class="expander__trigger"
