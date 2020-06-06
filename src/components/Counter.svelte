@@ -87,6 +87,7 @@
 
 <div class="counter js-counter">
   <button
+    type="button"
     class="counter__button counter__button_type_subtraction {isValueMin ? 'counter__button_is-disabled' : ''}"
     disabled={isValueMin}
     on:click={() => value -= 1}>
@@ -96,6 +97,7 @@
     {value}
   </span>
   <button
+    type="button"
     class="counter__button counter__button_type_addition {isValueMax ? 'counter__button_is-disabled' : ''}"
     disabled={isValueMax}
     on:click={() => value += 1}>
