@@ -57,7 +57,6 @@
 
   .expander {
     position: relative;
-    z-index: 200;
 
     display: inline-block;
     vertical-align: middle;
