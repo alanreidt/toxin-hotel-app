@@ -12,13 +12,35 @@
     height: 6px;
   }
 
+  & .noUi-base {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 400%;
+    cursor: pointer;
+  }
+
+  & .noUi-connects {
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+
   & .noUi-connect {
     background-image: @secondary-gradient;
   }
 
+  & .noUi-origin {
+    top: 50%;
+  }
+
   &.noUi-horizontal .noUi-handle {
     // find generic value
-    top: -4px;
+    top: -6px;
     width: @range-slider-handle-width;
     height: @range-slider-handle-width;
   }
@@ -33,6 +55,19 @@
   & .noUi-handle::before,
   & .noUi-handle::after {
     display: none;
+  }
+
+  & .noUi-touch-area {
+    position: absolute;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 200%;
+    width: 200%;
+
+    cursor: grab;
   }
 }
 
