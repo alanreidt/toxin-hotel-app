@@ -8,6 +8,7 @@
     "start": "sirv public"
   },
   "devDependencies": {
+    "@beyonk/svelte-carousel": "^2.6.1",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-node-resolve": "^7.0.0",
     "less": "^3.11.1",
