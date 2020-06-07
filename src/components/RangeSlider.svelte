@@ -2,9 +2,10 @@
   import wNumb from 'wnumb';
   import noUiSlider from 'nouislider';
 
-  let rangeSliderOutput = document.getElementById('js-range-slider__output');
-  let rangeSliderValues;
-  let rangeSliderRange = '';
+  let output;
+  let values = [];
+  $: range = values[0] + ' – ' + values[1];
+
   const noUiSliderOptions = {
     start: [5000, 10000],
     step: 500,
@@ -27,17 +28,12 @@
   function noUiSliderInit(node, options) {
     const rangeSlider = noUiSlider.create(node, options);
 
-    // rangeSlider.noUiSlider.on('update', function () {
-    //   rangeSliderValues = rangeSlider.noUiSlider.get();
-
-    //   rangeSliderRange = rangeSliderValues[0] + '–' + rangeSliderValues[1];
-
-    //   rangeSliderOutput.innerHTML = rangeSliderRange;
-    // });
+    rangeSlider.on('update', function () {
+      values = rangeSlider.get();
+    });
 
     return {
-      update: (newOptions) => null,
-      destroy: () => rangeSlider.noUiSlider.destroy(),
+      destroy: () => rangeSlider.destroy(),
     };
   }
 </script>
@@ -91,13 +87,12 @@
 <div class="range-slider">
   <div class="range-slider__header">
     <span class="range-slider__title">диапазон цен</span>
-    <span class="range-slider__output" id="js-range-slider__output">
-      1 000₽–15 000₽
+    <span bind:this={output} class="range-slider__output">
+      {range}
     </span>
   </div>
-  <div use:noUiSliderInit={noUiSliderOptions} class="range-slider__input" id="js-range-slider__input"></div>
+  <div use:noUiSliderInit={noUiSliderOptions} class="range-slider__input"></div>
   <p class="range-slider__explanation">
     Стоимость за&nbsp;сутки пребывания в&nbsp;номере
   </p>
-  <div class="noUi-base"></div>
 </div>
