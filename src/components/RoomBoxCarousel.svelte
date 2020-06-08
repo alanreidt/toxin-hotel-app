@@ -1,4 +1,5 @@
 <script>
+  import Carousel from "@beyonk/svelte-carousel";
 </script>
 
 <style lang="less">
@@ -6,28 +7,46 @@
   @import "../styles/mixins";
 
   .room-box-carousel {
-    position: relative;
-    z-index: 100;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
+    display: block;
+    vertical-align: middle;
+    width: 100%;
     height: 151px;
 
-    background: url(/images/room-840.jpg) #999 center/cover no-repeat;
+    &__item {
+      display: block;
+      width: 100%;
+    }
+
+    &__image {
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
+      max-width: 100%;
+    }
+
+    & :global(button) {
+      top: 0;
+      width: 42px;
+      height: 100%;
+      margin-top: 0;
+      padding: 0;
+    }
+
+    & :global(.left) {
+      left: 0;
+    }
+
+    & :global(.right) {
+      right: 0;
+    }
 
     &__lever {
-      // overlap .carousel__pagination
-      position: relative;
-      z-index: 300;
-
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
 
-      width: 42px;
+      width: 100%;
       height: 100%;
 
       background-color: transparent;
@@ -47,35 +66,32 @@
       }
     }
 
-    &__pagination {
+    & :global(ul) {
       margin-top: 0;
       margin-bottom: 0;
       padding-left: 0;
 
       position: absolute;
-      z-index: 200;
+      /* z-index: 200; */
       bottom: 15px;
       right: 15px;
 
       display: flex;
       flex-direction: row;
-      align-items: unset;
+      justify-content: flex-end;
+      /* align-items: unset; */
+      width: auto;
 
       background-color: transparent;
     }
 
-    &__pagination-item {
+    & :global(ul li) {
       list-style-type: none;
 
+      margin: 0;
       margin-right: 4px;
 
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-
-    &__pagination-link {
-      text-decoration: none;
+      /* text-decoration: none; */
 
       display: block;
       width: 8px;
@@ -85,36 +101,36 @@
       border: 1px solid #fff;
       border-radius: 50%;
       box-shadow: 0 5px 5px rgba(31, 32, 65, 0.3);
+
+      cursor: pointer;
       box-sizing: border-box;
 
-      &_active {
-        background-color: #fff;
+      &:last-child {
+        margin-right: 0;
       }
     }
   }
 </style>
 
 <div class="room-box-carousel">
-  <div class="room-box-carousel__lever">
-    <i class="material-icons">navigate_before</i>
-  </div>
-  <div class="room-box-carousel__lever room-box-carousel__lever_next">
-    <i class="material-icons">navigate_before</i>
-  </div>
-  <ul class="room-box-carousel__pagination">
-    <li class="room-box-carousel__pagination-item">
-      <span
-        class="room-box-carousel__pagination-link
-        room-box-carousel__pagination-link_active"></span>
-    </li>
-    <li class="room-box-carousel__pagination-item">
-      <span class="room-box-carousel__pagination-link"></span>
-    </li>
-    <li class="room-box-carousel__pagination-item">
-      <span class="room-box-carousel__pagination-link"></span>
-    </li>
-    <li class="room-box-carousel__pagination-item">
-      <span class="room-box-carousel__pagination-link"></span>
-    </li>
-  </ul>
+  <Carousel perPage="1">
+    <div class="room-box-carousel__lever" slot="left-control">
+      <i class="material-icons">navigate_before</i>
+    </div>
+    <div class="room-box-carousel__lever room-box-carousel__lever_next" slot="right-control">
+      <i class="material-icons">navigate_before</i>
+    </div>
+    <div class="room-box-carousel__item">
+      <img src="images/room-840.jpg" alt="room photo" class="room-box-carousel__image">
+    </div>
+    <div class="room-box-carousel__item">
+      <img src="images/room-840.jpg" alt="room photo" class="room-box-carousel__image">
+    </div>
+    <div class="room-box-carousel__item">
+      <img src="images/room-840.jpg" alt="room photo" class="room-box-carousel__image">
+    </div>
+    <div class="room-box-carousel__item">
+      <img src="images/room-840.jpg" alt="room photo" class="room-box-carousel__image">
+    </div>
+  </Carousel>
 </div>
