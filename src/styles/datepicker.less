@@ -154,46 +154,56 @@
     opacity: 0.7;
   }
 
+  // mimics part of an inRange trace
+  // an actual circle is before pseudo-element
+  // otherwise, opacity on hover won't work correctly
   & .selected {
     position: relative;
-  /*   z-index: 200; */
+    // create layer for desired effect
+    z-index: 200;
 
     font-weight: 700;
-    background-image: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    background-color: #EAE7FF;
     color: #fff;
     border-color: transparent;
   }
 
   & .selected:hover,
   & .selected:focus {
-  /*   background-image: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    // overwright plugin styles
+    background-color: #EAE7FF;
     color: #fff;
-    border-color: transparent; */
+    border-color: transparent;
   }
 
+  & .selected:hover::before,
+  & .selected:focus::before {
+    opacity: 0.7;
+  }
+
+  // actual circle
   & .selected::before {
     content: '';
     position: absolute;
+    // allow to place element behind parent content
     z-index: -100;
     top: -1px;
     left: -1px;
-    /*   transform: translateX(-50%); */
+
     display: inline-block;
     width: 40px;
     height: 40px;
-    background-color: #EAE7FF;
-  /*   background-color: red; */
-    border-radius: 50% 0 0 50%;
-  }
 
-  & .startRange.selected,
-  & .endRange.selected {
+    background-image: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+    background-color: #BC9CFF;
     border-radius: 50%;
   }
 
-  & .endRange.selected::before {
-  /*   left: auto; */
-  /*   right: 50%; */
+  & .startRange.selected {
+    border-radius: 50% 0 0 50%;
+  }
+
+  & .endRange.selected {
     border-radius: 0 50% 50% 0;
   }
 
