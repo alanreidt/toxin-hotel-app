@@ -11,12 +11,13 @@
   .room-box {
     display: block;
     width: 100%;
+    max-width: 270px;
 
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
 
-    // predict border-radius overlaping by child elements
+    // prevent border-radius overlaping by child elements
     overflow: hidden;
 
     box-sizing: border-box;
