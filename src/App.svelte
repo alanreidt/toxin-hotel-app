@@ -14,6 +14,7 @@
   import StatefulInput from "./components/StatefulInput.svelte";
   import RadioButton from "./components/RadioButton.svelte";
   import Toggle from "./components/Toggle.svelte";
+  import LikeButton from "./components/LikeButton.svelte";
   import Rating from "./components/Rating.svelte";
   import BulletList from "./components/BulletList.svelte";
   import CellBlock from "./components/CellBlock.svelte";
@@ -157,12 +158,9 @@
     <Toggle
       labelText="Получать спецпредложения"
       name="mailing" />
-    <StatefulInput
+    <LikeButton
       labelText="Нравится"
-      mods="type_like-button"
-      type="checkbox"
-      name="like-button"
-      value="on" />
+      name="like-button" />
     <Rating id="rating" name="rating" />
     <BulletList items={bulletListItems} />
     {#each cellBlockOptions as option}
