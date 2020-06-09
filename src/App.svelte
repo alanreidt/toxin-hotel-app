@@ -13,6 +13,7 @@
   import Checkbox from "./components/Checkbox.svelte";
   import StatefulInput from "./components/StatefulInput.svelte";
   import RadioButton from "./components/RadioButton.svelte";
+  import Toggle from "./components/Toggle.svelte";
   import Rating from "./components/Rating.svelte";
   import BulletList from "./components/BulletList.svelte";
   import CellBlock from "./components/CellBlock.svelte";
@@ -153,12 +154,9 @@
     {#each radioButtonOptions as option}
       <RadioButton {...option} type="radio" name="sex" />
     {/each}
-    <StatefulInput
+    <Toggle
       labelText="Получать спецпредложения"
-      mods="type_toggle"
-      type="checkbox"
-      name="mailing"
-      value="on" />
+      name="mailing" />
     <StatefulInput
       labelText="Нравится"
       mods="type_like-button"
