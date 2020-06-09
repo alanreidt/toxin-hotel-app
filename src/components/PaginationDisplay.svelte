@@ -6,11 +6,15 @@
   @import "../styles/mixins";
 
   .pagination-display {
+    display: block;
+    width: 100%;
+
     &__list {
       .list-styles-reset();
 
       display: flex;
       flex-flow: row nowrap;
+      justify-content: center;
     }
 
     &__link {
