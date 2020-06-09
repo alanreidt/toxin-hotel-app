@@ -12,6 +12,7 @@
   import SubscriptionField from "./components/SubscriptionField.svelte";
   import Checkbox from "./components/Checkbox.svelte";
   import StatefulInput from "./components/StatefulInput.svelte";
+  import RadioButton from "./components/RadioButton.svelte";
   import Rating from "./components/Rating.svelte";
   import BulletList from "./components/BulletList.svelte";
   import CellBlock from "./components/CellBlock.svelte";
@@ -48,7 +49,7 @@
     },
   ];
 
-  const statefullInputOptions = [
+  const radioButtonOptions = [
     { labelText: "Мужчина", value: "man", checked: true },
     { labelText: "Женщина", value: "woman", checked: false },
   ];
@@ -149,8 +150,8 @@
     {#each richCheckboxOptions as option}
       <Checkbox {...option} name="accesibility" />
     {/each}
-    {#each statefullInputOptions as option}
-      <StatefulInput {...option} type="radio" name="sex" />
+    {#each radioButtonOptions as option}
+      <RadioButton {...option} type="radio" name="sex" />
     {/each}
     <StatefulInput
       labelText="Получать спецпредложения"
