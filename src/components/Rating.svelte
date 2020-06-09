@@ -1,6 +1,11 @@
 <script>
   export let titles = ["Gorgeous", "Good", "Normal", "Bad", "Terrible"];
   export let id;
+  export let rating;
+
+  rating = Number(rating);
+
+  const hasRating = Number.isFinite(rating);
 
   let values = [];
 
@@ -28,6 +33,10 @@
 
       display: inline-block;
       vertical-align: middle;
+
+      &_disabled {
+        pointer-events: none;
+      }
 
       &:hover::before {
         content: "\e838";
@@ -66,10 +75,12 @@
 <div class="rating">
   {#each titles as title, index}
     <input
-      class="rating__input"
+      class="rating__input {hasRating ? "rating__input_disabled" : ''}"
       type="radio"
       id={id + '-' + values[index]}
       value={values[index]}
+      checked={values[index] === rating}
+      disabled={hasRating}
       {title}
       {...$$restProps} />
     <label class="rating__label" for={id + '-' + values[index]}>

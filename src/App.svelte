@@ -162,6 +162,7 @@
       labelText="Нравится"
       name="like-button" />
     <Rating id="rating" name="rating" />
+    <Rating id="rating-readonly" name="rating-readonly" rating="3" />
     <BulletList items={bulletListItems} />
     {#each cellBlockOptions as option}
       <CellBlock {...option} />
