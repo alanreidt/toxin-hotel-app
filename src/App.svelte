@@ -152,7 +152,7 @@
       <Checkbox {...option} name="accesibility" />
     {/each}
     {#each radioButtonOptions as option}
-      <RadioButton {...option} type="radio" name="sex" />
+      <RadioButton {...option} name="sex" />
     {/each}
     <Toggle
       labelText="Получать спецпредложения"
