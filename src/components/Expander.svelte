@@ -40,7 +40,7 @@
     if (isExpanderTarget) return;
 
     isExpanded = false;
-  });
+  }, true);
 
   document.addEventListener("focusin", (event) => {
     const isExpanderTarget = event.target.closest(".expander") === expander;
@@ -48,7 +48,7 @@
     if (isExpanderTarget) return;
 
     isExpanded = false;
-  });
+  }, true);
 </script>
 
 <style lang="less">
