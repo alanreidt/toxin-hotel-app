@@ -160,7 +160,8 @@
       name="mailing" />
     <LikeButton
       labelText="Нравится"
-      name="like-button" />
+      name="liked"
+      dataValue="12" />
     <Rating id="rating" name="rating" />
     <Rating id="rating-readonly" name="rating-readonly" rating="3" />
     <BulletList items={bulletListItems} />

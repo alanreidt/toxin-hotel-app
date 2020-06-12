@@ -1,5 +1,13 @@
 <script>
   export let labelText;
+  export let dataValue;
+
+  const initialValue = Number(dataValue);
+  const checkedValue = initialValue + 1;
+
+  function handleLikeButtonInputClick(event) {
+    dataValue = event.target.checked ? checkedValue : initialValue;
+  }
 </script>
 
 <style lang="less">
@@ -128,7 +136,7 @@
       &::after {
         .body-text();
 
-        content: "12";
+        content: attr(data-value);
         right: 10px;
         width: auto;
         height: auto;
@@ -156,7 +164,7 @@
 
 <div class="like-button like-button_type_like-button">
   <label class="like-button__label">
-    <input class="like-button__input" type="checkbox" value="on" {...$$restProps} />
+    <input on:click={handleLikeButtonInputClick} class="like-button__input" type="checkbox" data-value={dataValue} value="on" {...$$restProps} />
     <span class="like-button__text">{labelText}</span>
   </label>
 </div>
