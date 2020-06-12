@@ -5,15 +5,26 @@
   export let maxPageQuantity = 5;
   export let pagesToDisplay = 3;
 
+  let controlRight;
+
   const pagesInTotal = Math.ceil(itemsInTotal / itemsPerPage);
   const pageNumbers = new Array(pagesInTotal).fill(1).map((value, index) => index + 1);
 
   const isMaxPageQuantityExceeded = pagesInTotal > maxPageQuantity;
-  const currentPageIndex = currentPage - 1;
 
+  $: currentPageIndex = currentPage - 1;
   $: displayedPageNumbers = isMaxPageQuantityExceeded ?
     pageNumbers.slice(currentPageIndex, currentPageIndex + pagesToDisplay) :
     pageNumbers;
+
+  function handlePaginationListClick(event) {
+    if (event.target === controlRight) {
+      currentPage = Math.min(pagesInTotal, currentPage + 1);
+      return;
+    }
+
+    currentPage = Number(event.target.value);
+  }
 </script>
 
 <style lang="less">
@@ -102,12 +113,12 @@
 </style>
 
 <div class="pagination-display">
-  <ul class="pagination-display__list">
+  <ul class="pagination-display__list" on:click={handlePaginationListClick}>
     {#each displayedPageNumbers as pageNumber}
       <li class="pagination-display__item">
         <button
           class="pagination-display__link {pageNumber === currentPage ? "pagination-display__link_active" : ''}"
-          value="/page?{pageNumber}">
+          value="{pageNumber}">
           {pageNumber}
         </button>
       </li>
@@ -120,7 +131,7 @@
       <li class="pagination-display__item">
         <button
           class="pagination-display__link"
-          value="/page?{pageNumbers[pageNumbers.length - 1]}">
+          value="{pageNumbers[pageNumbers.length - 1]}">
           {pageNumbers[pageNumbers.length - 1]}
         </button>
       </li>
@@ -128,8 +139,8 @@
 
     <li class="pagination-display__item">
       <button
-        class="pagination-display__link pagination-display__link_arrow"
-        href="/mock-address/change-me"></button>
+        bind:this={controlRight}
+        class="pagination-display__link pagination-display__link_arrow"></button>
     </li>
   </ul>
 </div>
