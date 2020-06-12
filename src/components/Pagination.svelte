@@ -35,6 +35,7 @@
   .pagination {
     &__text {
       .body-text();
+      .not-selectable();
 
       margin-top: 10px;
       margin-bottom: 0;
