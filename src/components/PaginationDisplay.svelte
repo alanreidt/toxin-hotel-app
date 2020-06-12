@@ -33,6 +33,22 @@
     }
 
     &__link {
+      // reset <button>, <input> styles
+      padding: 0;
+      border: none;
+      background-color: transparent;
+
+      // reset <a> styles
+      text-decoration: none;
+
+      // add compatibility between html elements (<a>, <button>, <input>)
+      cursor: pointer;
+
+      // add standart behavior of a <button> to compatibility with <a>
+      // isolate component's rules from external influence
+      display: inline-block;
+      vertical-align: middle;
+
       .body-text();
       text-decoration: none;
 
@@ -89,11 +105,11 @@
   <ul class="pagination-display__list">
     {#each displayedPageNumbers as pageNumber}
       <li class="pagination-display__item">
-        <a
+        <button
           class="pagination-display__link {pageNumber === currentPage ? "pagination-display__link_active" : ''}"
-          href="mock-address/change-me">
+          value="/page?{pageNumber}">
           {pageNumber}
-        </a>
+        </button>
       </li>
     {/each}
 
@@ -102,18 +118,18 @@
         <a class="pagination-display__link">...</a>
       </li>
       <li class="pagination-display__item">
-        <a
+        <button
           class="pagination-display__link"
-          href="mock-address/change-me">
+          value="/page?{pageNumbers[pageNumbers.length - 1]}">
           {pageNumbers[pageNumbers.length - 1]}
-        </a>
+        </button>
       </li>
     {/if}
 
     <li class="pagination-display__item">
-      <a
+      <button
         class="pagination-display__link pagination-display__link_arrow"
-        href="/mock-address/change-me"></a>
+        href="/mock-address/change-me"></button>
     </li>
   </ul>
 </div>
