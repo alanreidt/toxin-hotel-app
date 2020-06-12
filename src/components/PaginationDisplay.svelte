@@ -21,9 +21,9 @@
     pageNumbers;
 
   function handlePaginationListClick(event) {
-    const isPaginationLinkTarget = event.target.closest(".pagination-display__link") !== null;
+    const isPaginationButtonTarget = event.target.closest(".pagination-display__button") !== null;
 
-    if (!isPaginationLinkTarget) {
+    if (!isPaginationButtonTarget) {
       return;
     }
 
@@ -65,7 +65,7 @@
       }
     }
 
-    &__link {
+    &__button {
       // reset <button>, <input> styles
       padding: 0;
       border: none;
@@ -104,7 +104,7 @@
       }
     }
 
-    &__link_active {
+    &__button_active {
       background-image: @primary-gradient;
       color: #fff;
 
@@ -114,11 +114,11 @@
       }
     }
 
-    &__arrow {
+    &__control-button {
       // .arrow();
       .decoration_type_arrow-forward();
 
-      &_left::before {
+      &_type_prev::before {
         content: "\e5c4";
       }
 
@@ -146,13 +146,13 @@
       <button
         bind:this={controlLeft}
         disabled={isFirstPage}
-        class="pagination-display__link pagination-display__arrow pagination-display__arrow_left"></button>
+        class="pagination-display__button pagination-display__control-button pagination-display__control-button_type_prev"></button>
     </li>
 
     {#each displayedPageNumbers as pageNumber}
       <li class="pagination-display__item">
         <button
-          class="pagination-display__link {pageNumber === currentPage ? "pagination-display__link_active" : ''}"
+          class="pagination-display__button {pageNumber === currentPage ? "pagination-display__button_active" : ''}"
           value="{pageNumber}">
           {pageNumber}
         </button>
@@ -161,11 +161,11 @@
 
     {#if (isMaxPageQuantityExceeded)}
       <li class="pagination-display__item">
-        <a class="pagination-display__link">...</a>
+        <a class="pagination-display__button">...</a>
       </li>
       <li class="pagination-display__item">
         <button
-          class="pagination-display__link"
+          class="pagination-display__button"
           value="{pageNumbers[pageNumbers.length - 1]}">
           {pageNumbers[pageNumbers.length - 1]}
         </button>
@@ -176,7 +176,7 @@
       <button
         bind:this={controlRight}
         disabled={isLastPage}
-        class="pagination-display__link pagination-display__arrow"></button>
+        class="pagination-display__button pagination-display__control-button"></button>
     </li>
   </ul>
 </div>
