@@ -45,6 +45,6 @@
 </style>
 
 <div class="pagination">
-  <PaginationDisplay/>
+  <PaginationDisplay bind:currentPage />
   <p class="pagination__text">{text}</p>
 </div>
