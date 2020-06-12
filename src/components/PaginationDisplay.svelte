@@ -5,6 +5,7 @@
   export let maxPageQuantity = 5;
   export let pagesToDisplay = 3;
 
+  let controlLeft;
   let controlRight;
 
   const pagesInTotal = Math.ceil(itemsInTotal / itemsPerPage);
@@ -12,14 +13,27 @@
 
   const isMaxPageQuantityExceeded = pagesInTotal > maxPageQuantity;
 
+  $: isFirstPage = currentPage === 1;
+  $: isLastPage = currentPage === pagesInTotal;
   $: currentPageIndex = currentPage - 1;
   $: displayedPageNumbers = isMaxPageQuantityExceeded ?
     pageNumbers.slice(currentPageIndex, currentPageIndex + pagesToDisplay) :
     pageNumbers;
 
   function handlePaginationListClick(event) {
+    const isPaginationLinkTarget = event.target.closest(".pagination-display__link") !== null;
+
+    if (!isPaginationLinkTarget) {
+      return;
+    }
+
     if (event.target === controlRight) {
       currentPage = Math.min(pagesInTotal, currentPage + 1);
+      return;
+    }
+
+    if (event.target === controlLeft) {
+      currentPage = Math.min(pagesInTotal, currentPage - 1);
       return;
     }
 
@@ -43,6 +57,14 @@
       justify-content: center;
     }
 
+    &__item {
+      visibility: inherit;
+
+      &_hidden {
+        visibility: hidden;
+      }
+    }
+
     &__link {
       // reset <button>, <input> styles
       padding: 0;
@@ -61,6 +83,7 @@
       vertical-align: middle;
 
       .body-text();
+      .not-selectable();
       text-decoration: none;
 
       display: inline-block;
@@ -91,9 +114,14 @@
       }
     }
 
-    &__link_arrow {
+    &__arrow {
       // .arrow();
       .decoration_type_arrow-forward();
+
+      &_left::before {
+        content: "\e5c4";
+      }
+
       &::before {
         // styles for .decoration_type_arrow-forward();
         width: inherit;
@@ -114,6 +142,13 @@
 
 <div class="pagination-display">
   <ul class="pagination-display__list" on:click={handlePaginationListClick}>
+    <li class="pagination-display__item {isFirstPage ? "pagination-display__item_hidden": ''}">
+      <button
+        bind:this={controlLeft}
+        disabled={isFirstPage}
+        class="pagination-display__link pagination-display__arrow pagination-display__arrow_left"></button>
+    </li>
+
     {#each displayedPageNumbers as pageNumber}
       <li class="pagination-display__item">
         <button
@@ -137,10 +172,11 @@
       </li>
     {/if}
 
-    <li class="pagination-display__item">
+    <li class="pagination-display__item {isLastPage ? "pagination-display__item_hidden": ''}">
       <button
         bind:this={controlRight}
-        class="pagination-display__link pagination-display__link_arrow"></button>
+        disabled={isLastPage}
+        class="pagination-display__link pagination-display__arrow"></button>
     </li>
   </ul>
 </div>
