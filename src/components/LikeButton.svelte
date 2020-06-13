@@ -1,6 +1,6 @@
 <script>
-  export let labelText;
-  export let dataValue;
+  export let labelText = "Нравится";
+  export let dataValue = 0;
 
   const initialValue = Number(dataValue);
   const checkedValue = initialValue + 1;
