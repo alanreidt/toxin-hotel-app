@@ -1,9 +1,10 @@
 <script>
   import Media from "./Media.svelte";
 
-  export let title;
-  export let description;
-  export let materialIconName;
+  export let options;
+  // options.title;
+  // options.description;
+  // options.materialIconName;
 </script>
 
 <style lang="less">
@@ -11,14 +12,16 @@
   @import "../styles/mixins";
 
   .cell-block {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    &__item {
+      padding-top: 20px;
+      padding-bottom: 20px;
 
-    border-top: 1px solid #colors[dark-shade-10];
+      border-top: 1px solid #colors[dark-shade-10];
 
-    &:first-child {
-      padding-top: 0;
-      border-top: 0;
+      &:first-child {
+        padding-top: 0;
+        border-top: 0;
+      }
     }
 
     &__icon {
@@ -28,8 +31,12 @@
   }
 </style>
 
-<div class="cell-block" {...$$restProps}>
-  <Media {title} {description}>
-    <i class="material-icons cell-block__icon">{materialIconName}</i>
-  </Media>
+<div class="cell-block">
+  {#each options as {title, description, materialIconName}}
+    <div class="cell-block__item" {...$$restProps}>
+      <Media {title} {description}>
+        <i class="material-icons cell-block__icon">{materialIconName}</i>
+      </Media>
+    </div>
+  {/each}
 </div>

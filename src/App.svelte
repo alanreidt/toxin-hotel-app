@@ -167,9 +167,7 @@
     <Rating id="rating" name="rating" />
     <Rating id="rating-readonly" name="rating-readonly" rating="3" />
     <BulletList items={bulletListItems} />
-    {#each cellBlockOptions as option}
-      <CellBlock {...option} />
-    {/each}
+    <CellBlock options={cellBlockOptions} />
     <Pagination />
 
     <Button text="click me" mods="main" href="#" />
