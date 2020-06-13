@@ -1,6 +1,6 @@
 <script>
   import Media from "./Media.svelte";
-  import StatefulInput from "./StatefulInput.svelte";
+  import LikeButton from "./LikeButton.svelte";
 
   export let authorName;
   export let date;
@@ -66,13 +66,10 @@
   </div>
   <div class="comment__body">
     <div class="comment__button">
-      <StatefulInput
-        labelText='like button'
-        mods='type_like-button'
-        type='checkbox'
-        name='like-button-1'
-        value='on'
+      <LikeButton
+        name='liked'
         checked={liked}
+        dataValue={12}
       />
     </div>
     <div class="comment__content">
