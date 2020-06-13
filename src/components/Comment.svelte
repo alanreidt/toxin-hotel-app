@@ -6,6 +6,7 @@
   export let date;
   export let imgSrc;
   export let liked;
+  export let likeButtonValue;
   export let commentText;
 </script>
 
@@ -69,7 +70,7 @@
       <LikeButton
         name='liked'
         checked={liked}
-        dataValue={12}
+        dataValue={likeButtonValue}
       />
     </div>
     <div class="comment__content">
