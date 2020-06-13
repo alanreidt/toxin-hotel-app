@@ -5,6 +5,8 @@
   const initialValue = Number(dataValue);
   const checkedValue = initialValue + 1;
 
+  dataValue = $$restProps.checked ? checkedValue : initialValue;
+
   function handleLikeButtonInputClick(event) {
     dataValue = event.target.checked ? checkedValue : initialValue;
   }
