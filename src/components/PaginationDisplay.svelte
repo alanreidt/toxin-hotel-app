@@ -8,7 +8,8 @@
   let controlLeft;
   let controlRight;
 
-  const pagesInTotal = Math.ceil(itemsInTotal / itemsPerPage);
+  // const pagesInTotal = Math.ceil(itemsInTotal / itemsPerPage);
+  const pagesInTotal = 5;
   const pageNumbers = new Array(pagesInTotal).fill(1).map((value, index) => index + 1);
 
   const isMaxPageQuantityExceeded = pagesInTotal > maxPageQuantity;
@@ -59,8 +60,9 @@
 
     &__item {
       visibility: inherit;
+      opacity: 1;
 
-      &_hidden {
+      &_disabled {
         visibility: hidden;
       }
     }
@@ -142,7 +144,7 @@
 
 <div class="pagination-display">
   <ul class="pagination-display__list" on:click={handlePaginationListClick}>
-    <li class="pagination-display__item {isFirstPage ? "pagination-display__item_hidden": ''}">
+    <li class="pagination-display__item {isFirstPage ? "pagination-display__item_disabled": ''}">
       <button
         bind:this={controlLeft}
         disabled={isFirstPage}
@@ -172,7 +174,7 @@
       </li>
     {/if}
 
-    <li class="pagination-display__item {isLastPage ? "pagination-display__item_hidden": ''}">
+    <li class="pagination-display__item {isLastPage ? "pagination-display__item_disabled": ''}">
       <button
         bind:this={controlRight}
         disabled={isLastPage}
