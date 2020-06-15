@@ -34,7 +34,7 @@
     }
 
     if (event.target === controlLeft) {
-      currentPage = Math.min(pagesInTotal, currentPage - 1);
+      currentPage = Math.max(1, currentPage - 1);
       return;
     }
 
