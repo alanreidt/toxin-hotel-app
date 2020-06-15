@@ -18,7 +18,7 @@
     display: block;
     width: 100%;
 
-    &_is-expanded &__trigger {
+    &_expanded &__trigger::after {
       transform: rotate(-180deg);
     }
 
@@ -48,7 +48,7 @@
         color: inherit;
         background-color: transparent;
 
-        /* transition: transform 0.3s ease; */
+        transition: transform 0.3s ease;
 
         box-sizing: border-box;
         pointer-events: none;
@@ -89,7 +89,7 @@
 </style>
 
 <div class="expandable-checkbox-list {expanded ? 'expandable-checkbox-list_expanded' : ''}">
-  <Expander bind:expanded>
+  <Expander bind:isExpanded={expanded}>
     <div on:focusin|stopPropagation slot="trigger" class="expandable-checkbox-list__trigger">
       <button class="expandable-checkbox-list__button">{labelText}</button>
     </div>
