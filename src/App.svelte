@@ -11,6 +11,7 @@
   import FilterDateDropdown from "./components/FilterDateDropdown.svelte";
   import SubscriptionField from "./components/SubscriptionField.svelte";
   import Checkbox from "./components/Checkbox.svelte";
+  import ExpandableCheckboxList from "./components/ExpandableCheckboxList.svelte";
   import StatefulInput from "./components/StatefulInput.svelte";
   import RadioButton from "./components/RadioButton.svelte";
   import Toggle from "./components/Toggle.svelte";
@@ -68,6 +69,29 @@
       labelExplanation:
         "На&nbsp;1&nbsp;этаже вас встретит специалист и&nbsp;проводит до&nbsp;номера.",
       value: "assistant",
+    },
+  ];
+
+  const expandableCheckboxListOptions = [
+    {
+      labelText: 'Завтрак',
+      value: 'breakfast',
+    },
+    {
+      labelText: 'Письменный стол',
+      value: 'desk',
+    },
+    {
+      labelText: 'Стул для кормления',
+      value: 'feeding_chair',
+    },
+    {
+      labelText: 'Телевизор',
+      value: 'TV',
+    },
+    {
+      labelText: 'Шампунь',
+      value: 'shampoo',
     },
   ];
 
@@ -154,6 +178,7 @@
     {#each richCheckboxOptions as option}
       <Checkbox {...option} name="accesibility" />
     {/each}
+    <ExpandableCheckboxList options={expandableCheckboxListOptions} labelText="expandable checkbox list" name="expandable-checkbox-list" />
     {#each radioButtonOptions as option}
       <RadioButton {...option} name="sex" />
     {/each}
