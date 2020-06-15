@@ -3,13 +3,13 @@
   export let itemsInTotal = 100;
   export let currentPage = 1;
   export let maxPageQuantity = 5;
-  export let pagesToDisplay = 3;
+  export let pagesToDisplay = 5;
 
   let controlLeft;
   let controlRight;
 
   // const pagesInTotal = Math.ceil(itemsInTotal / itemsPerPage);
-  const pagesInTotal = 5;
+  const pagesInTotal = 15;
   const pageNumbers = new Array(pagesInTotal).fill(1).map((value, index) => index + 1);
 
   const isMaxPageQuantityExceeded = pagesInTotal > maxPageQuantity;
@@ -150,6 +150,19 @@
         disabled={isFirstPage}
         class="pagination-display__button pagination-display__control-button pagination-display__control-button_type_prev"></button>
     </li>
+
+    {#if (isMaxPageQuantityExceeded)}
+      <li class="pagination-display__item">
+        <button
+          class="pagination-display__button"
+          value="{pageNumbers[0]}">
+          {pageNumbers[0]}
+        </button>
+      </li>
+      <li class="pagination-display__item">
+        <a class="pagination-display__button">...</a>
+      </li>
+    {/if}
 
     {#each displayedPageNumbers as pageNumber}
       <li class="pagination-display__item">
