@@ -59,7 +59,7 @@
     position: relative;
 
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
     width: 100%;
 
     &_is-expanded &__menu {
