@@ -8,17 +8,34 @@
   let controlLeft;
   let controlRight;
 
-  // const pagesInTotal = Math.ceil(itemsInTotal / itemsPerPage);
-  const pagesInTotal = 15;
-  const pageNumbers = new Array(pagesInTotal).fill(1).map((value, index) => index + 1);
-
-  const isMaxPageQuantityExceeded = pagesInTotal > maxPageQuantity;
+  const pagesInTotal = Math.ceil(itemsInTotal / itemsPerPage);
 
   $: isFirstPage = currentPage === 1;
   $: isLastPage = currentPage === pagesInTotal;
+
+  $: isExceededStart = currentPage >= pagesToDisplay;
+  $: isExceededEnd = currentPage <= pagesInTotal - pagesToDisplay;
   $: currentPageIndex = currentPage - 1;
+
+  const isMaxPageQuantityExceeded = pagesInTotal > maxPageQuantity;
+  const pageNumbers = new Array(pagesInTotal).fill(1).map((value, index) => index + 1);
+
+  const findDisplayedPageNumbers = (currentPageIndex, pagesToDisplay) => {
+    if (isExceededStart && isExceededEnd) {
+      return pageNumbers.slice(currentPageIndex - 1, currentPageIndex - 1 + 3);
+    }
+
+    if (isExceededEnd) {
+      return pageNumbers.slice(0, 0 + pagesToDisplay);
+    }
+
+    if (isExceededStart) {
+      return pageNumbers.slice(pagesInTotal - pagesToDisplay);
+    }
+  };
+
   $: displayedPageNumbers = isMaxPageQuantityExceeded ?
-    pageNumbers.slice(currentPageIndex, currentPageIndex + pagesToDisplay) :
+    findDisplayedPageNumbers(currentPageIndex, pagesToDisplay) :
     pageNumbers;
 
   function handlePaginationListClick(event) {
@@ -59,11 +76,12 @@
     }
 
     &__item {
-      visibility: inherit;
+      display: block;
       opacity: 1;
 
       &_disabled {
         visibility: hidden;
+        display: none;
       }
     }
 
@@ -152,14 +170,15 @@
     </li>
 
     {#if (isMaxPageQuantityExceeded)}
-      <li class="pagination-display__item">
+      <li class="pagination-display__item {!isExceededStart ? "pagination-display__item_disabled": ''}">
         <button
+          disabled={!isExceededStart}
           class="pagination-display__button"
           value="{pageNumbers[0]}">
           {pageNumbers[0]}
         </button>
       </li>
-      <li class="pagination-display__item">
+      <li class="pagination-display__item {!isExceededStart ? "pagination-display__item_disabled": ''}">
         <a class="pagination-display__button">...</a>
       </li>
     {/if}
@@ -175,11 +194,12 @@
     {/each}
 
     {#if (isMaxPageQuantityExceeded)}
-      <li class="pagination-display__item">
+      <li class="pagination-display__item {!isExceededEnd ? "pagination-display__item_disabled": ''}">
         <a class="pagination-display__button">...</a>
       </li>
-      <li class="pagination-display__item">
+      <li class="pagination-display__item {!isExceededEnd ? "pagination-display__item_disabled": ''}">
         <button
+          disabled={!isExceededEnd}
           class="pagination-display__button"
           value="{pageNumbers[pageNumbers.length - 1]}">
           {pageNumbers[pageNumbers.length - 1]}
