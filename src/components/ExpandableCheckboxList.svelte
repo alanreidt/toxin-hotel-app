@@ -12,11 +12,11 @@
   @import "../styles/variables";
   @import "../styles/mixins";
 
+  @button-height: 18px;
+
   .expandable-checkbox-list {
     display: block;
     width: 100%;
-    /* height: 30px;
-    background-color: red; */
 
     &_is-expanded &__trigger {
       transform: rotate(-180deg);
@@ -39,10 +39,10 @@
         vertical-align: middle;
 
         width: 2.75rem;
-        height: 2.75rem;
-        line-height: 2.75rem;
-        height: 15px;
-        line-height: 15px;
+        /* height: 2.75rem;
+        line-height: 2.75rem; */
+        height: @button-height;
+        line-height: @button-height;
 
         text-align: center;
         color: inherit;
@@ -70,11 +70,14 @@
       // add standart behavior of a <button> to compatibility with <a>
       // isolate component's rules from external influence
       display: inline-block;
-      vertical-align: middle;
+      vertical-align: top;
       width: 100%;
 
       .h3-text();
       .not-selectable();
+
+      height: @button-height;
+      text-align: left;
     }
 
     &__menu {
