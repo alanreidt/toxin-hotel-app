@@ -83,6 +83,7 @@
     &__menu {
       .fieldset-styles-reset();
 
+      padding-top: 18px;
       background-color: #fff;
     }
   }
