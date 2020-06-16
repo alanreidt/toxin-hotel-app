@@ -35,7 +35,7 @@
 <div class="search-box">
   <form name="search-box-form" autocomplete="off">
     <Box>
-      <span slot="title" class="search-box__title">Найдем номера под ваши пожелания</span>
+      <h2 slot="title" class="search-box__title">Найдем номера под ваши пожелания</h2>
       <div class="search-box__row">
         <DateDropdown/>
       </div>
