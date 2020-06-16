@@ -33,9 +33,9 @@
 </style>
 
 <div class="search-box">
-  <Box>
-    <span slot="title" class="search-box__title">Найдем номера под ваши пожелания</span>
-    <form name="search-box-form" autocomplete="off">
+  <form name="search-box-form" autocomplete="off">
+    <Box>
+      <span slot="title" class="search-box__title">Найдем номера под ваши пожелания</span>
       <div class="search-box__row">
         <DateDropdown/>
       </div>
@@ -46,9 +46,9 @@
           hasButtonPane={true}
           name="guests" />
       </div>
-      <div class="search-box__row">
+      <div slot="footer" class="search-box__footer">
         <Button href="/mock-address/change-me" text="подобрать номер" mods="full-width" />
       </div>
-    </form>
-  </Box>
+    </Box>
+  </form>
 </div>
