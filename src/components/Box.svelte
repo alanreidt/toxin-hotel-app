@@ -33,22 +33,29 @@
       @media (max-width: 365px) {
         margin-bottom: 18px;
       }
-    }
 
-    &__title {
-      .h1-text();
+      & :global(h6),
+      & :global(h5),
+      & :global(h4),
+      & :global(h3),
+      & :global(h2),
+      & :global(h1),
+      & :global(span) {
+        .h1-text();
 
-      margin-top: 0;
-      margin-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
 
-      // @media ( max-width: calc(380px + 2 * @site-paddings[small]) ) {
-      //   text-align: center;
-      // }
+        // @media ( max-width: calc(380px + 2 * @site-paddings[small]) ) {
+        //   text-align: center;
+        // }
 
-      @media (max-width: 365px) {
-        font-size: 22px;
+        @media (max-width: 365px) {
+          font-size: 22px;
+        }
       }
     }
+
 
     &__body {
       display: block;
@@ -115,9 +122,7 @@
 <div class="box">
   <div class="box__inner">
     <div class="box__header">
-      <h2 class="box__title">
-        <slot name="title"></slot>
-      </h2>
+      <slot name="title"></slot>
     </div>
     <div class="box__body">
       <slot></slot>
