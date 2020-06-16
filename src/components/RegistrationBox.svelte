@@ -3,6 +3,8 @@
   import DateInputField from "./DateInputField.svelte";
   import InputField from "./InputField.svelte";
   import StatefulInput from "./StatefulInput.svelte";
+  import RadioButton from "./RadioButton.svelte";
+  import Toggle from "./Toggle.svelte";
   import Button from "./Button.svelte";
 </script>
 
@@ -63,16 +65,14 @@
           />
         </div>
         <div class="registration-box__item">
-          <StatefulInput
+          <RadioButton
             labelText='Мужчина'
-            type='radio'
             name='registration-box-sex'
             value='man'
             checked
           />
-          <StatefulInput
+          <RadioButton
             labelText='Женщина'
-            type='radio'
             name='registration-box-sex'
             value='woman'
           />
@@ -115,13 +115,10 @@
           />
         </div>
         <div class="registration-box__item">
-          <StatefulInput
+          <Toggle
             labelText='Получать спецпредложения'
-            mods='type_toggle'
             id='registration-box-mailing'
-            type='checkbox'
             name='registration-box-mailing'
-            value='on'
           />
         </div>
       </div>
