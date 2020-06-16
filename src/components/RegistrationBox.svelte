@@ -1,4 +1,5 @@
 <script>
+  import Box from "./Box.svelte";
   import DateInputField from "./DateInputField.svelte";
   import InputField from "./InputField.svelte";
   import StatefulInput from "./StatefulInput.svelte";
@@ -10,18 +11,12 @@
   @import "../styles/mixins";
 
   .registration-box {
-    #box();
-
-    &__inner {
-      #box.inner();
-    }
-
     &__row {
-      #box.row();
-    }
+      margin-bottom: 20px;
 
-    &__title {
-      #box.title();
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     &__input-text {
@@ -43,10 +38,8 @@
 </style>
 
 <div class="registration-box">
-  <div class="registration-box__inner">
-    <div class="registration-box__row">
-      <h2 class="registration-box__title">Регистрация аккаунта</h2>
-    </div>
+  <Box>
+    <h2 slot="title" class="registration-box__title">Регистрация аккаунта</h2>
     <form name="registration-box-form" autocomplete="on">
       <div class="registration-box__row">
         <div class="registration-box__item">
@@ -137,14 +130,12 @@
           <Button text="перейти к оплате" mods="full-width" />
         </div>
       </div>
-      <div class="registration-box__row">
-        <div class="registration-box__item">
-          <div class="registration-box__alternate-entry">
-            <p class="registration-box__text">Уже есть аккаунт на Toxin?</p>
-            <Button text="Войти" mods="secondary" href="/mock-address/change-me" />
-          </div>
-        </div>
-      </div>
     </form>
-  </div>
+    <div slot="footer" class="registration-box__footer">
+      <div class="registration-box__alternate-entry">
+        <p class="registration-box__text">Уже есть аккаунт на Toxin?</p>
+        <Button text="Войти" mods="secondary" href="/mock-address/change-me" />
+      </div>
+    </div>
+  </Box>
 </div>
