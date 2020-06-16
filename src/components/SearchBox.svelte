@@ -1,4 +1,5 @@
 <script>
+  import Box from "./Box.svelte";
   import DateDropdown from "./DateDropdown.svelte";
   import Dropdown from "./Dropdown.svelte";
   import Button from "./Button.svelte";
@@ -15,35 +16,25 @@
   @import "../styles/mixins";
 
   .search-box {
-    #box();
-
-    &__inner {
-      #box.inner();
-    }
-
     &__row {
-      #box.row();
-    }
+      margin-bottom: 20px;
 
-    &__title {
-      #box.title();
-
-      @media (max-width: 340px) {
-        text-align: center;
+      &:last-child {
+        margin-bottom: 0;
       }
     }
 
-    &__input-text {
-      #box.input-text();
+    &__title {
+      @media (max-width: 340px) {
+        text-align: center;
+      }
     }
   }
 </style>
 
 <div class="search-box">
-  <div class="search-box__inner">
-    <div class="search-box__row">
-      <h2 class="search-box__title">Найдем номера под ваши пожелания</h2>
-    </div>
+  <Box>
+    <span slot="title" class="search-box__title">Найдем номера под ваши пожелания</span>
     <form name="search-box-form" autocomplete="off">
       <div class="search-box__row">
         <DateDropdown/>
@@ -56,8 +47,8 @@
           name="guests" />
       </div>
       <div class="search-box__row">
-        <Button href="/mock-address/change-me" text="перейти к оплате" mods="full-width" />
+        <Button href="/mock-address/change-me" text="подобрать номер" mods="full-width" />
       </div>
     </form>
-  </div>
+  </Box>
 </div>
