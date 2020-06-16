@@ -6,8 +6,11 @@
   import rangePlugin from "../../node_modules/flatpickr/dist/plugins/rangePlugin";
   import "../../node_modules/flatpickr/dist/l10n/ru.js";
 
-  let fromInputField;
-  let toInputField;
+  export let startDateLabelText = "Прибытие";
+  export let endDateLabelText = "Выезд";
+
+  let startDateInputField;
+  let endDateInputField;
 
   // I use onMount here, 'cause a use directive can't be attached to a component
   // You can pass an action property as alternative, but it'll restrict your options
@@ -22,7 +25,7 @@
       allowInput: true,
       minDate: "today",
       // maxDate: new Date().fp_incr(2),
-      plugins: [new rangePlugin({ input: toInputField})],
+      plugins: [new rangePlugin({ input: endDateInputField})],
       // inline: true,
       // ariaDateFormat: "",
       // appendTo: HTMLElement,
@@ -31,7 +34,7 @@
       prevArrow: "",
     };
 
-    const flatpickrInstance = flatpickr(fromInputField, datepickerOptions);
+    const flatpickrInstance = flatpickr(startDateInputField, datepickerOptions);
 
     return () => flatpickrInstance.destroy();
   });
@@ -103,10 +106,10 @@
 <div class="date-dropdown">
   <div class="date-dropdown__input-group">
     <div class="date-dropdown__col date-dropdown__input">
-      <DateInputField bind:inputField={fromInputField} labelText="date dropdown" />
+      <DateInputField bind:inputField={startDateInputField} labelText={startDateLabelText} />
     </div>
     <div class="date-dropdown__col date-dropdown__input">
-      <DateInputField bind:inputField={toInputField} labelText="date dropdown" />
+      <DateInputField bind:inputField={endDateInputField} labelText={endDateLabelText} />
     </div>
   </div>
 </div>
