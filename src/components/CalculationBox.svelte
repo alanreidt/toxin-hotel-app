@@ -1,4 +1,5 @@
 <script>
+  import Box from "./Box.svelte";
   import RoomInfo from "./RoomInfo.svelte";
   import DateDropdown from "./DateDropdown.svelte";
   import Dropdown from "./Dropdown.svelte";
@@ -16,27 +17,16 @@
   @import "../styles/mixins";
 
   .calculation-box {
-    #box();
-
-    &__inner {
-      #box.inner();
-    }
-
-    & .datepicker {
-      // lay out above .calculation-box__service-text
-      z-index: 200;
-    }
-
     &__row {
-      #box.row();
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     &__item {
       #box.item();
-    }
-
-    &__input-text {
-      #box.input-text();
     }
 
     &__service-info {
@@ -98,11 +88,12 @@
 </style>
 
 <div class="calculation-box">
-  <div class="calculation-box__inner">
-    <div class="calculation-box__row">
-      <RoomInfo number='888' price='9 990₽' isLuxe={true}/>
-    </div>
-    <form name="calculation-box-form" autocomplete="on">
+  <form name="calculation-box-form" autocomplete="on">
+    <Box>
+      <div slot="title" class="calculation-box__header">
+        <RoomInfo number='888' price='9 990₽' isLuxe={true}/>
+      </div>
+
       <div class="calculation-box__row">
         <DateDropdown/>
       </div>
@@ -148,17 +139,18 @@
           </div>
         </div>
       </div>
-      <div class="calculation-box__row">
-        <div class="calculation-box__item calculation-box__summary-group">
+
+      <div slot="footer" class="calculation-box__footer">
+        <div class="calculation-box__row">
           <div class="calculation-box__summary-info">
             <span class="calculation-box__summary-text">Итого</span>
             <span class="calculation-box__summary-price">38 081₽</span>
           </div>
         </div>
-        <div class="calculation-box__item">
+        <div class="calculation-box__row">
           <Button text="Забронировать" mods="full-width" />
         </div>
       </div>
-    </form>
-  </div>
+    </Box>
+  </form>
 </div>
