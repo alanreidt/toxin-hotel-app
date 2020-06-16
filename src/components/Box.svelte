@@ -25,25 +25,13 @@
       }
     }
 
-    &__row {
+    &__header {
       display: block;
+      width: 100%;
       margin-bottom: 20px;
 
       @media (max-width: 365px) {
         margin-bottom: 18px;
-      }
-
-      &:last-child {
-        margin-top: 30px;
-        margin-bottom: 0;
-      }
-    }
-
-    &__item {
-      margin-bottom: 10px;
-
-      &:last-child {
-        margin-bottom: 0;
       }
     }
 
@@ -59,6 +47,25 @@
 
       @media (max-width: 365px) {
         font-size: 22px;
+      }
+    }
+
+    &__body {
+      display: block;
+      width: 100%;
+    }
+
+    &__footer {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    &__item {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
       }
     }
 
@@ -107,13 +114,16 @@
 
 <div class="box">
   <div class="box__inner">
-    <div class="box__row">
+    <div class="box__header">
       <h2 class="box__title">
         <slot name="title"></slot>
       </h2>
     </div>
-    <div class="box__row">
+    <div class="box__body">
       <slot></slot>
+    </div>
+    <div class="box__footer">
+      <slot name="footer"></slot>
     </div>
   </div>
 </div>
