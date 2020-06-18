@@ -55,13 +55,7 @@
       <RoomInfo number="840" price="9 900₽"/>
     </div>
     <div class="room-box__room-rating">
-      <form
-        class="room-box__form"
-        method="get"
-        name="room-box-form"
-        autocomplete="on">
-        <RoomRating/>
-      </form>
+      <RoomRating/>
     </div>
   </div>
 </div>
