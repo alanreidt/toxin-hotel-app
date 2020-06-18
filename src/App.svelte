@@ -147,6 +147,7 @@
   };
 
   const room888Options = {
+    href: "/mock-address/change-me",
     imageSources: ["images/room-888.jpg", "images/room-840.jpg"],
     number: 888,
     price: 9990,
@@ -156,6 +157,7 @@
   };
 
   const room840Options = {
+    href: "/mock-address/change-me",
     imageSources: ["images/room-840.jpg", "images/room-888.jpg"],
     number: 840,
     price: 9900,

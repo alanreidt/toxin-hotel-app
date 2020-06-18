@@ -3,7 +3,7 @@
   import RoomInfo from "./RoomInfo.svelte";
   import RoomRating from "./RoomRating.svelte";
 
-  export let href = "/mock-address/change-me";
+  export let href;
 
   export let imageSources;
 
