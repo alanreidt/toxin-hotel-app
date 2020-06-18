@@ -115,6 +115,10 @@
       cursor: pointer;
       box-sizing: border-box;
 
+      &.active {
+        background-color: #fff;
+      }
+
       &:last-child {
         margin-right: 0;
       }
