@@ -140,6 +140,12 @@
     },
   ];
 
+  const calculationBoxOptions = {
+    number: 888,
+    price: 9990,
+    isLuxe: true,
+  };
+
   const room888Options = {
     imageSources: ["images/room-888.jpg", "images/room-840.jpg"],
     number: 888,
@@ -228,7 +234,7 @@
   <div class="row row_medium">
     <SearchBox />
     <RegistrationBox />
-    <CalculationBox />
+    <CalculationBox {...calculationBoxOptions} />
     <EntryBox />
     <RoomBox {...room888Options} />
     <RoomBox {...room840Options} />

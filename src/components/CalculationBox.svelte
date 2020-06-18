@@ -5,6 +5,10 @@
   import Dropdown from "./Dropdown.svelte";
   import Button from "./Button.svelte";
 
+  export let number;
+  export let price;
+  export let isLuxe;
+
   const dropdownOptions = [
     { name: "Взрослые", min: 0, max: 5, value: 0 },
     { name: "Дети", min: 0, max: 5, value: 0 },
@@ -91,7 +95,7 @@
   <form name="calculation-box-form" autocomplete="on">
     <Box>
       <div slot="title" class="calculation-box__header">
-        <RoomInfo number='888' price='9 990₽' isLuxe={true}/>
+        <RoomInfo {number} {price} {isLuxe} />
       </div>
 
       <div class="calculation-box__row">
