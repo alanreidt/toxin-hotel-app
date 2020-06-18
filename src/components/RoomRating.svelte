@@ -1,5 +1,9 @@
 <script>
   import Rating from "./Rating.svelte";
+
+  export let name;
+  export let rating;
+  export let reviewsQuantity;
 </script>
 
 <style lang="less">
@@ -26,10 +30,10 @@
 </style>
 
 <div class="room-rating">
-  <Rating id='room-box-rating' name='room-box-rating' />
+  <Rating id={name} {name} {rating} />
 
   <span class="room-rating__reviews">
-    <span class="room-rating__digit">145</span>
+    <span class="room-rating__digit">{reviewsQuantity}</span>
     Отзывов
   </span>
 </div>

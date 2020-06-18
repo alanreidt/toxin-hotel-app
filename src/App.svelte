@@ -139,6 +139,23 @@
         "Обслуживание на&nbsp;высоте! Всё аккуратно, чисто. Завтраки в&nbsp;номер советую заказать, каждый день новое блюдо и&nbsp;десерт как комплимент",
     },
   ];
+
+  const room888Options = {
+    imageSources: ["images/room-888.jpg", "images/room-840.jpg"],
+    number: 888,
+    price: 9990,
+    isLuxe: true,
+    rating: 5,
+    reviewsQuantity: 145,
+  };
+
+  const room840Options = {
+    imageSources: ["images/room-840.jpg", "images/room-888.jpg"],
+    number: 840,
+    price: 9900,
+    rating: 4,
+    reviewsQuantity: 65,
+  };
 </script>
 
 <style lang="less">
@@ -213,7 +230,8 @@
     <RegistrationBox />
     <CalculationBox />
     <EntryBox />
-    <RoomBox />
+    <RoomBox {...room888Options} />
+    <RoomBox {...room840Options} />
   </div>
   <div class="row">
     <Topline />

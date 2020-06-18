@@ -2,6 +2,15 @@
   import RoomBoxCarousel from "./RoomBoxCarousel.svelte";
   import RoomInfo from "./RoomInfo.svelte";
   import RoomRating from "./RoomRating.svelte";
+
+  export let imageSources;
+
+  export let number;
+  export let price;
+  export let isLuxe;
+
+  export let rating;
+  export let reviewsQuantity;
 </script>
 
 <style lang="less">
@@ -48,14 +57,14 @@
 
 <div class="room-box">
   <div class="room-box__carousel">
-    <RoomBoxCarousel/>
+    <RoomBoxCarousel {imageSources} />
   </div>
   <div class="room-box__content">
     <div class="room-box__room-info">
-      <RoomInfo number="840" price="9 900₽"/>
+      <RoomInfo {number} {price} {isLuxe} />
     </div>
     <div class="room-box__room-rating">
-      <RoomRating/>
+      <RoomRating {rating} {reviewsQuantity} name="room-rating-{number}" />
     </div>
   </div>
 </div>

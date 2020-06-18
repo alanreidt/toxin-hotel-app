@@ -1,5 +1,7 @@
 <script>
   import Carousel from "@beyonk/svelte-carousel";
+
+  export let imageSources = [];
 </script>
 
 <style lang="less">
@@ -120,17 +122,10 @@
     <div class="room-box-carousel__lever room-box-carousel__lever_next" slot="right-control">
       <i class="material-icons">navigate_before</i>
     </div>
-    <div class="room-box-carousel__item">
-      <img src="images/room-840.jpg" alt="room photo" class="room-box-carousel__image">
-    </div>
-    <div class="room-box-carousel__item">
-      <img src="images/room-840.jpg" alt="room photo" class="room-box-carousel__image">
-    </div>
-    <div class="room-box-carousel__item">
-      <img src="images/room-840.jpg" alt="room photo" class="room-box-carousel__image">
-    </div>
-    <div class="room-box-carousel__item">
-      <img src="images/room-840.jpg" alt="room photo" class="room-box-carousel__image">
-    </div>
+    {#each imageSources as src}
+      <div class="room-box-carousel__item">
+        <img {src} alt="room photo" class="room-box-carousel__image">
+      </div>
+    {/each}
   </Carousel>
 </div>
