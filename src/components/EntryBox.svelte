@@ -1,4 +1,5 @@
 <script>
+  import Box from "./Box.svelte";
   import InputField from "./InputField.svelte";
   import Button from "./Button.svelte";
 </script>
@@ -8,18 +9,12 @@
   @import "../styles/mixins";
 
   .entry-box {
-    #box();
-
-    &__inner {
-      #box.inner();
-    }
-
     &__row {
-      #box.row();
-    }
+      margin-bottom: 20px;
 
-    &__title {
-      #box.title();
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     &__item {
@@ -37,10 +32,8 @@
 </style>
 
 <div class="entry-box">
-  <div class="entry-box__inner">
-    <div class="entry-box__row">
-      <h2 class="entry-box__title">Войти</h2>
-    </div>
+  <Box>
+    <h2 slot="title" class="entry-box__title">Войти</h2>
     <form name="entry-box-form" autocomplete="on">
       <div class="entry-box__row">
         <div class="entry-box__item">
@@ -70,14 +63,12 @@
           <Button text="Войти" mods="full-width" />
         </div>
       </div>
-      <div class="entry-box__row">
-        <div class="entry-box__item">
-          <div class="entry-box__alternate-entry">
-            <p class="entry-box__text">Нет аккаунта на Toxin?</p>
-            <Button text="Создать" mods="secondary" href="/mock-address/change-me" />
-          </div>
-        </div>
-      </div>
     </form>
-  </div>
+    <div slot="footer" class="entry-box__footer">
+      <div class="entry-box__alternate-entry">
+        <p class="entry-box__text">Нет аккаунта на Toxin?</p>
+        <Button text="Создать" mods="secondary" href="/mock-address/change-me" />
+      </div>
+    </div>
+  </Box>
 </div>
