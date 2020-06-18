@@ -47,7 +47,7 @@
 </style>
 
 <div class="room-box">
-  <div class="room-box__header">
+  <div class="room-box__carousel">
     <RoomBoxCarousel/>
   </div>
   <div class="room-box__content">
