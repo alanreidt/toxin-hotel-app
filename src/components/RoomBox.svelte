@@ -3,6 +3,8 @@
   import RoomInfo from "./RoomInfo.svelte";
   import RoomRating from "./RoomRating.svelte";
 
+  export let href = "/mock-address/change-me";
+
   export let imageSources;
 
   export let number;
@@ -39,6 +41,12 @@
       }
     }
 
+    &__link {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+    }
+
     &__content {
       padding: 20px;
     }
@@ -59,12 +67,14 @@
   <div class="room-box__carousel">
     <RoomBoxCarousel {imageSources} />
   </div>
-  <div class="room-box__content">
-    <div class="room-box__room-info">
-      <RoomInfo {number} {price} {isLuxe} />
+  <a {href} class="room-box__link">
+    <div class="room-box__content">
+      <div class="room-box__room-info">
+        <RoomInfo {number} {price} {isLuxe} />
+      </div>
+      <div class="room-box__room-rating">
+        <RoomRating {rating} {reviewsQuantity} name="room-rating-{number}" />
+      </div>
     </div>
-    <div class="room-box__room-rating">
-      <RoomRating {rating} {reviewsQuantity} name="room-rating-{number}" />
-    </div>
-  </div>
+  </a>
 </div>
