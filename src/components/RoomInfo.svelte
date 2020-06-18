@@ -1,7 +1,10 @@
 <script>
   export let number;
   export let price;
-  export let isLuxe;
+  export let isLuxe = false;
+
+  const currency = '₽';
+  price += currency;
 </script>
 
 <style lang="less">
