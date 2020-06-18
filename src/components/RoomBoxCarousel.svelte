@@ -42,6 +42,11 @@
       right: 0;
     }
 
+    &:hover &__lever,
+    &:focus &__lever {
+      opacity: 1;
+    }
+
     &__lever {
       display: flex;
       flex-direction: row;
@@ -62,6 +67,9 @@
       );
 
       cursor: pointer;
+      opacity: 0;
+
+      transition: 0.15s ease-out;
 
       &_next {
         transform: matrix(-1, 0, 0, 1, 0, 0);
