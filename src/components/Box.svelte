@@ -34,13 +34,13 @@
         margin-bottom: 18px;
       }
 
-      & :global(h6),
-      & :global(h5),
-      & :global(h4),
-      & :global(h3),
-      & :global(h2),
-      & :global(h1),
-      & :global(span) {
+      & > :global(h6),
+      & > :global(h5),
+      & > :global(h4),
+      & > :global(h3),
+      & > :global(h2),
+      & > :global(h1),
+      & > :global(span) {
         .h1-text();
 
         margin-top: 0;
