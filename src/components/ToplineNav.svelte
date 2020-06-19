@@ -1,4 +1,12 @@
 <script>
+  export let currentPageHref = '';
+  export let optionsList = [
+    { text: "О нас", href: "/mock-address/change-me", },
+    { text: "Услуги", href: "/mock-address/change-me", hasSubMenu: true, },
+    { text: "Вакансии", href: "/mock-address/change-me", },
+    { text: "Новости", href: "/mock-address/change-me", },
+    { text: "Соглашения", href: "/mock-address/change-me", hasSubMenu: true, },
+  ];
 </script>
 
 <style lang="less">
@@ -75,37 +83,20 @@
 <nav class="topline-nav">
   <h2 class="topline-nav__semantic-title">main navigation</h2>
   <ul class="topline-nav__list">
-    <li class="topline-nav__item">
-      <a
-        class="topline-nav__link topline-nav__link_active"
-        href="../../../src/markup/pages/index.pug">
-        Главная
-      </a>
-    </li>
-    <li class="topline-nav__item">
-      <a class="topline-nav__link" href="change-me">О нас</a>
-    </li>
-    <li class="topline-nav__item topline-nav__item_expandable">
-      <a class="topline-nav__link" href="change-me">
-        Услуги
-        <i class="material-icons topline-nav__link-icon" aria-hidden="true">
-          expand_more
-        </i>
-      </a>
-    </li>
-    <li class="topline-nav__item">
-      <a class="topline-nav__link" href="change-me">Вакансии</a>
-    </li>
-    <li class="topline-nav__item">
-      <a class="topline-nav__link" href="change-me">Новости</a>
-    </li>
-    <li class="topline-nav__item topline-nav__item_expandable">
-      <a class="topline-nav__link" href="change-me">
-        Соглашения
-        <i class="material-icons topline-nav__link-icon" aria-hidden="true">
-          expand_more
-        </i>
-      </a>
-    </li>
+    {#each optionsList as {text, href, hasSubMenu}}
+      <li class="topline-nav__item">
+        <a
+          class="topline-nav__link {href === currentPageHref ? "topline-nav__link_active" : ''}"
+          {href}>
+          {text}
+
+          {#if hasSubMenu}
+            <i class="material-icons topline-nav__link-icon" aria-hidden="true">
+              expand_more
+            </i>
+          {/if}
+        </a>
+      </li>
+    {/each}
   </ul>
 </nav>
