@@ -1,7 +1,7 @@
 <script>
   import Button from "./Button.svelte";
 
-  const userName = "cosmin negoita";
+  export let userName = false;
 </script>
 
 <style lang="less">
@@ -15,14 +15,6 @@
     @media (max-width: 1050px) {
       padding-left: 15px;
       padding-right: 15px;
-    }
-
-    &__item {
-      display: none;
-
-      &_is-active {
-        display: block;
-      }
     }
 
     &__button-group {
@@ -105,7 +97,11 @@
 </style>
 
 <div class="entrance">
-  <div class="entrance__item entrance__item_is-active">
+  {#if userName}
+    <div class="entrance__username-wrapper">
+      <span class="entrance__username">{userName}</span>
+    </div>
+  {:else}
     <div class="entrance__button-group">
       <div class="entrance__button-wrapper">
         <Button
@@ -122,10 +118,5 @@
           href="../../../src/markup/pages/registration.pug" />
       </div>
     </div>
-  </div>
-  <div class="entrance__item">
-    <div class="entrance__username-wrapper">
-      <span class="entrance__username">{userName}</span>
-    </div>
-  </div>
+  {/if}
 </div>
