@@ -52,7 +52,7 @@
       }
     }
 
-    &__button {
+    & :global(&__button) {
       @button-height: 34px;
 
       height: @button-height;

@@ -3,6 +3,9 @@
   export let mods;
   export let isInput;
 
+  let className = "";
+  export { className as class };
+
   // список модификаторов
   let allMods = "";
 
@@ -105,18 +108,18 @@
 
 <!-- - передан href — это ссылка -->
 {#if $$props.href}
-  <a class="button {allMods}" {...$$restProps}>
+  <a class="button {allMods} {className}" {...$$restProps}>
     {text}
     <slot />
   </a>
 
   <!-- - иначе, если передан isInput и он true, это input -->
 {:else if isInput}
-  <input class="button {allMods}" value={text} type="button" {...$$restProps} />
+  <input class="button {allMods} {className}" value={text} type="button" {...$$restProps} />
 
   <!-- - иначе это button -->
 {:else}
-  <button on:click class="button {allMods}" {...$$restProps}>
+  <button on:click class="button {allMods} {className}" {...$$restProps}>
     {text}
     <slot />
   </button>
