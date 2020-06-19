@@ -3,6 +3,7 @@
   import ToplineNav from "./ToplineNav.svelte";
   import Entrance from "./Entrance.svelte";
   import MenuOverlay from "./MenuOverlay.svelte";
+  import Logo from "./Logo.svelte";
 </script>
 
 <style lang="less">
@@ -144,11 +145,7 @@
     <div class="topline__inner">
       <h1 class="topline__semantic-title">toxin</h1>
       <div class="topline__logo">
-        <div class="logo">
-          <svg class="logo__img" width="106" height="40" alt="Toxin logo">
-            <use href="../../blocks/common.blocks/logo/logo.svg"></use>
-          </svg>
-        </div>
+        <Logo />
       </div>
       <ToplineHamburger/>
       <div class="topline__reception" id="menu">
