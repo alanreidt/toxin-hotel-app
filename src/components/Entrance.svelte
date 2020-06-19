@@ -108,14 +108,14 @@
           class="button entrance__button"
           text="Войти"
           mods="secondary"
-          href="../../../src/markup/pages/sign-in.pug" />
+          href="/mock-address/change-me" />
       </div>
       <div class="entrance__button-wrapper">
         <Button
           class="button entrance__button entrance__button_main"
           text="Зарегистрироваться"
           mods="main"
-          href="../../../src/markup/pages/registration.pug" />
+          href="/mock-address/change-me" />
       </div>
     </div>
   {/if}
