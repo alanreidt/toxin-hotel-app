@@ -1,6 +1,10 @@
 <script>
   import ToplineNav from "./ToplineNav.svelte";
   import Entrance from "./Entrance.svelte";
+
+  export let userName;
+  export let currentPageHref;
+  export let optionsList;
 </script>
 
 <style lang="less">
@@ -82,10 +86,10 @@
 <div class="topline-reception">
   <div class="topline-reception__inner">
     <div class="topline-reception__topline-nav">
-      <ToplineNav />
+      <ToplineNav {optionsList} {currentPageHref} />
     </div>
     <div class="topline-reception__entrance">
-      <Entrance />
+      <Entrance {userName} />
     </div>
   </div>
 </div>

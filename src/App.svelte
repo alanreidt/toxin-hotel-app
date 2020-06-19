@@ -164,6 +164,23 @@
     rating: 4,
     reviewsQuantity: 65,
   };
+
+  const toplineOptions = {
+    currentPageHref: "/about-us",
+    userName: false,
+    optionsList: [
+      { text: "О нас", href: "/about-us", },
+      { text: "Услуги", href: "/mock-address/change-me", hasSubMenu: true, },
+      { text: "Вакансии", href: "/mock-address/change-me", },
+      { text: "Новости", href: "/mock-address/change-me", },
+      { text: "Соглашения", href: "/mock-address/change-me", hasSubMenu: true, },
+    ],
+  };
+
+  const loggeInToplineOptions = {
+    ...toplineOptions,
+    userName: "Юлий Цезарь",
+  };
 </script>
 
 <style lang="less">
@@ -242,7 +259,8 @@
     <RoomBox {...room840Options} />
   </div>
   <div class="row">
-    <Topline />
+    <Topline options={toplineOptions} />
+    <Topline options={loggeInToplineOptions} />
     <Footer />
   </div>
 </main>

@@ -3,6 +3,8 @@
   import ToplineReception from "./ToplineReception.svelte";
   import ToplineHamburger from "./ToplineHamburger.svelte";
   import MenuOverlay from "./MenuOverlay.svelte";
+
+  export let options;
 </script>
 
 <style lang="less">
@@ -75,7 +77,7 @@
       <div class="topline__logo">
         <Logo />
       </div>
-      <ToplineReception/>
+      <ToplineReception {...options} />
       <ToplineHamburger/>
       <MenuOverlay/>
     </div>
