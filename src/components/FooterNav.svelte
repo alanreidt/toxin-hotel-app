@@ -1,4 +1,32 @@
 <script>
+  export let sections = [
+    {
+      title: "Навигация",
+      optionsList: [
+        { text: "О&nbsp;нас", href: "/mock-address/change-me", },
+        { text: "Новости", href: "/mock-address/change-me", },
+        { text: "Служба поддержки", href: "/mock-address/change-me", },
+        { text: "Услуги", href: "/mock-address/change-me", },
+      ],
+    },
+    {
+      title: "О&nbsp;нас",
+      optionsList: [
+        { text: "О&nbsp;сервисе", href: "/mock-address/change-me", },
+        { text: "Наша команда", href: "/mock-address/change-me", },
+        { text: "Вакансии", href: "/mock-address/change-me", },
+        { text: "Инвесторы", href: "/mock-address/change-me", },
+      ],
+    },
+    {
+      title: "Служба поддержки",
+      optionsList: [
+        { text: "Соглашения", href: "/mock-address/change-me", },
+        { text: "Сообщества", href: "/mock-address/change-me", },
+        { text: "Связь с&nbsp;нами", href: "/mock-address/change-me", },
+      ],
+    },
+  ];
 </script>
 
 <style lang="less">
@@ -30,7 +58,7 @@
     &__section {
       margin-right: 45px;
 
-      &_for_navigation {
+      &:first-child {
         @media (max-width: 380px) {
           width: 100%;
           margin-right: 0;
@@ -38,7 +66,7 @@
         }
       }
 
-      &_for_about-us {
+      &:nth-child(2) {
         @media (max-width: 517px) {
           margin-right: 0;
         }
@@ -50,7 +78,7 @@
         }
       }
 
-      &_for_support {
+      &:last-child {
         margin-right: 0;
 
         @media (max-width: 517px) {
@@ -98,66 +126,20 @@
 </style>
 
 <nav class="footer-nav">
+  <h2 class="footer-nav__semantic-title">footer navigation</h2>
   <div class="footer-nav__inner">
-    <h2 class="footer-nav__semantic-title">footer navigation</h2>
-    <section
-      class="section footer-nav__section footer-nav__section_for_navigation">
-      <h3 class="section__title footer-nav__title">Навигация</h3>
-      <ul class="list footer-nav__list">
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">О&nbsp;нас</a>
-        </li>
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">Новости</a>
-        </li>
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">
-            Служба поддержки
-          </a>
-        </li>
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">Услуги</a>
-        </li>
-      </ul>
-    </section>
-    <section
-      class="section footer-nav__section footer-nav__section_for_about-us">
-      <h3 class="section__title footer-nav__title">О&nbsp;нас</h3>
-      <ul class="list footer-nav__list">
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">
-            О&nbsp;сервисе
-          </a>
-        </li>
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">
-            Наша команда
-          </a>
-        </li>
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">Вакансии</a>
-        </li>
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">Инвесторы</a>
-        </li>
-      </ul>
-    </section>
-    <section
-      class="section footer-nav__section footer-nav__section_for_support">
-      <h3 class="section__title footer-nav__title">Служба поддержки</h3>
-      <ul class="list footer-nav__list">
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">Соглашения</a>
-        </li>
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">Сообщества</a>
-        </li>
-        <li class="list__item footer-nav__item">
-          <a class="list__link footer-nav__link" href="change-me">
-            Связь с&nbsp;нами
-          </a>
-        </li>
-      </ul>
-    </section>
+    {#each sections as {title, optionsList}, index}
+      <section
+        class="section footer-nav__section">
+        <h3 class="section__title footer-nav__title">{@html title}</h3>
+        <ul class="list footer-nav__list">
+          {#each optionsList as {text, href}}
+            <li class="list__item footer-nav__item">
+              <a class="list__link footer-nav__link" {href}>{@html text}</a>
+            </li>
+          {/each}
+        </ul>
+      </section>
+    {/each}
   </div>
 </nav>
