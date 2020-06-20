@@ -150,6 +150,13 @@
       }
     }
 
+    &__tagline {
+      .body-text();
+
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+
     &__socials {
       display: none;
 
@@ -176,7 +183,7 @@
       <div class="footer-info__item footer-info__item_for_logo">
         <div class="footer-info__brand-mark">
           <Logo class="footer-info__logo"/>
-          <p class="logo__description">
+          <p class="footer-info__tagline">
             Бронирование номеров в&nbsp;лучшем отеле 2019 года по&nbsp;версии
             ассоциации &laquo;Отельные взгляды&raquo;
           </p>
