@@ -1,4 +1,6 @@
 <script>
+  let className = "";
+  export { className as class };
 </script>
 
 <style lang="less">
@@ -20,7 +22,7 @@
   }
 </style>
 
-<div class="logo">
+<div class="logo {className}">
   <svg
     class="logo__img"
     alt="Toxin logo"

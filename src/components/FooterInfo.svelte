@@ -1,4 +1,5 @@
 <script>
+  import Logo from "./Logo.svelte";
   import Socials from "./Socials.svelte";
   import FooterNav from "./FooterNav.svelte";
   import FooterSubscription from "./FooterSubscription.svelte";
@@ -121,7 +122,21 @@
       }
     }
 
-    &__logo {
+    &__brand-mark {
+      @media (max-width: 1187px) {
+        text-align: center;
+      }
+
+      @media (max-width: 853px) {
+        text-align: left;
+      }
+
+      @media (max-width: 577px) {
+        text-align: center;
+      }
+    }
+
+    & :global(&__logo) {
       @media (max-width: 1187px) {
         text-align: center;
       }
@@ -159,10 +174,8 @@
   <div class="footer-info__container">
     <div class="footer-info__inner">
       <div class="footer-info__item footer-info__item_for_logo">
-        <div class="logo footer-info__logo">
-          <svg class="logo__img" width="106" height="40" alt="Toxin logo">
-            <use href="../../blocks/common.blocks/logo/logo.svg" />
-          </svg>
+        <div class="footer-info__brand-mark">
+          <Logo class="footer-info__logo"/>
           <p class="logo__description">
             Бронирование номеров в&nbsp;лучшем отеле 2019 года по&nbsp;версии
             ассоциации &laquo;Отельные взгляды&raquo;
