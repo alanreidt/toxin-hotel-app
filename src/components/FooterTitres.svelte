@@ -1,5 +1,7 @@
 <script>
   import Socials from "./Socials.svelte";
+
+  const currentYear = new Date().getFullYear();
 </script>
 
 <style lang="less">
@@ -60,7 +62,7 @@
   <div class="footer-titres__container">
     <div class="footer-titres__inner">
       <p class="footer-titres__copyright">
-        Copyright &copy;&nbsp;2019 Toxin отель. Все права защищены.
+        Copyright &copy;&nbsp;{currentYear} Toxin отель. Все права защищены.
       </p>
       <div class="footer-titres__socials">
         <Socials />
