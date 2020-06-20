@@ -8,7 +8,7 @@
   @import "../styles/variables";
   @import "../styles/mixins";
 
-  .footer-titres {
+  .bottomline {
     .block-default-styles();
 
     height: var(--topline-height);
@@ -58,13 +58,13 @@
   }
 </style>
 
-<div class="footer-titres">
-  <div class="footer-titres__container">
-    <div class="footer-titres__inner">
-      <p class="footer-titres__copyright">
+<div class="bottomline">
+  <div class="bottomline__container">
+    <div class="bottomline__inner">
+      <p class="bottomline__copyright">
         Copyright &copy;&nbsp;{currentYear} Toxin отель. Все права защищены.
       </p>
-      <div class="footer-titres__socials">
+      <div class="bottomline__socials">
         <Socials />
       </div>
     </div>
