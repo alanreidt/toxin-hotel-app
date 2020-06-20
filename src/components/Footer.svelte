@@ -1,5 +1,5 @@
 <script>
-  import FooterTitres from "./FooterTitres.svelte";
+  import Bottomline from "./Bottomline.svelte";
   import FooterInfo from "./FooterInfo.svelte";
 </script>
 
@@ -19,6 +19,6 @@
     <FooterInfo />
   </div>
   <div class="footer__footer-titres">
-    <FooterTitres />
+    <Bottomline />
   </div>
 </footer>
