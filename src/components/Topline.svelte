@@ -5,6 +5,10 @@
   import MenuOverlay from "./MenuOverlay.svelte";
 
   export let options;
+
+  const currentPageHref = options.currentPageHref;
+  const mainPageHref = "/mock-address/change-me";
+  const isMainPage = currentPageHref === mainPageHref;
 </script>
 
 <style lang="less">
@@ -67,6 +71,13 @@
         }
       }
     }
+
+    &__link {
+      display: block;
+      width: 100%;
+
+      text-decoration: none;
+    }
   }
 </style>
 
@@ -75,7 +86,13 @@
     <div class="topline__inner">
       <h1 class="topline__semantic-title">toxin</h1>
       <div class="topline__logo">
-        <Logo />
+        {#if isMainPage}
+          <Logo />
+        {:else}
+          <a href={mainPageHref} class="topline__link">
+            <Logo />
+          </a>
+        {/if}
       </div>
       <ToplineReception {...options} />
       <ToplineHamburger/>
