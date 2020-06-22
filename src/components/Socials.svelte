@@ -1,8 +1,8 @@
 <script>
   export let optionsList = [
-    { name: "twitter", href: "/mock-address/change-me", svgHref: "images/socials__icon_tw.svg", },
-    { name: "facebook", href: "/mock-address/change-me", svgHref: "images/socials__icon_fb.svg", },
-    { name: "instagram", href: "/mock-address/change-me", svgHref: "images/socials__icon_ig.svg", },
+    { name: "twitter", href: "/mock-address/change-me", src: "/images/twitter-social-icon.svg", },
+    { name: "facebook", href: "/mock-address/change-me", src: "/images/facebook-social-icon.svg", },
+    { name: "instagram", href: "/mock-address/change-me", src: "/images/instagram-social-icon.svg", },
   ];
 </script>
 
@@ -56,7 +56,7 @@
 <div class="socials">
   <div class="socials__inner">
     <ul class="socials__list">
-      {#each optionsList as {name, href, svgHref}}
+      {#each optionsList as {name, href, src}}
         <li class="socials__item">
           <a
             class="socials__link"
@@ -65,10 +65,7 @@
             rel="noopener noreferrer"
             title={name}
             aria-label={name}>
-            <svg class="socials__icon" width="24" height="24">
-              <use
-                href={svgHref} />
-            </svg>
+            <img {src} alt="{name} icon" class="socials__icon" width="24" height="24">
           </a>
         </li>
       {/each}
