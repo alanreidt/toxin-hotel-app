@@ -1,4 +1,9 @@
 <script>
+  export let optionsList = [
+    { name: "twitter", href: "/mock-address/change-me", svgHref: "images/socials__icon_tw.svg", },
+    { name: "facebook", href: "/mock-address/change-me", svgHref: "images/socials__icon_fb.svg", },
+    { name: "instagram", href: "/mock-address/change-me", svgHref: "images/socials__icon_ig.svg", },
+  ];
 </script>
 
 <style lang="less">
@@ -51,45 +56,22 @@
 <div class="socials">
   <div class="socials__inner">
     <ul class="socials__list">
-      <li class="socials__item">
-        <a
-          class="socials__link"
-          href="change-me"
-          target="_blank"
-          title="twitter"
-          aria-label="twitter">
-          <svg class="socials__icon" width="24" height="24" alt="twitter">
-            <use
-              href="../../blocks/common.blocks/socials/images/socials__icon_tw.svg" />
-          </svg>
-        </a>
-      </li>
-      <li class="socials__item">
-        <a
-          class="socials__link"
-          href="change-me"
-          target="_blank"
-          title="facebook"
-          aria-label="facebook">
-          <svg class="socials__icon" width="24" height="24" alt="facebook">
-            <use
-              href="../../blocks/common.blocks/socials/images/socials__icon_fb.svg" />
-          </svg>
-        </a>
-      </li>
-      <li class="socials__item">
-        <a
-          class="socials__link"
-          href="change-me"
-          target="_blank"
-          title="instagram"
-          aria-label="instagram">
-          <svg class="socials__icon" width="24" height="24" alt="instagram">
-            <use
-              href="../../blocks/common.blocks/socials/images/socials__icon_ig.svg" />
-          </svg>
-        </a>
-      </li>
+      {#each optionsList as {name, href, svgHref}}
+        <li class="socials__item">
+          <a
+            class="socials__link"
+            {href}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={name}
+            aria-label={name}>
+            <svg class="socials__icon" width="24" height="24">
+              <use
+                href={svgHref} />
+            </svg>
+          </a>
+        </li>
+      {/each}
     </ul>
   </div>
 </div>
