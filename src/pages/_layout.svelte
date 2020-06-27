@@ -35,7 +35,7 @@
 
 <div class="page">
   <div class="page__header">
-    <Topline />
+    <Topline options={{currentPageHref: "/"}}/>
   </div>
 
   <main class="page__content">
