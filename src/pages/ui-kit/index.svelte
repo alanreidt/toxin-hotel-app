@@ -1,35 +1,35 @@
 <script>
-  import "../../node_modules/flatpickr/dist/flatpickr.css";
-  import "../../node_modules/nouislider/distribute/nouislider.min.css";
-  import "../styles/global.less";
+  import "../../../node_modules/flatpickr/dist/flatpickr.css";
+  import "../../../node_modules/nouislider/distribute/nouislider.min.css";
+  import "../../styles/global.less";
 
-  import Datepicker from "../components/Datepicker.svelte";
-  import InputField from "../components/InputField.svelte";
-  import DateInputField from "../components/DateInputField.svelte";
-  import Dropdown from "../components/Dropdown.svelte";
-  import DateDropdown from "../components/DateDropdown.svelte";
-  import FilterDateDropdown from "../components/FilterDateDropdown.svelte";
-  import SubscriptionField from "../components/SubscriptionField.svelte";
-  import Checkbox from "../components/Checkbox.svelte";
-  import ExpandableCheckboxList from "../components/ExpandableCheckboxList.svelte";
-  import StatefulInput from "../components/StatefulInput.svelte";
-  import RadioButton from "../components/RadioButton.svelte";
-  import Toggle from "../components/Toggle.svelte";
-  import LikeButton from "../components/LikeButton.svelte";
-  import Rating from "../components/Rating.svelte";
-  import BulletList from "../components/BulletList.svelte";
-  import CellBlock from "../components/CellBlock.svelte";
-  import Comment from "../components/Comment.svelte";
-  import Pagination from "../components/Pagination.svelte";
-  import Button from "../components/Button.svelte";
-  import SearchBox from "../components/SearchBox.svelte";
-  import RegistrationBox from "../components/RegistrationBox.svelte";
-  import CalculationBox from "../components/CalculationBox.svelte";
-  import EntryBox from "../components/EntryBox.svelte";
-  import RoomBox from "../components/RoomBox.svelte";
-  import Topline from "../components/Topline.svelte";
-  import Footer from "../components/Footer.svelte";
-  import RangeSlider from "../components/RangeSlider.svelte";
+  import Datepicker from "../../components/Datepicker.svelte";
+  import InputField from "../../components/InputField.svelte";
+  import DateInputField from "../../components/DateInputField.svelte";
+  import Dropdown from "../../components/Dropdown.svelte";
+  import DateDropdown from "../../components/DateDropdown.svelte";
+  import FilterDateDropdown from "../../components/FilterDateDropdown.svelte";
+  import SubscriptionField from "../../components/SubscriptionField.svelte";
+  import Checkbox from "../../components/Checkbox.svelte";
+  import ExpandableCheckboxList from "../../components/ExpandableCheckboxList.svelte";
+  import StatefulInput from "../../components/StatefulInput.svelte";
+  import RadioButton from "../../components/RadioButton.svelte";
+  import Toggle from "../../components/Toggle.svelte";
+  import LikeButton from "../../components/LikeButton.svelte";
+  import Rating from "../../components/Rating.svelte";
+  import BulletList from "../../components/BulletList.svelte";
+  import CellBlock from "../../components/CellBlock.svelte";
+  import Comment from "../../components/Comment.svelte";
+  import Pagination from "../../components/Pagination.svelte";
+  import Button from "../../components/Button.svelte";
+  import SearchBox from "../../components/SearchBox.svelte";
+  import RegistrationBox from "../../components/RegistrationBox.svelte";
+  import CalculationBox from "../../components/CalculationBox.svelte";
+  import EntryBox from "../../components/EntryBox.svelte";
+  import RoomBox from "../../components/RoomBox.svelte";
+  import Topline from "../../components/Topline.svelte";
+  import Footer from "../../components/Footer.svelte";
+  import RangeSlider from "../../components/RangeSlider.svelte";
 
   const dropdownOptions = [
     { name: "Взрослые", min: 0, max: 5, value: 0 },
