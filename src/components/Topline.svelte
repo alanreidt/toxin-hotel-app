@@ -4,11 +4,12 @@
   import ToplineHamburger from "./ToplineHamburger.svelte";
   import MenuOverlay from "./MenuOverlay.svelte";
 
-  export let options;
+  export let options = {};
 
-  const currentPageHref = options.currentPageHref;
-  const mainPageHref = "/mock-address/change-me";
-  const isMainPage = currentPageHref === mainPageHref;
+  const mainPageHref = options.mainPageHref || "/";
+
+  $: currentPageHref = options.currentPageHref;
+  $: isMainPage = currentPageHref === mainPageHref;
 </script>
 
 <style lang="less">

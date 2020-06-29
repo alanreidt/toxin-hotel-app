@@ -1,6 +1,10 @@
 <script>
   import Topline from "../components/Topline.svelte";
   import Footer from "../components/Footer.svelte";
+
+  import { page, url } from '@sveltech/routify';
+
+  $: currentPageHref = $url($page.path);
 </script>
 
 <style lang="less">
@@ -35,7 +39,7 @@
 
 <div class="page">
   <div class="page__header">
-    <Topline options={{currentPageHref: "/"}}/>
+    <Topline options={{currentPageHref}}/>
   </div>
 
   <main class="page__content">
