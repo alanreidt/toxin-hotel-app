@@ -177,7 +177,7 @@
     ],
   };
 
-  const loggeInToplineOptions = {
+  const loggedInToplineOptions = {
     ...toplineOptions,
     userName: "Юлий Цезарь",
   };
@@ -262,7 +262,7 @@
   </div>
   <div class="row">
     <Topline {...toplineOptions} />
-    <Topline {...loggeInToplineOptions} />
+    <Topline {...loggedInToplineOptions} />
     <Footer />
   </div>
 </main>
