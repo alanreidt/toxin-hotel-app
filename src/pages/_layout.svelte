@@ -39,7 +39,7 @@
 
 <div class="page">
   <div class="page__header">
-    <Topline options={{currentPageHref}}/>
+    <Topline bind:currentPageHref/>
   </div>
 
   <main class="page__content">

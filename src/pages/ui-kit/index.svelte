@@ -261,8 +261,8 @@
     <RoomBox {...room840Options} />
   </div>
   <div class="row">
-    <Topline options={toplineOptions} />
-    <Topline options={loggeInToplineOptions} />
+    <Topline {...toplineOptions} />
+    <Topline {...loggeInToplineOptions} />
     <Footer />
   </div>
 </main>

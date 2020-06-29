@@ -4,11 +4,11 @@
   import ToplineHamburger from "./ToplineHamburger.svelte";
   import MenuOverlay from "./MenuOverlay.svelte";
 
-  export let options = {};
+  export let mainPageHref = "/";
+  export let currentPageHref;
+  export let userName;
+  export let optionsList;
 
-  const mainPageHref = options.mainPageHref || "/";
-
-  $: currentPageHref = options.currentPageHref;
   $: isMainPage = currentPageHref === mainPageHref;
 </script>
 
@@ -95,7 +95,7 @@
           </a>
         {/if}
       </div>
-      <ToplineReception {...options} />
+      <ToplineReception {currentPageHref} {userName} {optionsList} />
       <ToplineHamburger/>
       <MenuOverlay/>
     </div>
