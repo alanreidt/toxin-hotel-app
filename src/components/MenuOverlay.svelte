@@ -1,5 +1,6 @@
 <script>
   export let active = false;
+  export let menuOverlay;
 </script>
 
 <style lang="less">
@@ -29,4 +30,8 @@
   }
 </style>
 
-<div class="menu-overlay {active ? 'menu-overlay_active' : ''}" id="menu-overlay"></div>
+<div
+  bind:this={menuOverlay}
+  class="menu-overlay {active ? 'menu-overlay_active' : ''}"
+  id="menu-overlay">
+</div>

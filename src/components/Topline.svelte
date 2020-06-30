@@ -4,12 +4,21 @@
   import ToplineHamburger from "./ToplineHamburger.svelte";
   import MenuOverlay from "./MenuOverlay.svelte";
 
+  import scrollLock from 'scroll-lock';
+
   export let mainPageHref = "/";
   export let currentPageHref;
   export let userName;
   export let optionsList;
 
   let isToplineHamburgerActive = false;
+  let menuOverlay;
+
+  $: if (isToplineHamburgerActive) {
+    scrollLock.disablePageScroll(menuOverlay);
+  } else {
+    scrollLock.enablePageScroll(menuOverlay);
+  }
 
   $: isMainPage = currentPageHref === mainPageHref;
 </script>
@@ -99,7 +108,7 @@
       </div>
       <ToplineReception active={isToplineHamburgerActive} {currentPageHref} {userName} {optionsList} />
       <ToplineHamburger bind:active={isToplineHamburgerActive} />
-      <MenuOverlay active={isToplineHamburgerActive} />
+      <MenuOverlay {menuOverlay} active={isToplineHamburgerActive} />
     </div>
   </div>
 </header>
