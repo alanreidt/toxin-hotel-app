@@ -1,6 +1,10 @@
 <script>
   export let active = false;
   export let menuOverlay;
+
+  function handleClick(event) {
+    active = false;
+  }
 </script>
 
 <style lang="less">
@@ -31,6 +35,7 @@
 </style>
 
 <div
+  on:click={handleClick}
   bind:this={menuOverlay}
   class="menu-overlay {active ? 'menu-overlay_active' : ''}"
   id="menu-overlay">

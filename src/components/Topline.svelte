@@ -108,7 +108,7 @@
       </div>
       <ToplineReception active={isToplineHamburgerActive} {currentPageHref} {userName} {optionsList} />
       <ToplineHamburger bind:active={isToplineHamburgerActive} />
-      <MenuOverlay {menuOverlay} active={isToplineHamburgerActive} />
+      <MenuOverlay {menuOverlay} bind:active={isToplineHamburgerActive} />
     </div>
   </div>
 </header>
