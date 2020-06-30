@@ -5,6 +5,7 @@
   export let userName;
   export let currentPageHref;
   export let optionsList;
+  export let active = false;
 </script>
 
 <style lang="less">
@@ -36,7 +37,7 @@
       transition: transform 0.3s cubic-bezier(0.6, 0, 0, 1), opacity 0.3s ease;
       will-change: transform, opacity;
 
-      &_is-active {
+      &_active {
         opacity: 1;
         pointer-events: auto;
 
@@ -83,7 +84,7 @@
   }
 </style>
 
-<div class="topline-reception">
+<div class="topline-reception {active ? 'topline-reception_active' : ''}">
   <div class="topline-reception__inner">
     <div class="topline-reception__topline-nav">
       <ToplineNav {optionsList} {currentPageHref} />
