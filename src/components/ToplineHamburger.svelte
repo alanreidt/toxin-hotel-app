@@ -1,4 +1,9 @@
 <script>
+  export let active = false;
+
+  function handleToplineHamburgerClick(event) {
+    active = !active;
+  }
 </script>
 
 <style lang="less">
@@ -93,7 +98,11 @@
   }
 </style>
 
-<button class="topline-hamburger" type="button" id="menu-button">
+<button
+  on:click={handleToplineHamburgerClick}
+  class="topline-hamburger {active ? 'topline-hamburger_active' : ''}"
+  type="button"
+  id="menu-button">
   <div class="topline-hamburger__icon">
     <span class="topline-hamburger__stripe"></span>
     <span class="topline-hamburger__stripe"></span>
