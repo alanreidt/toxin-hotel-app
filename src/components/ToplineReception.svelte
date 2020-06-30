@@ -28,18 +28,16 @@
 
       box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 
-      opacity: 0;
-      pointer-events: none;
+      visibility: hidden;
 
       transform: translate3d(100%, 0, 0);
       overflow: auto;
 
-      transition: transform 0.3s cubic-bezier(0.6, 0, 0, 1), opacity 0.3s ease;
-      will-change: transform, opacity;
+      transition: transform 0.3s cubic-bezier(0.6, 0, 0, 1), visibility 0.3s ease;
+      will-change: transform, visibility;
 
       &_active {
-        opacity: 1;
-        pointer-events: auto;
+        visibility: visible;
 
         transform: translate3d(0, 0, 0);
       }
