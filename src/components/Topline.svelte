@@ -9,6 +9,8 @@
   export let userName;
   export let optionsList;
 
+  let isToplineHamburgerActive = false;
+
   $: isMainPage = currentPageHref === mainPageHref;
 </script>
 
@@ -95,9 +97,9 @@
           </a>
         {/if}
       </div>
-      <ToplineReception {currentPageHref} {userName} {optionsList} />
-      <ToplineHamburger/>
-      <MenuOverlay/>
+      <ToplineReception active={isToplineHamburgerActive} {currentPageHref} {userName} {optionsList} />
+      <ToplineHamburger bind:active={isToplineHamburgerActive} />
+      <MenuOverlay active={isToplineHamburgerActive} />
     </div>
   </div>
 </header>
