@@ -35,30 +35,30 @@
       display: inline-block;
       vertical-align: middle;
 
-      &_is-clicked {
+      &_active {
         position: fixed;
         // top: var(--topline-center);
         right: var(--site-padding);
       }
     }
 
-    &_is-clicked &__stripe:first-child {
+    &_active &__stripe:first-child {
       transform: translate3d(0, 6px, 0);
     }
 
-    &_is-clicked &__stripe:nth-child(2) {
+    &_active &__stripe:nth-child(2) {
       transform: rotate(45deg);
     }
 
-    &_is-clicked &__stripe:nth-child(3) {
+    &_active &__stripe:nth-child(3) {
       transform: rotate(-45deg);
     }
 
-    &_is-clicked &__stripe:last-child {
+    &_active &__stripe:last-child {
       transform: translate3d(0, -6px, 0);
     }
 
-    &_is-clicked &__stripe:nth-child(3n + 1) {
+    &_active &__stripe:nth-child(3n + 1) {
       opacity: 0;
     }
 
