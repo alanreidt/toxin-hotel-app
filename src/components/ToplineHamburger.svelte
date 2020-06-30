@@ -39,12 +39,6 @@
 
       display: inline-block;
       vertical-align: middle;
-
-      &_active {
-        position: fixed;
-        // top: var(--topline-center);
-        right: var(--site-padding);
-      }
     }
 
     &_active &__stripe:first-child {
