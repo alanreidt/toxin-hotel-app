@@ -1,4 +1,5 @@
 <script>
+  export let active = false;
 </script>
 
 <style lang="less">
@@ -21,11 +22,11 @@
     transition: opacity 0.3s ease;
     will-change: opacity;
 
-    &_is-active {
+    &_active {
       pointer-events: auto;
       opacity: 1;
     }
   }
 </style>
 
-<div class="menu-overlay" id="menu-overlay"></div>
+<div class="menu-overlay {active ? 'menu-overlay_active' : ''}" id="menu-overlay"></div>
