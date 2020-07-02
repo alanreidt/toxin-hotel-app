@@ -2,7 +2,9 @@
   import Topline from "../components/Topline.svelte";
   import Footer from "../components/Footer.svelte";
 
-  import { page, url } from '@sveltech/routify';
+  import { page, url, metatags } from '@sveltech/routify';
+
+  metatags.template("title", (value) => `${value} — Toxin`)
 
   $: currentPageHref = $url($page.path);
 </script>
