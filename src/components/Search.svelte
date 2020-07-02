@@ -1,0 +1,141 @@
+<script>
+  import SearchPanel from "./SearchPanel.svelte";
+  import SearchResult from "./SearchResult.svelte";
+</script>
+
+<style lang="less">
+  @import "../styles/variables";
+  @import "../styles/mixins";
+
+  :root {
+    --search-top-padding: 30px;
+    --search-bottom-padding: 70px;
+
+    @media (max-width: @site-width) {
+      --search-bottom-padding: 60px;
+    }
+  }
+
+  .search {
+    .block-default-styles();
+
+    background-color: #fff;
+    overflow: hidden;
+
+    &__container {
+      .container();
+    }
+
+    &__inner {
+      .block-default-styles();
+
+      position: relative;
+      z-index: 100;
+
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: stretch;
+    }
+
+    &__item {
+      padding-top: var(--search-top-padding);
+      padding-bottom: var(--search-bottom-padding);
+      background-color: #fff;
+    }
+
+    &__search-panel {
+      flex: 0 1 auto;
+      width: 27%;
+      min-width: 300px;
+      padding-right: 5%;
+
+      box-sizing: border-box;
+
+      @media (max-width: 882px) {
+        position: absolute;
+        z-index: 200;
+        top: 0;
+        left: calc(-1 * var(--site-padding));
+
+        width: 40%;
+        height: 100%;
+        padding-right: 20px;
+        padding-left: 20px;
+        box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
+
+        will-change: transform;
+        transform: translate3d(calc(-1 * 100%), 0, 0);
+        transition: transform 0.3s ease-out;
+
+        box-sizing: border-box;
+
+        &_is-open {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
+
+    &__search-result {
+      flex: 1 1 auto;
+    }
+
+    &__search-panel-button {
+      .not-selectable();
+
+      // reset <button>, <input> styles
+      padding: 0;
+      border: none;
+
+      // add compatibility between html elements (<a>, <button>, <input>)
+      cursor: pointer;
+
+      position: absolute;
+      z-index: 100;
+      top: 20%;
+      left: 100%;
+
+      display: none;
+      vertical-align: middle;
+      width: 30px;
+      height: 30px;
+
+      background-color: #colors[dark-shade-75];
+      color: #fff;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+
+      box-sizing: border-box;
+
+      @media (max-width: 882px) {
+        display: inline-block;
+      }
+
+      &:hover,
+      &:focus {
+        opacity: 0.5;
+      }
+
+      .material-icons {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+</style>
+
+<div class="search">
+  <div class="search__container">
+      <div class="search__inner">
+          <div class="search__item search__search-panel" id="search-panel">
+              <div class="search__search-panel-inner">
+                <SearchPanel />
+              </div>
+              <button class="search__search-panel-button" type="button" id="search-panel-button"><i class="material-icons">navigate_next</i></button>
+          </div>
+          <div class="search__item search__search-result">
+            <SearchResult />
+          </div>
+      </div>
+  </div>
+</div>
