@@ -92,7 +92,7 @@
 <div class="expandable-checkbox-list {expanded ? 'expandable-checkbox-list_expanded' : ''}">
   <Expander bind:isExpanded={expanded}>
     <div on:focusin|stopPropagation slot="trigger" class="expandable-checkbox-list__trigger">
-      <button class="expandable-checkbox-list__button">{labelText}</button>
+      <button type="button" class="expandable-checkbox-list__button">{labelText}</button>
     </div>
     <fieldset slot="menu" class="expandable-checkbox-list__menu">
       {#each options as option}
