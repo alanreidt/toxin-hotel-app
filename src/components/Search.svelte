@@ -70,7 +70,7 @@
         box-shadow: 2px 0 4px rgba(0, 0, 0, 0.2);
 
         will-change: transform;
-        transform: translate3d(calc(-1 * 100%), 0, 0);
+        transform: translate3d(-100%, 0, 0);
         transition: transform 0.3s ease-out;
 
         box-sizing: border-box;
@@ -132,16 +132,22 @@
 
 <div class="search">
   <div class="search__container">
-      <div class="search__inner">
-          <div class="search__item search__search-panel {isSearchPanelActive ? "search__search-panel_active" : ''}" id="search-panel">
-              <div class="search__search-panel-inner">
-                <SearchPanel />
-              </div>
-              <button on:click={handleSearchButtonClick} class="search__button" type="button" id="button"><i class="material-icons">navigate_next</i></button>
-          </div>
-          <div class="search__item search__search-result">
-            <SearchResult />
-          </div>
+    <div class="search__inner">
+      <div
+        class="search__item search__search-panel {isSearchPanelActive ? 'search__search-panel_active' : ''}">
+        <div class="search__search-panel-inner">
+          <SearchPanel />
+        </div>
+        <button
+          on:click={handleSearchButtonClick}
+          class="search__button"
+          type="button">
+          <i class="material-icons">navigate_next</i>
+        </button>
       </div>
+      <div class="search__item search__search-result">
+        <SearchResult />
+      </div>
+    </div>
   </div>
 </div>
