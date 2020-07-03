@@ -4,7 +4,7 @@
 
   let expanded = false;
 
-  export let labelText;
+  export let labelText ="Дополнительные удобства";
   export let options = [];
 </script>
 
