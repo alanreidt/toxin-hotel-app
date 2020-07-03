@@ -85,7 +85,7 @@
       flex: 1 1 auto;
     }
 
-    &__search-panel-button {
+    &__button {
       .not-selectable();
 
       // reset <button>, <input> styles
@@ -137,7 +137,7 @@
               <div class="search__search-panel-inner">
                 <SearchPanel />
               </div>
-              <button on:click={handleSearchButtonClick} class="search__search-panel-button" type="button" id="search-panel-button"><i class="material-icons">navigate_next</i></button>
+              <button on:click={handleSearchButtonClick} class="search__button" type="button" id="button"><i class="material-icons">navigate_next</i></button>
           </div>
           <div class="search__item search__search-result">
             <SearchResult />
