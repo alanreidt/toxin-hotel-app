@@ -1,6 +1,12 @@
 <script>
   import SearchPanel from "./SearchPanel.svelte";
   import SearchResult from "./SearchResult.svelte";
+
+  let isSearchPanelActive = false;
+
+  function handleSearchButtonClick(event) {
+    isSearchPanelActive = !isSearchPanelActive;
+  }
 </script>
 
 <style lang="less">
@@ -69,7 +75,7 @@
 
         box-sizing: border-box;
 
-        &_is-open {
+        &_active {
           transform: translate3d(0, 0, 0);
         }
       }
@@ -127,11 +133,11 @@
 <div class="search">
   <div class="search__container">
       <div class="search__inner">
-          <div class="search__item search__search-panel" id="search-panel">
+          <div class="search__item search__search-panel {isSearchPanelActive ? "search__search-panel_active" : ''}" id="search-panel">
               <div class="search__search-panel-inner">
                 <SearchPanel />
               </div>
-              <button class="search__search-panel-button" type="button" id="search-panel-button"><i class="material-icons">navigate_next</i></button>
+              <button on:click={handleSearchButtonClick} class="search__search-panel-button" type="button" id="search-panel-button"><i class="material-icons">navigate_next</i></button>
           </div>
           <div class="search__item search__search-result">
             <SearchResult />
