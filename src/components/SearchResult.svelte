@@ -153,6 +153,6 @@
       </div>
   </div>
   <div class="search-result__pagination">
-    <Pagination />
+    <Pagination itemsInTotal={180} />
   </div>
 </div>

@@ -46,6 +46,6 @@
 </style>
 
 <div class="pagination">
-  <PaginationDisplay bind:currentPage />
+  <PaginationDisplay bind:currentPage {itemsPerPage} {itemsInTotal} />
   <p class="pagination__text">{text}</p>
 </div>
