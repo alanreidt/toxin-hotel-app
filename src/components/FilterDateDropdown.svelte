@@ -5,6 +5,8 @@
   import flatpickr from "flatpickr";
   import "../../node_modules/flatpickr/dist/l10n/ru.js";
 
+  export let labelText = "Даты пребывания в отеле";
+
   let inputField;
 
   // I use onMount here, 'cause a use directive can't be attached to a component
@@ -70,6 +72,6 @@
 
 <div class="filter-date-dropdown">
   <div class="filter-date-dropdown__input">
-    <InputField bind:inputField labelText="filter date dropdown" placeholder="Выберите дату" />
+    <InputField bind:inputField {labelText} placeholder="Выберите дату" />
   </div>
 </div>

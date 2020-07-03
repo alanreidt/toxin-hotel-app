@@ -214,7 +214,7 @@
       hasButtonPane={true}
       name="dropdown-input" />
     <DateDropdown />
-    <FilterDateDropdown />
+    <FilterDateDropdown labelText="filter date dropdown" />
     <SubscriptionField labelText="subscription text field" />
     {#each checkboxOptions as option}
       <Checkbox {...option} name="permission" />
