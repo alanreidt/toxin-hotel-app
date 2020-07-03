@@ -3,9 +3,9 @@
   import InputField from "./InputField.svelte";
   import DropdownMenu from "./DropdownMenu.svelte";
 
-  export let labelText;
+  export let labelText = "Гости";
   export let options;
-  export let hasButtonPane;
+  export let hasButtonPane = true;
 
   let isExpanded = false;
 
