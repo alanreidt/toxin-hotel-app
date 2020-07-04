@@ -1,5 +1,6 @@
 <script>
   import CellBlock from "./CellBlock.svelte";
+  import PieChart from "./PieChart/index.svelte";
   import BulletList from "./BulletList.svelte";
   import Comment from "./Comment.svelte";
 
@@ -116,7 +117,7 @@
         Впечатления от номера
       </span>
       <div class="room-details-content__section-content">
-        <!-- pie-chart -->
+        <PieChart />
       </div>
     </div>
     <div
