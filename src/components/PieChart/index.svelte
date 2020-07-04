@@ -23,31 +23,16 @@
     }
   }
 
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-
-    background-color: #eedcf2;
-  }
-
   .canvas {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    max-width: 800px;
+    align-items: flex-end;
+    max-width: 500px;
   }
 
   .legend {
     max-width: 250px;
     margin-left: 30px;
-  }
-
-  .title {
-    font-family: "Verdana", sans-serif;
-    font-size: 18px;
-    line-height: 21px;
-    color: #591d48;
   }
 
   .caption-list {
@@ -87,40 +72,29 @@
   }
 
   .caption-item:nth-child(1)::before {
-    background-color: #86cfa3;
+    background-image: linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%);
   }
 
   .caption-item:nth-child(2)::before {
-    background-color: #a2c6e0;
+    background-image: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
   }
 
   .caption-item:nth-child(3)::before {
-    background-color: #ffc7ec;
+    background-image: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
   }
 
   .caption-item:nth-child(4)::before {
-    background-color: #f8faa0;
-  }
-
-  .caption-item:nth-child(5)::before {
-    background-color: #adffd8;
-  }
-
-  .caption-item:nth-child(6)::before {
-    background-color: #f2c48f;
-  }
-
-  .caption-item:nth-child(7)::before {
-    background-color: #e3bfe2;
+    background-image: linear-gradient(180deg, #919191 0%, #3D4975 100%);
   }
 
   .chart {
-    min-width: 500px;
+    min-width: 100px;
+    transform: rotate(90deg);
   }
 
   .unit {
     fill: none;
-    stroke-width: 10;
+    stroke-width: 1;
     cursor: pointer;
 
     animation-name: render;
@@ -132,72 +106,66 @@
   .unit:hover,
   .hovered {
     opacity: 0.8;
-    stroke-width: 12;
+    stroke-width: 2;
   }
 
   .unit:nth-child(1) {
-    stroke: #86cfa3;
-    stroke-dasharray: 8 100;
+    stroke: #FFE39C;
+    stroke-dasharray: 50 100;
   }
 
   .unit:nth-child(2) {
-    stroke: #a2c6e0;
-    stroke-dasharray: 11 100;
-    stroke-dashoffset: -8;
+    stroke: #6FCF97;
+    stroke-dasharray: 25 100;
+    stroke-dashoffset: -50;
   }
 
   .unit:nth-child(3) {
-    stroke: #ffc7ec;
-    stroke-dasharray: 11 100;
-    stroke-dashoffset: -19;
+    stroke: #BC9CFF;
+    stroke-dasharray: 23 100;
+    stroke-dashoffset: -75;
   }
 
   .unit:nth-child(4) {
-    stroke: #f8faa0;
-    stroke-dasharray: 14 100;
-    stroke-dashoffset: -30;
-  }
-
-  .unit:nth-child(5) {
-    stroke: #adffd8;
-    stroke-dasharray: 11 100;
-    stroke-dashoffset: -44;
-  }
-
-  .unit:nth-child(6) {
-    stroke: #f2c48f;
-    stroke-dasharray: 5 100;
-    stroke-dashoffset: -55;
-  }
-
-  .unit:nth-child(7) {
-    stroke: #e3bfe2;
-    stroke-dasharray: 40 100;
-    stroke-dashoffset: -60;
+    stroke: #919191;
+    stroke-dasharray: 2 100;
+    stroke-dashoffset: -98;
   }
 </style>
 
 <div class="canvas">
+  <svg class="chart" width="120" height="120" viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="excellent" gradientTransform="rotate(180)">
+        <stop offset="0%"   stop-color="#FFE39C" />
+        <stop offset="100%" stop-color="#FFBA9C" />
+      </linearGradient>
+      <linearGradient id="good" gradientTransform="rotate(180)">
+        <stop offset="0%"   stop-color="#6FCF97" />
+        <stop offset="100%" stop-color="#66D2EA" />
+      </linearGradient>
+      <linearGradient id="normal" gradientTransform="rotate(180)">
+        <stop offset="0%"   stop-color="#BC9CFF" />
+        <stop offset="100%" stop-color="#8BA4F9" />
+      </linearGradient>
+      <linearGradient id="bad" gradientTransform="rotate(180)">
+        <stop offset="0%"   stop-color="#919191" />
+        <stop offset="100%" stop-color="#3D4975" />
+      </linearGradient>
+    </defs>
+
+    <circle class="unit" stroke="url(#excellent)" r="15.9" cx="50%" cy="50%" />
+    <circle class="unit" stroke="url(#good)" r="15.9" cx="50%" cy="50%" />
+    <circle class="unit" stroke="url(#normal)" r="15.9" cx="50%" cy="50%" />
+    <circle class="unit" stroke="url(#bad)" r="15.9" cx="50%" cy="50%" />
+  </svg>
+
   <div class="legend">
-    <p class="title">Что мешает во время работы дома?</p>
     <ul class="caption-list">
-      <li class="caption-item">еда</li>
-      <li class="caption-item">соседи</li>
-      <li class="caption-item">отсутствие рабочего места</li>
-      <li class="caption-item">мало двигаюсь</li>
-      <li class="caption-item">отсутствие чёткого графика работы</li>
-      <li class="caption-item">неудобная коммуникация с коллегами</li>
-      <li class="caption-item">много ленюсь</li>
+      <li class="caption-item">Великолепно</li>
+      <li class="caption-item">Хорошо</li>
+      <li class="caption-item">Удовлетворительно</li>
+      <li class="caption-item">Разочарован</li>
     </ul>
   </div>
-
-  <svg class="chart" width="500" height="500" viewBox="0 0 50 50">
-    <circle class="unit" r="15.9" cx="50%" cy="50%" />
-    <circle class="unit" r="15.9" cx="50%" cy="50%" />
-    <circle class="unit" r="15.9" cx="50%" cy="50%" />
-    <circle class="unit" r="15.9" cx="50%" cy="50%" />
-    <circle class="unit" r="15.9" cx="50%" cy="50%" />
-    <circle class="unit" r="15.9" cx="50%" cy="50%" />
-    <circle class="unit" r="15.9" cx="50%" cy="50%" />
-  </svg>
 </div>
