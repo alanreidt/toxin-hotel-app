@@ -1,6 +1,28 @@
 @import "./datepicker.less";
 @import "./nouislider.less";
 
+@import "./variables.less";
+
+:root {
+  --site-padding: @site-paddings[xlarge];
+
+  @media (max-width: 1024px) {
+    --site-padding: @site-paddings[large];
+  }
+
+  @media (max-width: 740px) {
+    --site-padding: @site-paddings[medium];
+  }
+
+  @media (max-width: 670px) {
+    --site-padding: @site-paddings[small];
+  }
+
+  @media (max-width: 365px) {
+    --site-padding: @site-paddings[xsmall];
+  }
+}
+
 html {
   min-width: 320px;
   background-color: #fff;
