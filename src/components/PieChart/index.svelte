@@ -27,7 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    max-width: 500px;
+    max-width: 340px;
   }
 
   .legend {
@@ -42,16 +42,18 @@
   }
 
   .caption-item {
+    .body-text();
     position: relative;
 
-    margin: 20px 0;
-    padding-left: 30px;
+    margin-bottom: 9px;
+    padding-left: 15px;
 
-    font-family: "Verdana", sans-serif;
-    font-size: 16px;
-    line-height: 18px;
-    color: #591d48;
     cursor: pointer;
+    user-select: none;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .caption-item:hover {
@@ -62,11 +64,13 @@
     content: "";
 
     position: absolute;
-    top: 0;
     left: 0;
 
-    width: 20px;
-    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 10px;
+    height: 10px;
 
     border-radius: 8px;
   }
@@ -94,7 +98,7 @@
 
   .unit {
     fill: none;
-    stroke-width: 1;
+    stroke-width: 2;
     cursor: pointer;
 
     animation-name: render;
@@ -106,7 +110,7 @@
   .unit:hover,
   .hovered {
     opacity: 0.8;
-    stroke-width: 2;
+    stroke-width: 3;
   }
 
   .unit:nth-child(1) {
@@ -122,20 +126,20 @@
 
   .unit:nth-child(3) {
     stroke: #BC9CFF;
-    stroke-dasharray: 23 100;
+    stroke-dasharray: 20 100;
     stroke-dashoffset: -75;
   }
 
   .unit:nth-child(4) {
     stroke: #919191;
-    stroke-dasharray: 2 100;
-    stroke-dashoffset: -98;
+    stroke-dasharray: 5 100;
+    stroke-dashoffset: -95;
   }
 </style>
 
 <div class="canvas">
-  <svg class="chart" width="120" height="120" viewBox="0 0 33 33" xmlns="http://www.w3.org/2000/svg">
-    <defs>
+  <svg class="chart" width="124" height="124" viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg">
+    <!-- <defs>
       <linearGradient id="excellent" gradientTransform="rotate(180)">
         <stop offset="0%"   stop-color="#FFE39C" />
         <stop offset="100%" stop-color="#FFBA9C" />
@@ -152,7 +156,7 @@
         <stop offset="0%"   stop-color="#919191" />
         <stop offset="100%" stop-color="#3D4975" />
       </linearGradient>
-    </defs>
+    </defs> -->
 
     <circle class="unit" stroke="url(#excellent)" r="15.9" cx="50%" cy="50%" />
     <circle class="unit" stroke="url(#good)" r="15.9" cx="50%" cy="50%" />
