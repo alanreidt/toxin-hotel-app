@@ -30,6 +30,7 @@
   import Topline from "../../components/Topline.svelte";
   import Footer from "../../components/Footer.svelte";
   import RangeSlider from "../../components/RangeSlider.svelte";
+  import PieChart from "../../components/PieChart/index.svelte";
 
   const dropdownOptions = [
     { name: "Взрослые", min: 0, max: 5, value: 0 },
@@ -246,6 +247,7 @@
     <Button text="перейти к оплате" mods="full-width" />
 
     <RangeSlider />
+    <PieChart />
   </div>
   <div class="row row_large">
     {#each commentOptions as option}
