@@ -1,4 +1,9 @@
 <script>
+  export let imageSources = [
+    "/images/room-details-888.jpg",
+    "/images/room-details-888-2.jpg",
+    "/images/room-details-888-3.jpg",
+  ];
 </script>
 
 <style lang="less">
@@ -48,110 +53,23 @@
       }
     }
 
-    &__main-section {
-      flex: 1 1 0;
-
-      @media (max-width: 540px) {
-        flex: none;
-        width: 100%;
-      }
-    }
-
-    &__secondary-section {
-      width: 35%;
-
-      @media (max-width: @site-width) {
-        width: 40%;
-      }
-
-      @media (max-width: 1050px) {
-        width: 45%;
-      }
-
-      @media (max-width: 833px) {
-        width: 50%;
-      }
-
-      @media (max-width: 760px) {
-        width: 100%;
-        height: 40%;
-      }
-
-      @media (max-width: 540px) {
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    &__section-inner {
-      .block-default-styles();
-
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: flex-start;
-      align-items: stretch;
-
-      @media (max-width: 760px) {
-        flex-flow: row nowrap;
-      }
-    }
-
-    &__section-item {
-      flex: 1 1 auto;
-
-      @media (max-width: 540px) {
-        flex: none;
-        width: 100%;
-      }
-    }
-
     &__image {
-      .block-default-styles();
-
-      background: url("/images/room-details-888.jpg") center/cover
-        no-repeat;
-
-      &_first {
-        @media (max-width: 1050px) {
-          background-position: right;
-        }
-
-        @media (max-width: 833px) {
-          background-position: -220px center;
-        }
-
-        @media (max-width: 760px) {
-          background-position: bottom;
-        }
-      }
-
-      &_second {
-        background-image: url("/images/room-details-888-2.jpg");
-      }
-
-      &_third {
-        background-image: url("/images/room-details-888-3.jpg");
-      }
+      display: inline-block;
+      vertical-align: middle;
+      width: auto;
+      max-width: 100%;
     }
   }
 </style>
 
 <div class="room-details-head">
   <div class="room-details-head__inner">
-    <div class="room-details-head__main-section">
-      <div class="room-details-head__image room-details-head__image_first" />
-    </div>
-    <div class="room-details-head__secondary-section">
-      <div class="room-details-head__section-inner">
-        <div class="room-details-head__section-item">
-          <div
-            class="room-details-head__image room-details-head__image_second" />
+    <div class="room-details-head__content">
+      {#each imageSources as src}
+        <div class="room-details-head__item">
+          <img {src} class="room-details-head__image" />
         </div>
-        <div class="room-details-head__section-item">
-          <div
-            class="room-details-head__image room-details-head__image_third" />
-        </div>
-      </div>
+      {/each}
     </div>
   </div>
 </div>
