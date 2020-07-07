@@ -12,45 +12,13 @@
 
   .room-details-head {
     .block-default-styles();
-    height: 33vw;
 
-    @media (max-width: @site-width) {
-      height: 35vw;
-    }
-
-    @media (max-width: 1050px) {
-      height: 37vw;
-    }
-
-    @media (max-width: 833px) {
-      height: 39vw;
-    }
-
-    @media (max-width: 760px) {
-      height: 40vh;
-      min-height: 340px;
-    }
-
-    @media (max-width: 540px) {
-      height: 25vh;
-      min-height: 200px;
+    &__container {
+      .container();
     }
 
     &__inner {
       .block-default-styles();
-
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: flex-start;
-      align-items: stretch;
-
-      @media (max-width: 760px) {
-        flex-flow: column nowrap;
-      }
-
-      @media (max-width: 540px) {
-        flex-flow: row nowrap;
-      }
     }
 
     &__image {
@@ -63,13 +31,13 @@
 </style>
 
 <div class="room-details-head">
-  <div class="room-details-head__inner">
-    <div class="room-details-head__content">
-      {#each imageSources as src}
-        <div class="room-details-head__item">
+  <div class="room-details-head__container">
+    <div class="room-details-head__inner">
+      <div class="room-details-head__content">
+        {#each imageSources as src}
           <img {src} class="room-details-head__image" />
-        </div>
-      {/each}
+        {/each}
+      </div>
     </div>
   </div>
 </div>
