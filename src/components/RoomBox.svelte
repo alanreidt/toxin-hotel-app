@@ -1,5 +1,5 @@
 <script>
-  import RoomBoxCarousel from "./RoomBoxCarousel.svelte";
+  import Carousel from "./Carousel.svelte";
   import RoomInfo from "./RoomInfo.svelte";
   import RoomRating from "./RoomRating.svelte";
 
@@ -65,7 +65,7 @@
 
 <div class="room-box">
   <div class="room-box__carousel">
-    <RoomBoxCarousel {imageSources} />
+    <Carousel {imageSources} />
   </div>
   <a {href} class="room-box__link">
     <div class="room-box__content">

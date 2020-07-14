@@ -1,5 +1,5 @@
 <script>
-  import RoomBoxCarousel from "./RoomBoxCarousel.svelte";
+  import Carousel from "./Carousel.svelte";
 
   export let imageSources = [
     "/images/room-details-888.jpg",
@@ -102,7 +102,7 @@
         {/each}
       </div>
       <div class="room-details-head__carousel">
-        <RoomBoxCarousel {imageSources} />
+        <Carousel {imageSources} />
       </div>
     </div>
   </div>
