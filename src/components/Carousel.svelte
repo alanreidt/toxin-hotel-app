@@ -8,7 +8,7 @@
   @import "../styles/variables";
   @import "../styles/mixins";
 
-  .room-box-carousel {
+  .carousel {
     display: block;
     vertical-align: middle;
     width: 100%;
@@ -125,17 +125,17 @@
   }
 </style>
 
-<div class="room-box-carousel">
+<div class="carousel">
   <Carousel perPage="1">
-    <div class="room-box-carousel__lever" slot="left-control">
+    <div class="carousel__lever" slot="left-control">
       <i class="material-icons">navigate_before</i>
     </div>
-    <div class="room-box-carousel__lever room-box-carousel__lever_next" slot="right-control">
+    <div class="carousel__lever carousel__lever_next" slot="right-control">
       <i class="material-icons">navigate_before</i>
     </div>
     {#each imageSources as src}
-      <div class="room-box-carousel__item">
-        <img {src} alt="room photo" class="room-box-carousel__image">
+      <div class="carousel__item">
+        <img {src} alt="room photo" class="carousel__image">
       </div>
     {/each}
   </Carousel>
