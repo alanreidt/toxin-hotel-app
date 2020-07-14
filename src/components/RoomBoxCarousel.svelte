@@ -12,7 +12,6 @@
     display: block;
     vertical-align: middle;
     width: 100%;
-    height: 151px;
 
     &__item {
       display: block;
