@@ -1,4 +1,6 @@
 <script>
+  import RoomBoxCarousel from "./RoomBoxCarousel.svelte";
+
   export let imageSources = [
     "/images/room-details-888.jpg",
     "/images/room-details-888-2.jpg",
@@ -48,6 +50,10 @@
         "a a"
         "b c";
       }
+
+      @media (max-width: 430px) {
+        display: none;
+      }
     }
 
     &__item {
@@ -74,6 +80,14 @@
       height: 100%;
       object-fit: cover;
     }
+
+    &__carousel {
+      display: none;
+
+      @media (max-width: 430px) {
+        display: block;
+      }
+    }
   }
 </style>
 
@@ -86,6 +100,9 @@
             <img {src} class="room-details-head__image" />
           </div>
         {/each}
+      </div>
+      <div class="room-details-head__carousel">
+        <RoomBoxCarousel {imageSources} />
       </div>
     </div>
   </div>
