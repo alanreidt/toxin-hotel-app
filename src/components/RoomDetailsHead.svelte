@@ -28,7 +28,7 @@
       .block-default-styles();
     }
 
-    &__content {
+    &__grid {
       .block-default-styles();
 
       display: grid;
@@ -94,7 +94,7 @@
 <div class="room-details-head">
   <div class="room-details-head__container">
     <div class="room-details-head__inner">
-      <div class="room-details-head__content">
+      <div class="room-details-head__grid">
         {#each imageSources as src}
           <div class="room-details-head__item">
             <img {src} class="room-details-head__image" />
