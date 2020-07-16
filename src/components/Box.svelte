@@ -4,6 +4,7 @@
 
   .box {
     .block-default-styles();
+    max-width: 380px;
 
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.12);
