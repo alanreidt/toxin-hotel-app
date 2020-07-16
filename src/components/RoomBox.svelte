@@ -37,14 +37,6 @@
       height: 151px;
     }
 
-    &__row {
-      margin-bottom: 20px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
     &__link {
       display: block;
       width: 100%;
