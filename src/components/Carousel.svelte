@@ -9,13 +9,10 @@
   @import "../styles/mixins";
 
   .carousel {
-    display: block;
-    vertical-align: middle;
-    width: 100%;
+    .block-default-styles();
 
     &__item {
-      display: block;
-      width: 100%;
+      .block-default-styles();
     }
 
     &__image {
@@ -23,6 +20,24 @@
       vertical-align: middle;
       width: auto;
       max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & :global(.carousel) {
+      .block-default-styles();
+    }
+
+    & :global(.slides) {
+      .block-default-styles();
+    }
+
+    & :global(.slides > div) {
+      .block-default-styles();
+    }
+
+    & :global(.slides > div > div) {
+      .block-default-styles();
     }
 
     & :global(button) {

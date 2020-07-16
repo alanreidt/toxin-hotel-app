@@ -95,6 +95,7 @@
 
     &__carousel {
       display: none;
+      height: 240px;
 
       @media (max-width: 430px) {
         display: block;
