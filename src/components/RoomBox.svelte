@@ -33,6 +33,10 @@
 
     box-sizing: border-box;
 
+    &__carousel {
+      height: 151px;
+    }
+
     &__row {
       margin-bottom: 20px;
 
