@@ -36,18 +36,24 @@
       "a a b"
       "a a c";
       grid-gap: 10px;
-      justify-content: space-between;
+
+      height: 500px;
 
       @media (max-width: 1050px) {
         grid-gap: 5px;
         grid-template-areas:
         "a a a b b"
         "a a a c c";
+
+        height: 450px;
       }
 
       @media (max-width: 780px) {
         grid-template-areas:
         "a a"
+        "a a"
+        "a a"
+        "b c"
         "b c";
       }
 
@@ -70,6 +76,12 @@
 
     &__item:nth-child(3) {
       grid-area: c;
+    }
+
+    &__pseudo-image {
+      .block-default-styles();
+
+      background: #999 center/cover no-repeat;
     }
 
     &__image {
@@ -97,7 +109,8 @@
       <div class="room-details-head__grid">
         {#each imageSources as src}
           <div class="room-details-head__item">
-            <img {src} class="room-details-head__image" />
+            <!-- <img {src} class="room-details-head__image" /> -->
+            <div style="background-image: url({src});" class="room-details-head__pseudo-image"></div>
           </div>
         {/each}
       </div>
