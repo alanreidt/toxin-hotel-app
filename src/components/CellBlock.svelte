@@ -12,6 +12,9 @@
   @import "../styles/mixins";
 
   .cell-block {
+    .block-default-styles();
+    max-width: 280px;
+
     &__item {
       padding-top: 20px;
       padding-bottom: 20px;
