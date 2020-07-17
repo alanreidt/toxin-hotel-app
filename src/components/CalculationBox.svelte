@@ -112,14 +112,14 @@
       <div class="calculation-box__row">
         <div class="calculation-box__item">
           <div class="calculation-box__service-info">
-            <span class="calculation-box__service-text">9 990₽ x 4 суток</span>
+            <span class="calculation-box__service-text">9 990₽ x&nbsp;4&nbsp;суток</span>
             <span class="calculation-box__service-price">39 960₽</span>
           </div>
         </div>
         <div class="calculation-box__item">
           <div class="calculation-box__service-info">
             <span class="calculation-box__service-text">
-              Сбор за услуги: скидка 2 179₽
+              Сбор за&nbsp;услуги: скидка 2 179₽
               <i
                 class="material-icons calculation-box__icon-info"
                 title="change me — use jQuery">
@@ -132,7 +132,7 @@
         <div class="calculation-box__item">
           <div class="calculation-box__service-info">
             <span class="calculation-box__service-text">
-              Сбор за дополнительные услуги
+              Сбор за&nbsp;дополнительные услуги
               <i
                 class="material-icons calculation-box__icon-info"
                 title="change me — use jQuery">
