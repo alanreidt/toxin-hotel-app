@@ -19,11 +19,15 @@
       padding-top: 20px;
       padding-bottom: 20px;
 
-      border-top: 1px solid #colors[dark-shade-10];
+      border-bottom: 1px solid #colors[dark-shade-10];
 
       &:first-child {
         padding-top: 0;
-        border-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
       }
     }
 
