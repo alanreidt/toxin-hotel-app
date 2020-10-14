@@ -1,4 +1,6 @@
 <script>
+  import { url } from '@sveltech/routify'
+
   import Box from "./Box.svelte";
   import DateDropdown from "./DateDropdown.svelte";
   import Dropdown from "./Dropdown.svelte";
@@ -47,7 +49,10 @@
           name="guests" />
       </div>
       <div slot="footer" class="search-box__footer">
-        <Button href="/mock-address/change-me" text="подобрать номер" mods="full-width" />
+        <Button
+          text="подобрать номер"
+          mods="full-width"
+          href={$url('search-room')} />
       </div>
     </Box>
   </form>

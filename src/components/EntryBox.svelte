@@ -1,4 +1,6 @@
 <script>
+  import { url } from '@sveltech/routify'
+
   import Box from "./Box.svelte";
   import InputField from "./InputField.svelte";
   import Button from "./Button.svelte";
@@ -67,7 +69,10 @@
     <div slot="footer" class="entry-box__footer">
       <div class="entry-box__alternate-entry">
         <p class="entry-box__text">Нет аккаунта на Toxin?</p>
-        <Button text="Создать" mods="secondary" href="/mock-address/change-me" />
+        <Button
+          text="Создать"
+          mods="secondary"
+          href={$url('registration')} />
       </div>
     </div>
   </Box>

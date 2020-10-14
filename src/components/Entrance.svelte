@@ -1,4 +1,5 @@
 <script>
+  import { url } from '@sveltech/routify'
   import Button from "./Button.svelte";
 
   export let userName = false;
@@ -108,14 +109,14 @@
           class="button entrance__button"
           text="Войти"
           mods="secondary"
-          href="/mock-address/change-me" />
+          href={$url('sign-in')} />
       </div>
       <div class="entrance__button-wrapper">
         <Button
           class="button entrance__button entrance__button_main"
           text="Зарегистрироваться"
           mods="main"
-          href="/mock-address/change-me" />
+          href={$url('registration')} />
       </div>
     </div>
   {/if}

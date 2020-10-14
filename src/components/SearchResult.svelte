@@ -1,10 +1,12 @@
 <script>
+  import { url } from '@sveltech/routify'
+
   import Pagination from "./Pagination.svelte";
   import RoomBox from "./RoomBox.svelte";
 
   const rooms = [
     {
-      href: "/mock-address/change-me",
+      href: $url('room-details'),
       imageSources: ["images/room-888.jpg", "images/room-840.jpg"],
       number: 888,
       price: 9990,
