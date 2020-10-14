@@ -6,6 +6,7 @@
     "build": "rollup -c",
     "dev": "routify -c server",
     "server": "rollup -c -w",
+    "deploy:vercel": "cd scripts/vercel && npm run deploy",
     "start": "sirv public --single"
   },
   "devDependencies": {
