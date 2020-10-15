@@ -1,5 +1,5 @@
 # toxin-hotel-app
-> Осторожно! Проект находится в стадии вечной доработки.
+> Осторожно! Проект находится в стадии разработки.
 
 Реализация SPA приложения [“Toxin” отеля](https://www.figma.com/file/MumYcKVk9RkKZEG6dR5E3A/FSD-frontend-education-program.-The-2nd-task?node-id=0%3A1).
 
@@ -32,7 +32,7 @@
 - Routify.
 
 ## Быстрый старт
-To open the repo on your local machine use the following:
+Для клонирования репозитория, используйте следующие команды:
 ```bash
 # clone the repo into the alanreidt-toxin-hotel-app folder
 git clone https://github.com/alanreidt/toxin-hotel-app.git alanreidt-toxin-hotel-app
@@ -43,7 +43,7 @@ cd alanreidt-toxin-hotel-app
 npm install
 ```
 
-Available commands are:
+Доступные команды:
 ```bash
 # to build the dev version and open it in a browser
 npm run dev
@@ -52,4 +52,4 @@ npm run dev
 npm run build
 ```
 
-You can reach the page at http://localhost:5000/.
+Страница доступна по адресу http://localhost:5000/.
