@@ -1,5 +1,9 @@
 /node_modules/
-/public/build/
-/.vscode/
-
+/static/build/
+dist/
 .DS_Store
+**/.history
+src/tmp/
+.routify
+.netlify
+/.vscode/
