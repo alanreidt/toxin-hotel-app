@@ -15,6 +15,13 @@
 - Изучить основы работы SPA приложения и отработать перевод многостраничного сайта на него;
 - Закрепить изученную теорию по Svelte на практике и получить навыки перевода обычного проекта на него;
 
+## Доступные страницы:
+- [Домашняя страница](https://toxin-hotel-app.vercel.app/)
+- [Страница поиска номеров](https://toxin-hotel-app.vercel.app/search-room)
+- [Страница номера](https://toxin-hotel-app.vercel.app/room-details)
+- [Страница авторизации](https://toxin-hotel-app.vercel.app/sign-in)
+- [Страница регистрации](https://toxin-hotel-app.vercel.app/registration)
+
 ## Использованные скиллы:
 - Component-based approach,
 - Responsive design,
