@@ -9,6 +9,10 @@ import del from 'del'
 import replace from '@rollup/plugin-replace';
 import { spassr } from 'spassr'
 
+import { less } from 'svelte-preprocess-less';
+import css from 'rollup-plugin-css-only';
+import lessRaw from 'rollup-plugin-less';
+
 const isNollup = !!process.env.NOLLUP
 
 export function createRollupConfigs(config) {
@@ -45,12 +49,18 @@ function baseConfig(config, ctx) {
         : { format: 'iife', file: `${buildDir}/bundle.js` }
 
     const _svelteConfig = {
-        dev: !production, // run-time checks      
+        preprocess: {
+          style: less(
+            {},
+            { all: true },
+          ),
+        },
+        dev: !production, // run-time checks
         // Extract component CSS — better performance
         css: css => css.write(`${buildDir}/bundle.css`),
         hot: isNollup,
     }
-    
+
     const svelteConfig = svelteWrapper(_svelteConfig, ctx) || _svelteConfig
 
     const _rollupConfig = {
@@ -72,6 +82,8 @@ function baseConfig(config, ctx) {
                 flatten: false
             }),
             svelte(svelteConfig),
+            css({ output: 'static/build/vendor.css' }),
+            lessRaw({ output: 'static/build/global.css' }),
 
             // resolve matching modules from current working directory
             resolve({
@@ -124,6 +136,6 @@ function serviceWorkerConfig(config) {
         ]
     }
     const rollupConfig = swWrapper(_rollupConfig, {}) || _rollupConfig
-    
+
     return rollupConfig
 }
