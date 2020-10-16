@@ -1,5 +1,4 @@
 <script>
-  import SubscriptionField from "./SubscriptionField.svelte";
 </script>
 
 <style lang="less">
@@ -41,6 +40,5 @@
     <p class="footer-subscription__description">
       Получайте специальные предложения и&nbsp;новости сервиса
     </p>
-    <SubscriptionField/>
   </div>
 </aside>
