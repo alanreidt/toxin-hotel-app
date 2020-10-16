@@ -21,6 +21,7 @@
 - [Страница номера](https://toxin-hotel-app.vercel.app/room-details)
 - [Страница авторизации](https://toxin-hotel-app.vercel.app/sign-in)
 - [Страница регистрации](https://toxin-hotel-app.vercel.app/registration)
+- [Страница компонентов](https://toxin-hotel-app.vercel.app/ui-kit)
 
 ## Использованные скиллы:
 - Component-based approach,
