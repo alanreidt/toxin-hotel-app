@@ -9,7 +9,6 @@
   import Dropdown from "../../components/Dropdown.svelte";
   import DateDropdown from "../../components/DateDropdown.svelte";
   import FilterDateDropdown from "../../components/FilterDateDropdown.svelte";
-  import SubscriptionField from "../../components/SubscriptionField.svelte";
   import Checkbox from "../../components/Checkbox.svelte";
   import ExpandableCheckboxList from "../../components/ExpandableCheckboxList.svelte";
   import StatefulInput from "../../components/StatefulInput.svelte";
@@ -216,7 +215,6 @@
       name="dropdown-input" />
     <DateDropdown />
     <FilterDateDropdown labelText="filter date dropdown" />
-    <SubscriptionField labelText="subscription text field" />
     {#each checkboxOptions as option}
       <Checkbox {...option} name="permission" />
     {/each}
