@@ -6,4 +6,3 @@ dist/
 src/tmp/
 .routify
 .netlify
-/.vscode/
