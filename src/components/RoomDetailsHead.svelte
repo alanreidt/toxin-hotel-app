@@ -40,10 +40,10 @@
       height: 500px;
 
       @media (max-width: 1050px) {
-        grid-gap: 5px;
         grid-template-areas:
         "a a a b b"
         "a a a c c";
+        grid-gap: 5px;
 
         height: 450px;
       }
@@ -62,35 +62,26 @@
       }
     }
 
-    &__item {
-      .block-default-styles();
+    &__image {
+      display: inline-block;
+      vertical-align: top;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
     }
 
-    &__item:first-child {
+    &__image:first-child {
       grid-area: a;
     }
 
-    &__item:nth-child(2) {
+    &__image:nth-child(2) {
       grid-area: b;
     }
 
-    &__item:nth-child(3) {
+    &__image:nth-child(3) {
       grid-area: c;
-    }
-
-    &__pseudo-image {
-      .block-default-styles();
-
-      background: #999 center/cover no-repeat;
-    }
-
-    &__image {
-      display: inline-block;
-      vertical-align: middle;
-      width: auto;
-      max-width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
 
     &__carousel {
@@ -109,10 +100,7 @@
     <div class="room-details-head__inner">
       <div class="room-details-head__grid">
         {#each imageSources as src}
-          <div class="room-details-head__item">
-            <!-- <img {src} class="room-details-head__image" /> -->
-            <div style="background-image: url({src});" class="room-details-head__pseudo-image"></div>
-          </div>
+          <img {src} class="room-details-head__image" />
         {/each}
       </div>
       <div class="room-details-head__carousel">
